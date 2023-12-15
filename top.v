@@ -82,13 +82,15 @@ vga_controller   vga_inst(
 game_play play(
     .rst(rst),
     .clk(clk),
+    .PS2_DATA(PS2_DATA),
+    .PS2_CLK(PS2_CLK),
     .state(state),
     .player_x(player_x),
     .player_y(player_x),
     .key_x(key_x),
     .key_y(key_y)
 );
-// display : find obj on (h,v) and output pixel_addr by the obj's addr in origin picture
+// display : find obj on (h,v) and output pixel_addr with finding obj's addr by draw_obj
 // sound : music of state // sound effect?
 
 // Sevensegment
