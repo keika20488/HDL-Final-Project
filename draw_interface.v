@@ -92,24 +92,24 @@ always@(*)begin
                 isObject = 1;
             end
         end//stage1 title
-        else if(x >= 0 && x<60)begin
+        else if(x >= 0 && x<40)begin
+            if(y>=30 && y<50)begin
+                pixel_addr = (x+20+(y +90)*320)%76800;
+                isObject = 1;
+            end
+        end//find
+        else if(x >= 40 && x<60)begin
             if(y>=30 && y<50)begin
                 if(todo == FIND_KEY)begin
-                    pixel_addr = (x+(y +130)*320)%76800;
+                    pixel_addr = (x-40+(y +50)*320)%76800;
                     isObject = 1;
                 end//find key
-                else if(todo == FIND_LIGHT)begin
-                    pixel_addr = ((x+60)+(y +130)*320)%76800;
+                else if(todo == FIND_DOOR)begin
+                    pixel_addr = (x-20+(y +50)*320)%76800;
                     isObject = 1;
                 end//find door
             end
-        end//find
-        else if(x >= 260 && x<320)begin
-            if(y>=30 && y<50)begin
-                pixel_addr = ((x-200)+(y +130)*320)%76800;
-                isObject = 1;
-            end
-        end//life
+        end
         else if(x >= 0 && x<20 && key_find>=1)begin
             if(y>=50 && y<70)begin
                 pixel_addr = ((x)+(y +30)*320)%76800;
