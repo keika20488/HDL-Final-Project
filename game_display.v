@@ -8,6 +8,22 @@ module game_display(
     output reg [16:0] pixel_addr;
 )
 
+// Draw obj
+draw_boss boss(
+    .state(state),
+    .h_cnt(h_cnt),
+    .v_cnt(v_cnt),
+    .pixel_addr(boss_addr),
+    .isObject(isBoss)
+);
+draw_door door(
+    .state(state),
+    .h_cnt(h_cnt),
+    .v_cnt(v_cnt),
+    .isLocked(isLocked),
+    .pixel_addr(door_addr),
+    .isObject(isDoor)
+);
 //assign pixel_addr = ((h_cnt>>1)+320*(v_cnt>>1) )% 76800;  //640*480 --> 320*240 
 parameter [3:0] TITLE = 0, STAFF = 1;
 parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;

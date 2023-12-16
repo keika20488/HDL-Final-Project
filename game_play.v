@@ -6,8 +6,8 @@ module game_play (
     output reg [3:0] state,
     output reg [8:0] player_x,
     output reg [8:0] player_y,
-    output reg [8:0] key_x,
-    output reg [8:0] key_y
+    output reg [8:0] obj_x,
+    output reg [8:0] obj_y
 );
 
 // Keyboard
