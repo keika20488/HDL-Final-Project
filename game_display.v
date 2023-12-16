@@ -5,8 +5,8 @@ module game_display(
     input rst,
     input [9:0] h_cnt,
     input [9:0] v_cnt,
-    output reg [16:0] pixel_addr;
-)
+    output reg [16:0] pixel_addr
+);
 
 // Draw obj
 draw_boss boss(

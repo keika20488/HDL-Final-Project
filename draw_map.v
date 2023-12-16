@@ -8,8 +8,8 @@ module draw_map(
     input [3:0] state,
     input [9:0] h_cnt,
     input [9:0] v_cnt,
-    output [16:0] pixel_addr,
-    output isObject
+    output reg [16:0] pixel_addr,
+    output reg isObject
 );
 parameter [3:0] TITLE = 0, STAFF = 1;
 parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
