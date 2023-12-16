@@ -5,17 +5,18 @@ module game_display(
     input rst,
     input [9:0] h_cnt,
     input [9:0] v_cnt,
-    output reg [16:0] pixel_addr
+    output reg [16:0] pixel_addr,
+    output reg notBlank
 );
 
 // Draw obj
-draw_boss boss(
+/*draw_boss boss(
     .state(state),
     .h_cnt(h_cnt),
     .v_cnt(v_cnt),
     .pixel_addr(boss_addr),
     .isObject(isBoss)
-);
+);*/
 draw_door door(
     .state(state),
     .h_cnt(h_cnt),
@@ -61,8 +62,13 @@ parameter [3:0] STAGE3 = 6, SUCCESS3 = 7, FAIL = 8;
 always@(posedge clk or posedge rst)begin
 end
 always@(*)begin
+    notBlank = 0;
     case(state)
     TITLE:begin
+        if (isInterface) begin
+            pixel_addr = interface_addr;
+            notBlank = 1;
+        end
     end
     STAFF:begin
     end

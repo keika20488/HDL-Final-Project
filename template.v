@@ -32,7 +32,7 @@ module debounce (
 
 endmodule
 
-module one_pulse (
+module onepulse (
     input wire clk,
     input wire pb_in,
     output reg pb_out
@@ -235,7 +235,7 @@ module KeyboardDecoder(
 		.clk(clk)
 	);
 	
-	one_pulse op (
+	onepulse op (
 		.pb_out(pulse_been_ready),
 		.pb_in(been_ready),
 		.clk(clk)

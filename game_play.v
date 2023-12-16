@@ -81,7 +81,7 @@ always @(posedge clk or posedge rst) begin
                 state <= key_num * 2;
             else state <= TITLE;
         end
-        STAGE1: begin
+/*        STAGE1: begin
             if (pass) state <= SUCCESS1;
             else state <= STAGE1;
         end
@@ -124,7 +124,7 @@ always @(posedge clk or posedge rst) begin
             if (key_down[last_change] && key_num == 9)
                 state <= TITLE;
             else state <= STAFF;
-        end
+        end*/
         default: state <= state;
         endcase
     end

@@ -1,6 +1,6 @@
 module top(
     input clk,
-    input _rst,      // BTNC: reset
+    input _rst,     // BTNC: reset
     input _volUP,   // BTNU: Vol up
     input _volDOWN, // BTND: Vol down
     input _mute,    // SW14: Mute
@@ -13,28 +13,26 @@ module top(
     output [3:0] vgaBlue,
     output hsync,
     output vsync,
-    output pass,
     output audio_mclk,
     output audio_lrck,
     output audio_sck,
     output audio_sdin,
 
-    output [15:0] _led,    // state, volume // debug
+    output [15:0] led,     // state, volume // debug
     output [6:0] DISPLAY,  // time record // debug
     output [3:0] DIGIT
 );
 
 // Clock Divider
-clock_divider #(.n(4)) clk_25M(.clk(clk), .clk_div(clk_25MHz));
-
+clock_divider #(.n(4)) div_25M(.clk(clk), .clk_div(clk_25MHz));
 
 // Button
 debounce de1(.clk(clk), .pb(_rst), .pb_debounced(rst_d));
-onepulse p1(.clk(clk), .signal(rst_d), .op(rst));
+onepulse p1(.clk(clk), . pb_in(rst_d), .pb_out(rst));
 debounce de2(.clk(clk), .pb(_volUP), .pb_debounced(_volUP_d));
-onepulse p2(.clk(clk), .signal(_volUP_d), .op(Vol_up));
+onepulse p2(.clk(clk), . pb_in(_volUP_d), .pb_out(Vol_up));
 debounce de3(.clk(clk), .pb(_volDOWN), .pb_debounced(_volDOWN_d));
-onepulse p3(.clk(clk), .signal(_volDOWN_d), .op(Vol_down));
+onepulse p3(.clk(clk), . pb_in(_volDOWN_d), .pb_out(Vol_down));
 
 
 // Music
@@ -58,23 +56,25 @@ wire [11:0] pixel;
 wire [9:0] h_cnt; //640
 wire [9:0] v_cnt; //480
 
-blk_mem_gen_0 blk_mem_gen_0_inst(
-      .clka(clk_25MHz),
-      .wea(0),
-      .addra(pixel_addr),
-      .dina(data[11:0]),
-      .douta(pixel)
-    ); 
+assign {vgaRed, vgaGreen, vgaBlue} = (valid && notBlank) ? pixel:12'h0;
 
-vga_controller   vga_inst(
-      .pclk(clk_25MHz),
-      .reset(rst),
-      .hsync(hsync),
-      .vsync(vsync),
-      .valid(valid),
-      .h_cnt(h_cnt),
-      .v_cnt(v_cnt)
-    );
+blk_mem_gen_0 blk_mem_gen_0_inst(
+    .clka(clk_25MHz),
+    .wea(0),
+    .addra(pixel_addr),
+    .dina(data[11:0]),
+    .douta(pixel)
+); 
+
+vga_controller vga_inst(
+    .pclk(clk_25MHz),
+    .reset(rst),
+    .hsync(hsync),
+    .vsync(vsync),
+    .valid(valid),
+    .h_cnt(h_cnt),
+    .v_cnt(v_cnt)
+);
 
 
 // Game
@@ -87,10 +87,19 @@ game_play play(
     .state(state),
     .player_x(player_x),
     .player_y(player_x),
-    .key_x(key_x),
-    .key_y(key_y)
+    .obj_x(obj_x),
+    .obj_y(obj_y)
 );
 // display : find obj on (h,v) and output pixel_addr with finding obj's addr by draw_obj
+game_display display(
+    .state(state),
+    .clk(clk),
+    .rst(rst),
+    .h_cnt(h_cnt),
+    .v_cnt(v_cnt),
+    .pixel_addr(pixel_addr),
+    .notBlank(notBlank)
+);
 // sound : music of state // sound effect?
 
 // Sevensegment
@@ -101,6 +110,6 @@ SevenSegment seg(
     .nums(nums),
     .rst(rst),
     .clk(clk)
-    );
+);
 
 endmodule
