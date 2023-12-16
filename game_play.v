@@ -1,13 +1,21 @@
+`define rec_h = 20;
+`define rec_v = 20;
 module game_play (
     input rst,
     input clk,
     inout wire PS2_DATA,
     inout wire PS2_CLK,
+    output reg [1:0] todo,
     output reg [3:0] state,
     output reg [8:0] player_x,
     output reg [8:0] player_y,
+    output reg [8:0] boss_x,
+    output reg [8:0] boss_y,
     output reg [8:0] obj_x,
-    output reg [8:0] obj_y
+    output reg [8:0] obj_y,
+    output reg [1:0] key_find,
+    output reg [3:0] play_valid,
+    output reg isDark
 );
 
 // Keyboard
@@ -63,70 +71,94 @@ parameter [3:0] TITLE = 0, STAFF = 1;
 parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
 parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
 parameter [3:0] STAGE3 = 6, SUCCESS3 = 7, FAIL = 8;
-reg [3:0] next_state;
-reg IsOpen [0:3];
 
 always @(posedge clk or posedge rst) begin
     if (rst) state <= TITLE;
-    else state <= next_state;
+    else begin
+        case(state)
+        TITLE: begin
+            if (key_down[last_change] && key_num < 4 && play_valid[key_num])
+                state <= key_num * 2;
+            else state <= TITLE;
+        end
+        STAGE1: begin
+            if (pass) state <= SUCCESS1;
+            else state <= STAGE1;
+        end
+        SUCCESS1: begin
+            if (key_down[last_change]) begin
+                if (key_num == 8) state <= STAGE2;
+                else if (key_num == 9) state <= TITLE;
+                else state <= SUCCESS1;
+            end else state <= SUCCESS1;
+        end
+        STAGE2: begin
+            if (pass) state <= SUCCESS2;
+            else state <= STAGE2;
+        end
+        SUCCESS2: begin
+            if (key_down[last_change]) begin
+                if (key_num == 8) state <= STAGE3;
+                else if (key_num == 9) state <= TITLE;
+                else state <= SUCCESS2;
+            end else state <= SUCCESS2;
+        end
+        STAGE3: begin
+            if (pass) state <= SUCCESS3;
+            else if (fail) state <= FAIL;
+            else state <= STAGE3;
+        end
+        SUCCESS3: begin
+            if (key_down[last_change] && key_num == 8)
+                state <= STAFF;
+            else state <= SUCCESS3;
+        end
+        FAIL: begin
+            if (key_down[last_change]) begin
+                if (key_num == 10) state <= STAGE3;
+                else if (key_num == 9) state <= TITLE;
+                else state <= FAIL;
+            end else state <= FAIL;
+        end
+        STAFF: begin
+            if (key_down[last_change] && key_num == 9)
+                state <= TITLE;
+            else state <= STAFF;
+        end
+        default: state <= state;
+        endcase
+    end
 end
 
-always @(*) begin
-    case(state)
-    TITLE: begin
-        if (key_down[last_change] && key_num < 4 && IsOpen[key_num])
-            next_state = key_num * 2;
-        else next_state = TITLE;
+// Todo: key, light, door
+parameter [1:0] NONE = 0, FIND_KEY = 1, FIND_LIGHT = 2, FIND_DOOR = 3;
+
+always @(posedge clk or posedge rst) begin
+    if (rst) todo <= NONE;
+    else begin
+        case(state)
+        STAGE1: begin
+            if (key_find < 3) todo <= FIND_KEY;
+            else todo <= FIND_DOOR;
+        end
+        STAGE2: begin
+            if (isDark) todo <= FIND_LIGHT;
+            else if (key_find < 3) todo <= FIND_KEY;
+            else todo <= FIND_DOOR;
+        end
+        STAGE3: begin
+            if (key_find < 3) todo <= FIND_KEY;
+            else todo <= FIND_DOOR;
+        end
+        default: todo <= NONE;
+        endcase
     end
-    STAGE1: begin
-        if (pass) next_state = SUCCESS1;
-        else next_state = STAGE1;
-    end
-    SUCCESS1: begin
-        if (key_down[last_change]) begin
-            if (key_num == 8) next_state = STAGE2;
-            else if (key_num == 9) next_state = TITLE;
-            else next_state = SUCCESS1;
-        end else next_state = SUCCESS1;
-    end
-    STAGE2: begin
-        if (pass) next_state = SUCCESS2;
-        else next_state = STAGE2;
-    end
-    SUCCESS2: begin
-        if (key_down[last_change]) begin
-            if (key_num == 8) next_state = STAGE3;
-            else if (key_num == 9) next_state = TITLE;
-            else next_state = SUCCESS2;
-        end else next_state = SUCCESS2;
-    end
-    STAGE3: begin
-        if (pass) next_state = SUCCESS3;
-        else if (fail) next_state = FAIL;
-        else next_state = STAGE3;
-    end
-    SUCCESS3: begin
-        if (key_down[last_change] && key_num == 8)
-            next_state = STAFF;
-        else next_state = SUCCESS3;
-    end
-    FAIL: begin
-        if (key_down[last_change]) begin
-            if (key_num == 10) next_state = STAGE3;
-            else if (key_num == 9) next_state = TITLE;
-            else next_state = FAIL;
-        end else next_state = FAIL;
-    end
-    STAFF: begin
-        if (key_down[last_change] && key_num == 9)
-            next_state = TITLE;
-        else next_state = STAFF;
-    end
-    default: next_state <= state;
-    endcase
 end
+
 
 // Player Position
-// Key Position
+// Object Position
+
+// Collide
 
 endmodule
