@@ -24,6 +24,34 @@ draw_door door(
     .pixel_addr(door_addr),
     .isObject(isDoor)
 );
+draw_interface interface(
+    .state(state),
+    .h_cnt(h_cnt),
+    .v_cnt(v_cnt),
+    .key_find(key_find),
+    .heart(heart),
+    .todo(todo),
+    .play_valid(play_valid),
+    .pixel_addr(interface_addr),
+    .isObject(isInterface)
+);
+
+draw_map map(
+    .state(state),
+    .h_cnt(h_cnt),
+    .v_cnt(v_cnt),
+    .pixel_addr(map_addr),
+    .isObject(isMap)
+);
+
+draw_obj obj(
+    .state(state),
+    .h_cnt(h_cnt),
+    .v_cnt(v_cnt),
+    .key_find(key_find),
+    .pixel_addr(obj_addr),
+    .isObject(isObj)
+);
 //assign pixel_addr = ((h_cnt>>1)+320*(v_cnt>>1) )% 76800;  //640*480 --> 320*240 
 parameter [3:0] TITLE = 0, STAFF = 1;
 parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
