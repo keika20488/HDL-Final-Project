@@ -19,7 +19,7 @@ module game_play (
 );
 
 // Keyboard
-wire [511:0] key_down;
+wire [130:0] key_down;
 wire [8:0] last_change;
 reg [4:0] key_num;
 

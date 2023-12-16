@@ -54,8 +54,8 @@ parameter [39:0] map [0:39] = {
     40'b111111111111111111111111111111111111111
 };
 wire [8:0] x,y;
-assign x = (h_cnt<<1);
-assign y = (v_cnt<<1);
+assign x = h_cnt>>1;
+assign y = v_cnt>>1;
 always@(*)begin
     case(state)
     STAGE1:begin

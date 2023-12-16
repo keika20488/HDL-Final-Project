@@ -14,8 +14,8 @@ parameter [3:0] STAGE3 = 6, SUCCESS3 = 7, FAIL = 8;
 
 parameter [1:0] NONE = 0, FIND_KEY = 1, FIND_LIGHT = 2, FIND_DOOR = 3; 
 wire [8:0] x,y;
-assign x = h_cnt<<1;
-assign y = v_cnt<<1;
+assign x = h_cnt>>1;
+assign y = v_cnt>>1;
 always@(*)begin
     case(state)
     STAGE1:begin

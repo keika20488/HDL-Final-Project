@@ -24,7 +24,7 @@ module top(
 );
 
 // Clock Divider
-clock_divider #(.n(4)) div_25M(.clk(clk), .clk_div(clk_25MHz));
+clock_divider #(2) div_25M(.clk(clk), .clk_div(clk_25MHz));
 
 // Button
 debounce de1(.clk(clk), .pb(_rst), .pb_debounced(rst_d));
