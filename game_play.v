@@ -73,8 +73,15 @@ parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
 parameter [3:0] STAGE3 = 6, SUCCESS3 = 7, FAIL = 8;
 reg pass;
 
-always @(*) begin
-    play_valid = 4'b1111;
+always @(posedge clk or posedge rst) begin
+    if (rst) play_valid <= 4'b0010;
+    else begin
+        case(state)
+        SUCCESS1: play_valid <= 4'b0110;
+        SUCCESS2: play_valid <= 4'b1110;
+        default: play_valid <= play_valid;
+        endcase
+    end
 end
 
 always @(posedge clk or posedge rst) begin
