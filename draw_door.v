@@ -17,16 +17,14 @@ assign y = v_cnt>>1;
 always@(*)begin
     case(state)
     STAGE1:begin
-        if(x >= 260 && x <280)begin
-            if(y>=120&&y<140)begin
-                if(isLocked)begin
-                    pixel_addr = (x -140+(y -40)*320)%76800;
-                    isObject = 1;
-                end
-                else begin
-                    pixel_addr = (x -120+(y -40)*320)%76800;
-                    isObject = 1;
-                end
+        if(x >= 260 && x <280 && y>=120 && y<140)begin
+            if(isLocked)begin
+                pixel_addr = (x -140+(y -40)*320)%76800;
+                isObject = 1;
+            end
+            else begin
+                pixel_addr = (x -120+(y -40)*320)%76800;
+                isObject = 1;
             end
         end//lock 
         else isObject = 0;

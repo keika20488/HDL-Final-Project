@@ -59,12 +59,10 @@ assign y = v_cnt>>1;
 always@(*)begin
     case(state)
     STAGE1:begin
-        if(x >=60 && x <260)begin
-            if(y >=30&& y <230)begin
-                if(map[(x-60)/5][(y-30)/5])begin
-                    pixel_addr = (x%5+(y%5+120)*320)%76800;
-                    isObject = 1;
-                end
+        if(x >=60 && x <260 && y >=30&& y <230)begin
+            if(map[(x-60)/5][(y-30)/5])begin
+                pixel_addr = (x%5+(y%5+120)*320)%76800;
+                isObject = 1;
             end
         end
         else isObject = 0;

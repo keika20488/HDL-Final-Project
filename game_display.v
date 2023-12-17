@@ -73,6 +73,22 @@ always@(*)begin
     STAFF:begin
     end
     STAGE1:begin
+        if (isInterface) begin
+            pixel_addr = interface_addr;
+            notBlank = 1;
+        end
+        else if (isObj) begin
+            pixel_addr = obj_addr;
+            notBlank = 1;
+        end
+        else if (isMap) begin
+            pixel_addr = map_addr;
+            notBlank = 1;
+        end
+        else if (isDoor) begin
+            pixel_addr = door_addr;
+            notBlank = 1;
+        end
     end
     SUCCESS1:begin
     end
