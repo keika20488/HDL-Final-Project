@@ -55,7 +55,7 @@ always @(*) begin
     case(state)
     TITLE:begin 
         if(x >= 40 && x < 280 && y >= 40 && y < 100)begin //title
-            pixel_addr = (x + 30+(y +40)*320)%76800;
+            pixel_addr = (x + 20+(y +40)*320)%76800;
             isObject = 1;
         end else if(x >= 120 && x < 200)begin
             if(y >= 120 && y < 140)begin//stage1

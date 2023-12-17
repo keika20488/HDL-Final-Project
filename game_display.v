@@ -10,6 +10,7 @@ module game_display(
 );
 
 // Draw obj
+wire [16:0] door_addr, interface_addr, map_addr, obj_addr;
 /*draw_boss boss(
     .state(state),
     .h_cnt(h_cnt),
