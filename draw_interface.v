@@ -55,15 +55,15 @@ always @(*) begin
     case(state)
     TITLE:begin 
         if(x >= 40 && x < 280 && y >= 40 && y < 100)begin //title
-            pixel_addr = (x + (`title_h-40)+(y +(`title_v-40))*320)%76800;
+            pixel_addr = (x + 30+(y +40)*320)%76800;
             isObject = 1;
         end else if(x >= 120 && x < 200)begin
             if(y >= 120 && y < 140)begin//stage1
-                pixel_addr = (x + (`stage1_btn_h-120)+(y +(`stage1_btn_v-120))*320)%76800;
+                pixel_addr = (x + 120+(y -80 )*320)%76800;
                 isObject = 1;
             end else if(y >= 160 && y < 180)begin//stage2
                 if(play_valid[2])begin
-                    pixel_addr = (x + (`stage2_btn_h-120)+(y +(`stage2_btn_v-160))*320)%76800;
+                    pixel_addr = (x - 120+(y-100)*320)%76800;
                     isObject = 1;
                 end else begin
                     pixel_addr = (x + (160-120)+(y +(60-160))*320)%76800;
@@ -71,7 +71,7 @@ always @(*) begin
                 end
             end else if(y >= 200 && y < 220)begin//stage3
                 if(play_valid[3])begin
-                    pixel_addr = (x + (`stage3_btn_h-120)+(y +(`stage3_btn_v-200))*320)%76800;
+                    pixel_addr = (x + (80-120)+(y +(60-200))*320)%76800;
                     isObject = 1;
                 end else begin
                     pixel_addr = (x + (240-120)+(y +(60-200))*320)%76800;
