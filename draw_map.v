@@ -68,8 +68,9 @@ always@(*)begin
         end
         else isObject = 0;
     end
-    endcase
     default: isObject = 0;
+    endcase
+    
 end
 endmodule
 //200*200->40*40 player20*20->4*4
