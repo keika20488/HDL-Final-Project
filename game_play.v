@@ -72,6 +72,10 @@ parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
 parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
 parameter [3:0] STAGE3 = 6, SUCCESS3 = 7, FAIL = 8;
 
+always @(*) begin
+    play_valid = 4'b1111;
+end
+
 always @(posedge clk or posedge rst) begin
     if (rst) state <= TITLE;
     else begin

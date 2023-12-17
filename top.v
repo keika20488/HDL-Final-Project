@@ -79,6 +79,7 @@ vga_controller vga_inst(
 
 // Game
 // play : output state & player's position
+wire [3:0] state;
 game_play play(
     .rst(rst),
     .clk(clk),
