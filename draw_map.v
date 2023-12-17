@@ -60,14 +60,16 @@ always@(*)begin
     case(state)
     STAGE1:begin
         if(x >=60 && x <260 && y >=30&& y <230)begin
-            if(map[(x-60)/5][(y-30)/5])begin
+            if(map[(y-30)/5][(x-60)/5])begin
                 pixel_addr = (x%5+(y%5+120)*320)%76800;
                 isObject = 1;
-            end
+            end 
+            else isObject = 0;
         end
         else isObject = 0;
     end
     endcase
+    default: isObject = 0;
 end
 endmodule
 //200*200->40*40 player20*20->4*4
