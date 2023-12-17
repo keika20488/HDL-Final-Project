@@ -5,6 +5,7 @@ module game_display(
     input rst,
     input [9:0] h_cnt,
     input [9:0] v_cnt,
+    input [3:0] play_valid,
     output reg [16:0] pixel_addr,
     output reg notBlank
 );

@@ -105,6 +105,7 @@ game_display display(
     .rst(rst),
     .h_cnt(h_cnt),
     .v_cnt(v_cnt),
+    .play_valid(play_valid),
     .pixel_addr(pixel_addr),
     .notBlank(notBlank)
 );

@@ -31,7 +31,7 @@ always@(*)begin
                 isObject = 1;
             end//key2
         end
-        if(key_find == 2)begin
+        else if(key_find == 2)begin
             if(x >=235 && x <255 && y >=205&& y <225)begin
                 pixel_addr = (x -235+(y -125)*320)%76800;
                 isObject = 1;
