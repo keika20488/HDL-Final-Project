@@ -71,6 +71,7 @@ parameter [3:0] TITLE = 0, STAFF = 1;
 parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
 parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
 parameter [3:0] STAGE3 = 6, SUCCESS3 = 7, FAIL = 8;
+reg pass;
 
 always @(*) begin
     play_valid = 4'b1111;
@@ -85,11 +86,11 @@ always @(posedge clk or posedge rst) begin
                 state <= key_num * 2;
             else state <= TITLE;
         end
-/*        STAGE1: begin
+        STAGE1: begin
             if (pass) state <= SUCCESS1;
             else state <= STAGE1;
         end
-        SUCCESS1: begin
+/*        SUCCESS1: begin
             if (key_down[last_change]) begin
                 if (key_num == 8) state <= STAGE2;
                 else if (key_num == 9) state <= TITLE;
