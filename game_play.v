@@ -8,6 +8,7 @@ module game_play (
     output reg [1:0] todo,
     output reg [3:0] state,
     output reg [3:0] player_state,
+    output reg [3:0] boss_state,
     output reg [8:0] player_x,
     output reg [8:0] player_y,
     output reg [8:0] boss_x,

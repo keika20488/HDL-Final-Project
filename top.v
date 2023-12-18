@@ -80,7 +80,7 @@ vga_controller vga_inst(
 // Game
 // play : output state & player's position
 wire [1:0] key_find;
-wire [3:0] play_valid, state;
+wire [3:0] play_valid, state, player_state, boss_state;
 wire [8:0] player_x, player_y, boss_x, boss_y, obj_x, obj_y;
 game_play play(
     .rst(rst),
@@ -88,6 +88,8 @@ game_play play(
     .PS2_DATA(PS2_DATA),
     .PS2_CLK(PS2_CLK),
     .state(state),
+    .player_state(player_state),
+    .boss_state(boss_state),
     .player_x(player_x),
     .player_y(player_x),
     .boss_x(boss_x),
