@@ -7,6 +7,7 @@ module game_play (
     inout wire PS2_CLK,
     output reg [1:0] todo,
     output reg [3:0] state,
+    output reg [3:0] player_state,
     output reg [8:0] player_x,
     output reg [8:0] player_y,
     output reg [8:0] boss_x,
@@ -169,6 +170,31 @@ end
 
 
 // Player Position
+parameter [3:0] UP1 = 0, UP2 = 1, UP3 = 2;
+parameter [3:0] RIGHT1 = 3, RIGHT2 = 4, RIGHT3 = 5;
+parameter [3:0] LEFT1 = 6, LEFT2 = 7, LEFT3 = 8;
+parameter [3:0] DOWN1 = 9, DOWN2 = 10, DOWN3 = 11;
+
+always @(posedge clk or posedge rst) begin
+    if (rst) player_state <= RIGHT1;
+    else begin
+        case(state)
+        STAGE1, STAGE2, STAGE3: begin
+            if(key_down[last_change]) begin
+                case (key_num)
+                3: player_state <= (player_state == UP2) ? UP3 : UP2;
+                4: player_state <= (player_state == LEFT2) ? LEFT3 : LEFT2;
+                5: player_state <= (player_state == DOWN2) ? DOWN3 : DOWN2;
+                6: player_state <= (player_state == RIGHT2) ? RIGHT3 : RIGHT2;
+                default: player_state <= player_state;
+                endcase
+            end else player_state <= player_state / 3 * 3;
+        end
+        default: player_state <= RIGHT1;
+        endcase
+    end
+end
+// Boss Position
 // Object Position
 
 // Collide
