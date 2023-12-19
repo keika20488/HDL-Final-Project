@@ -19,11 +19,11 @@ always@(*)begin
     STAGE1:begin
         if(x >= 260 && x <280 && y>=120 && y<140)begin
             if(isLocked)begin
-                pixel_addr = (x -140+(y -40)*320)%76800;
+                pixel_addr = (x -240+(y -40)*320)%76800;
                 isObject = 1;
             end
             else begin
-                pixel_addr = (x -120+(y -40)*320)%76800;
+                pixel_addr = (x -220+(y -40)*320)%76800;
                 isObject = 1;
             end
         end//lock 
