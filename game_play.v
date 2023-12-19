@@ -22,7 +22,7 @@ module game_play (
 
 // Keyboard
 wire [130:0] key_down;
-wire [8:0] last_change;
+wire [6:0] last_change;
 reg [4:0] key_num;
 
 KeyboardDecoder key_de (
@@ -36,18 +36,18 @@ KeyboardDecoder key_de (
 );
 
 // KeyCodes: n, b, r, 1-3, WASD, right shift
-parameter [8:0] KEY_CODES [0:10] = {
-    9'b0_0101_1001,  //right shift//59
-    9'b0_0110_1001,  //1          //69
-    9'b0_0111_0010,  //2          //72
-    9'b0_0111_1010,  //3          //7A
-    9'b0_0001_1101,  //w  //up    //1D
-    9'b0_0001_1100,  //a  //left  //1C
-    9'b0_0001_1011,  //s  //down  //1B
-    9'b0_0010_0011,  //d  //right //23
-    9'b0_0011_0001,  //n  //next  //31
-    9'b0_0011_0010,  //b  //back  //32
-    9'b0_0010_1101   //r  //retry //2D
+parameter [6:0] KEY_CODES [0:10] = {
+    7'b101_1001,  //right shift//59
+    7'b110_1001,  //1          //69
+    7'b111_0010,  //2          //72
+    7'b111_1010,  //3          //7A
+    7'b001_1101,  //w  //up    //1D
+    7'b001_1100,  //a  //left  //1C
+    7'b001_1011,  //s  //down  //1B
+    7'b010_0011,  //d  //right //23
+    7'b011_0001,  //n  //next  //31
+    7'b011_0010,  //b  //back  //32
+    7'b010_1101   //r  //retry //2D
 };
 
 always @(*) begin
@@ -73,7 +73,7 @@ parameter [3:0] TITLE = 0, STAFF = 1;
 parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
 parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
 parameter [3:0] STAGE3 = 6, SUCCESS3 = 7, FAIL = 8;
-reg pass;
+reg pass, fail;
 
 always @(posedge clk or posedge rst) begin
     if (rst) play_valid <= 4'b0010;
@@ -81,7 +81,7 @@ always @(posedge clk or posedge rst) begin
         case(state)
         SUCCESS1: play_valid <= 4'b0110;
         SUCCESS2: play_valid <= 4'b1110;
-        default: play_valid <= play_valid;
+        default: play_valid <= 4'b1111;
         endcase
     end
 end
@@ -99,7 +99,7 @@ always @(posedge clk or posedge rst) begin
             if (pass) state <= SUCCESS1;
             else state <= STAGE1;
         end
-/*        SUCCESS1: begin
+        SUCCESS1: begin
             if (key_down[last_change]) begin
                 if (key_num == 8) state <= STAGE2;
                 else if (key_num == 9) state <= TITLE;
@@ -138,7 +138,7 @@ always @(posedge clk or posedge rst) begin
             if (key_down[last_change] && key_num == 9)
                 state <= TITLE;
             else state <= STAFF;
-        end*/
+        end
         default: state <= state;
         endcase
     end
@@ -170,13 +170,16 @@ always @(posedge clk or posedge rst) begin
 end
 
 
+// Clock Divider
+clock_divider #(20) div_20(.clk(clk), .clk_div(clk_20));
+
 // Player Position
 parameter [3:0] UP1 = 0, UP2 = 1, UP3 = 2;
 parameter [3:0] RIGHT1 = 3, RIGHT2 = 4, RIGHT3 = 5;
 parameter [3:0] LEFT1 = 6, LEFT2 = 7, LEFT3 = 8;
 parameter [3:0] DOWN1 = 9, DOWN2 = 10, DOWN3 = 11;
 
-always @(posedge clk or posedge rst) begin
+always @(posedge clk_20 or posedge rst) begin
     if (rst) player_state <= RIGHT1;
     else begin
         case(state)
@@ -196,30 +199,33 @@ always @(posedge clk or posedge rst) begin
     end
 end
 
-always @(posedge clk or posedge rst) begin
-    if (rst) begin
+always @(posedge clk_20) begin
+    player_x <= player_x;
+    player_y <= player_y;
+    case(state)
+    STAGE1, STAGE2, STAGE3: begin
+        if(key_down[last_change]) begin
+            case (key_num)
+            4: begin
+                player_y <= player_y - 1;
+            end
+            5: begin
+                player_x <= player_x - 1;
+            end
+            6: begin
+                player_y <= player_y + 1;
+            end
+            7: begin
+                player_x <= player_x + 1;
+            end
+            endcase
+        end
+    end
+    default: begin
         player_x <= 40;
         player_y <= 130;
-    end else begin
-        player_x <= player_x;
-        player_y <= player_y;
-        case(state)
-        STAGE1, STAGE2, STAGE3: begin
-            if(key_down[last_change]) begin
-                case (key_num)
-                4: player_y <= player_y - 1;
-                5: player_x <= player_x - 1;
-                6: player_y <= player_y + 1;
-                7: player_x <= player_x + 1;
-                endcase
-            end
-        end
-        default: begin
-            player_x <= 40;
-            player_y <= 130;
-        end
-        endcase
     end
+    endcase
 end
 // Boss Position
 // Object Position

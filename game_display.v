@@ -1,11 +1,21 @@
 // draw_1, draw_2...
 module game_display(
-    input [3:0] state,
     input clk,
     input rst,
+    input isDark,
     input [9:0] h_cnt,
     input [9:0] v_cnt,
+    input [3:0] state,
+    input [3:0] player_state,
+    input [3:0] boss_state,
+    input [8:0] player_x,
+    input [8:0] player_y,
+    input [8:0] boss_x,
+    input [8:0] boss_y,
+    input [8:0] obj_x,
+    input [8:0] obj_y,
     input [3:0] play_valid,
+    input [1:0] key_find,
     output reg [16:0] pixel_addr,
     output reg notBlank
 );
@@ -102,13 +112,10 @@ always@(*)begin
         end else if (isDoor) begin
             pixel_addr = door_addr;
             notBlank = 1;
-        end else if (isBoss) begin
-            pixel_addr = boss_addr;
-            notBlank = 1;
-        end /*else if (isPlayer) begin
+        end else if (isPlayer) begin
             pixel_addr = player_addr;
             notBlank = 1;
-        end*/
+        end
     end
     SUCCESS1:begin
     end
