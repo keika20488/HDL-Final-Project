@@ -11,14 +11,17 @@ module game_display(
 );
 
 // Draw obj
-wire [16:0] door_addr, interface_addr, map_addr, obj_addr;
-/*draw_boss boss(
+wire [16:0] door_addr, interface_addr, map_addr, obj_addr, boss_addr, player_addr;
+draw_boss boss(
     .state(state),
     .h_cnt(h_cnt),
     .v_cnt(v_cnt),
     .pixel_addr(boss_addr),
+    .boss_x(boss_x),
+    .boss_y(boss_y),
+    .boss_state(boss_state),
     .isObject(isBoss)
-);*/
+);
 draw_door door(
     .state(state),
     .h_cnt(h_cnt),
@@ -55,6 +58,18 @@ draw_obj obj(
     .pixel_addr(obj_addr),
     .isObject(isObj)
 );
+
+draw_player player(
+    .state(state),
+    .h_cnt(h_cnt),
+    .v_cnt(v_cnt),
+    .player_x(player_x),
+    .player_y(player_y),
+    .player_state(player_state),
+    .pixel_addr(player_addr),
+    .isObject(isPlayer)
+);
+
 //assign pixel_addr = ((h_cnt>>1)+320*(v_cnt>>1) )% 76800;  //640*480 --> 320*240 
 parameter [3:0] TITLE = 0, STAFF = 1;
 parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
@@ -78,19 +93,22 @@ always@(*)begin
         if (isInterface) begin
             pixel_addr = interface_addr;
             notBlank = 1;
-        end
-        else if (isObj) begin
+        end else if (isObj) begin
             pixel_addr = obj_addr;
             notBlank = 1;
-        end
-        else if (isMap) begin
+        end else if (isMap) begin
             pixel_addr = map_addr;
             notBlank = 1;
-        end
-        else if (isDoor) begin
+        end else if (isDoor) begin
             pixel_addr = door_addr;
             notBlank = 1;
-        end
+        end else if (isBoss) begin
+            pixel_addr = boss_addr;
+            notBlank = 1;
+        end /*else if (isPlayer) begin
+            pixel_addr = player_addr;
+            notBlank = 1;
+        end*/
     end
     SUCCESS1:begin
     end

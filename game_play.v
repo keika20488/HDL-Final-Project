@@ -195,6 +195,32 @@ always @(posedge clk or posedge rst) begin
         endcase
     end
 end
+
+always @(posedge clk or posedge rst) begin
+    if (rst) begin
+        player_x <= 40;
+        player_y <= 130;
+    end else begin
+        player_x <= player_x;
+        player_y <= player_y;
+        case(state)
+        STAGE1, STAGE2, STAGE3: begin
+            if(key_down[last_change]) begin
+                case (key_num)
+                4: player_y <= player_y - 1;
+                5: player_x <= player_x - 1;
+                6: player_y <= player_y + 1;
+                7: player_x <= player_x + 1;
+                endcase
+            end
+        end
+        default: begin
+            player_x <= 40;
+            player_y <= 130;
+        end
+        endcase
+    end
+end
 // Boss Position
 // Object Position
 
