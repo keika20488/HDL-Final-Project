@@ -15,11 +15,6 @@ parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
 parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
 parameter [3:0] STAGE3 = 6, SUCCESS3 = 7, FAIL = 8;
 
-//parameter [3:0] UP1 = 0, UP2 = 1, UP3 = 2;
-//parameter [3:0] RIGHT1 = 3, RIGHT2 = 4, RIGHT3 = 5;
-//parameter [3:0] LEFT1 = 6, LEFT2 = 7, LEFT3 = 8;
-//parameter [3:0] DOWN1 = 9, DOWN2 = 10, DOWN3 = 11;
-
 wire [8:0] x,y;
 assign x = h_cnt >> 1;
 assign y = v_cnt >> 1;

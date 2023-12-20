@@ -15,21 +15,20 @@ wire [8:0] x,y;
 assign x = h_cnt>>1;
 assign y = v_cnt>>1;
 always@(*)begin
+    isObject = 0;
+    pixel_addr = 0;
     case(state)
-    STAGE1:begin
+    STAGE1, STAGE2, STAGE3:begin
         if(x >= 260 && x <280 && y>=120 && y<140)begin
             if(isLocked)begin
                 pixel_addr = (x -240+(y -40)*320)%76800;
                 isObject = 1;
-            end
-            else begin
+            end else begin
                 pixel_addr = (x -220+(y -40)*320)%76800;
                 isObject = 1;
             end
         end//lock 
-        else isObject = 0;
     end
-    default:isObject = 0;
     endcase
 end
 endmodule

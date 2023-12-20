@@ -64,6 +64,7 @@ draw_obj obj(
     .state(state),
     .h_cnt(h_cnt),
     .v_cnt(v_cnt),
+    .isDark(isDark),
     .key_find(key_find),
     .pixel_addr(obj_addr),
     .isObject(isObj)
@@ -90,16 +91,15 @@ always@(posedge clk or posedge rst)begin
 end
 always@(*)begin
     notBlank = 0;
+    pixel_addr = 0;
     case(state)
-    TITLE:begin
+    TITLE, STAFF, SUCCESS1, SUCCESS2, SUCCESS3, FAIL:begin
         if (isInterface) begin
             pixel_addr = interface_addr;
             notBlank = 1;
         end
     end
-    STAFF:begin
-    end
-    STAGE1:begin
+    STAGE1, STAGE2, STAGE3:begin
         if (isInterface) begin
             pixel_addr = interface_addr;
             notBlank = 1;
@@ -115,19 +115,10 @@ always@(*)begin
         end else if (isPlayer) begin
             pixel_addr = player_addr;
             notBlank = 1;
+        end else if (isBoss) begin
+            pixel_addr = boss_addr;
+            notBlank = 1;
         end
-    end
-    SUCCESS1:begin
-    end
-    STAGE2:begin
-    end
-    SUCCESS2:begin
-    end
-    STAGE3:begin
-    end
-    SUCCESS3:begin
-    end
-    FAIL:begin
     end
     endcase
 end

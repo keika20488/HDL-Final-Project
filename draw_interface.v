@@ -2,31 +2,8 @@
 // success, fail, staff name 
 
 //picture addr left_up
-`define next_btn_h 0
-`define next_btn_v 40
-`define back_btn_h 80
-`define back_btn_v 40
-`define retry_btn_h 160
-`define retry_btn_v 40
-`define stage1_btn_h 140
-`define stage1_btn_v 40
-`define stage2_btn_h 0
-`define stage2_btn_v 60
-`define stage3_btn_h 80
-`define stage3_btn_v 60
 `define stage1_show_h 0
 `define stage1_show_v 140
-
-
-`define btn_rec_h 80
-`define btn_rec_v 20
-
-`define title_h 60
-`define title_v 80
-
-`define title_rec_h 240
-`define title_rec_v 60
-
 
 module draw_interface(
     input [3:0] state,
@@ -82,6 +59,58 @@ always @(*) begin
     end
     STAGE1:begin
         if(x >= 120 && x < 200 && y >= 0 && y < 20)begin//stage1 title
+            pixel_addr = (x + (`stage1_show_h-120)+(y +(`stage1_show_v))*320)%76800;
+            isObject = 1;
+        end else if(x >= 0 && x<40 && y >= 30 && y < 50)begin//find
+            pixel_addr = (x+20+(y+90)*320)%76800;
+            isObject = 1;
+        end else if(x >= 40 && x < 60 && y >= 30 && y < 50)begin
+            if(todo == FIND_KEY)begin//find key
+                pixel_addr = (x-40+(y +50)*320)%76800;
+                isObject = 1;
+            end else if(todo == FIND_DOOR)begin//find door
+                pixel_addr = (x-20+(y +50)*320)%76800;
+                isObject = 1;
+            end
+        end else if(x >= 0 && x<20 && key_find>=1 && y>=50 && y<70)begin//key1
+            pixel_addr = ((x)+(y +30)*320)%76800;
+            isObject = 1;
+        end else if(x >= 20 && x<40 && key_find>=2 && y>=50 && y<70)begin//key2
+            pixel_addr = ((x-20)+(y +30)*320)%76800;
+            isObject = 1;
+        end else if(x >= 40 && x<60 && key_find==3 && y>=50 && y<70)begin//key3
+            pixel_addr = ((x-40)+(y +30)*320)%76800;
+            isObject = 1;
+        end
+    end
+    STAGE2:begin
+        if(x >= 120 && x < 200 && y >= 0 && y < 20)begin//stage2 title
+            pixel_addr = (x + (`stage1_show_h-120)+(y +(`stage1_show_v))*320)%76800;
+            isObject = 1;
+        end else if(x >= 0 && x<40 && y >= 30 && y < 50)begin//find
+            pixel_addr = (x+20+(y+90)*320)%76800;
+            isObject = 1;
+        end else if(x >= 40 && x < 60 && y >= 30 && y < 50)begin
+            if(todo == FIND_KEY)begin//find key
+                pixel_addr = (x-40+(y +50)*320)%76800;
+                isObject = 1;
+            end else if(todo == FIND_DOOR)begin//find door
+                pixel_addr = (x-20+(y +50)*320)%76800;
+                isObject = 1;
+            end
+        end else if(x >= 0 && x<20 && key_find>=1 && y>=50 && y<70)begin//key1
+            pixel_addr = ((x)+(y +30)*320)%76800;
+            isObject = 1;
+        end else if(x >= 20 && x<40 && key_find>=2 && y>=50 && y<70)begin//key2
+            pixel_addr = ((x-20)+(y +30)*320)%76800;
+            isObject = 1;
+        end else if(x >= 40 && x<60 && key_find==3 && y>=50 && y<70)begin//key3
+            pixel_addr = ((x-40)+(y +30)*320)%76800;
+            isObject = 1;
+        end
+    end
+    STAGE3:begin
+        if(x >= 120 && x < 200 && y >= 0 && y < 20)begin//stage3 title
             pixel_addr = (x + (`stage1_show_h-120)+(y +(`stage1_show_v))*320)%76800;
             isObject = 1;
         end else if(x >= 0 && x<40 && y >= 30 && y < 50)begin//find
