@@ -250,22 +250,22 @@ always @(posedge clk_23) begin
         if(key_down[last_change]) begin
             case (key_num)
             4: begin
-                if(!map[(player_y -1 - 30)/5][(player_x - 60)/5])begin
+                if(!map[(player_y -1 - 30)/5][(player_x - 60)/5] && !map[(player_y -1 - 30 +20)/5][(player_x - 60 +20)/5])begin
                     player_y <= player_y - 1;
                 end
             end
             5: begin
-                if(!map[(player_y - 30)/5][(player_x -1 - 60)/5])begin
+                if(!map[(player_y - 30)/5][(player_x -1 - 60)/5] && !map[(player_y - 30 +20)/5][(player_x -1 - 60 +20)/5])begin
                     player_x <= player_x - 1;
                 end
             end
             6: begin
-                if(!map[(player_y +1 - 30)/5][(player_x - 60)/5])begin
+                if(!map[(player_y +1 - 30)/5][(player_x - 60)/5] && !map[(player_y +1 - 30 +20)/5][(player_x - 60 +20)/5])begin
                     player_y <= player_y + 1;
                 end
             end
             7: begin
-                if(!map[(player_y - 30)/5][(player_x +1 - 60)/5])begin
+                if(!map[(player_y - 30)/5][(player_x +1 - 60)/5] && !map[(player_y - 30 +20)/5][(player_x +1 - 60 +20)/5])begin
                     player_x <= player_x + 1;
                 end
             end
@@ -273,8 +273,8 @@ always @(posedge clk_23) begin
         end
     end
     default: begin
-        player_x <= 40;
-        player_y <= 130;
+        player_x <= 65;
+        player_y <= 125;
     end
     endcase
 end
