@@ -282,5 +282,27 @@ end
 // Object Position
 
 // Collide
+always @(posedge clk_23) begin
+    key_find <= key_find;
+    case(state)
+    STAGE1, STAGE2, STAGE3: begin
+        case (key_find)
+        0: begin
+            if (player_x >= 55 && player_x < 85 && player_y >= 25 && player_y < 55)
+                key_find <= key_find + 1;
+        end
+        1: begin
+            if (player_x >= 225 && player_x < 255 && player_y >= 25 && player_y < 55)
+                key_find <= key_find + 1;
+        end
+        2: begin
+            if (player_x >= 225 && player_x < 255 && player_y >= 195 && player_y < 255)
+                key_find <= key_find + 1;
+        end
+        endcase
+    end
+    default: key_find <= 0;
+    endcase
+end
 
 endmodule
