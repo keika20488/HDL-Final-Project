@@ -22,6 +22,8 @@ module game_display(
 
 // Draw obj
 wire [16:0] door_addr, interface_addr, map_addr, obj_addr, boss_addr, player_addr;
+wire isLocked;
+assign isLocked = (key_find < 3) ? 0 : 1;
 draw_boss boss(
     .state(state),
     .h_cnt(h_cnt),
