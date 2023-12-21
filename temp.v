@@ -279,22 +279,96 @@ always @(posedge clk_23) begin
     endcase
 end
 // Boss Position
-reg [16:0] min_dis;
 reg [8:0] next_boss_x;
 reg [8:0] next_boss_y;
 
-always @(*) begin
-    if(((boss_x - player_x)*(boss_x - player_x)+(boss_y - player_y)*(boss_y - player_y)) < min_dis)begin
+//BFS
+integer i;
+reg [8:0] quene_x[0:20];
+reg [8:0] quene_y[0:20];
+reg [8:0] _front = 0;
+reg [8:0] _end = 0;
+reg [8:0] _x, _y;
+reg [2:0] steped[0:20];
+parameter NONE = 0, UP = 1, LEFT = 2, DOWN = 3, RIGHT = 4 ;
 
+always @(*) begin
+    for(i = 1; i < 5; i = i+1)begin
+        _x = quene_x[_front];
+        _y = quene_y[_front];
+
+        case(i)
+        UP:begin
+            _y = _y - 1; 
+        end
+        LEFT:begin
+            _x = _x - 1;
+        end
+        DOWN:begin
+            _y = _y + 1;
+        end
+        RIGHT:begin
+            _x = _x + 1;
+        end
+        endcase
+
+        if(!map[(_y - 120)/5][(_x - 60)/5] && !step[_y - 120][_x - 60])begin
+            quene_x[_end] = _x;
+            quene_y[_end] = _y;
+            steped[_y - 120][_x - 60] = i;
+            _end = _end + 1;
+        end
     end
-    if(((boss_x - player_x)*(boss_x - player_x)+(boss_y - player_y)*(boss_y - player_y)) < min_dis)begin
-        
+    _front = _front + 1;
+
+    while (_front != _end && steped[player_y - 120][player_x - 60] == NONE) begin
+        for(i = 1; i < 5; i = i+1)begin
+            _x = quene_x[_front];
+            _y = quene_y[_front];
+
+            case(i)
+            UP:begin
+                _y = _y - 1; 
+            end
+            LEFT:begin
+                _x = _x - 1;
+            end
+            DOWN:begin
+                _y = _y + 1;
+            end
+            RIGHT:begin
+                _x = _x + 1;
+            end
+            endcase
+
+            if(!map[(_y - 120)/5][(_x - 60)/5]&& !step[_y - 120][_x - 60])begin
+                quene_x[_end] = _x;
+                quene_y[_end] = _y;
+                steped[_y - 120][_x - 60] = steped[quene_y[_front] - 120][quene_x[_front] - 60];
+                _end = _end + 1;
+            end
+        end
+        _front = _front + 1;
     end
+    case(step[player_y - 120][player_x - 60])
+    UP:begin
+        next_boss_y = boss_y - 1; 
+    end
+    LEFT:begin
+        next_boss_x = boss_x - 1;
+    end
+    DOWN:begin
+        next_boss_y = boss_y + 1;
+    end
+    RIGHT:begin
+        next_boss_x = boss_x + 1;
+    end
+    endcase
 end
+
 always @(posedge clk_23) begin
-    boss_x <= boss_x;
-    boss_y <= boss_y;
-    
+    boss_x <= next_boss_x;
+    boss_y <= next_boss_y;
 end
 // Object Position
 
