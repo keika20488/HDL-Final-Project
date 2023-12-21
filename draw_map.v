@@ -61,9 +61,9 @@ always@(*)begin
     pixel_addr = 0;
     case(state)
     STAGE1, STAGE2, STAGE3:begin
-        if(x >=60 && x <260 && y >=30&& y <230)begin
-            if(map[(y-30)/5][(x-60)/5])begin
-                pixel_addr = (x%5+(y%5+120)*320)%76800;
+        if(x >= 60 && x < 260 && y >= 30 && y < 230)begin
+            if(map[(y - 30)/5][(x - 60)/5])begin
+                pixel_addr = (x%5 + (y%5 + 120) * 320)%76800;
                 isObject = 1;
             end 
         end

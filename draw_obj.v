@@ -22,32 +22,32 @@ always@(*)begin
     case(state)
     STAGE1, STAGE2, STAGE3:begin
         if(key_find == 0)begin
-            if(x >=65 && x <85 && y >=35&& y <55)begin
-                pixel_addr = (x -65+(y +45)*320)%76800;
+            if(x >= 65 && x < 85 && y >= 35 && y < 55)begin
+                pixel_addr = (x - 65 + (y + 45)*320)%76800;
                 isObject = 1;
             end//key1
         end
         else if(key_find == 1)begin
-            if(x >=235 && x <255 && y >=35&& y <55)begin
-                pixel_addr = (x -235+(y +45)*320)%76800;
+            if(x >= 230 && x < 250 && y >= 35 && y < 55)begin
+                pixel_addr = (x - 230 + (y + 45)*320)%76800;
                 isObject = 1;
             end//key2
         end
         else if(key_find == 2)begin
-            if(x >=235 && x <255 && y >=205&& y <225)begin
-                pixel_addr = (x -235+(y -125)*320)%76800;
+            if(x >= 230 && x < 250 && y >= 205 && y < 225)begin
+                pixel_addr = (x -230 +(y - 125)*320)%76800;
                 isObject = 1;
             end//key3
         end
         if (state == STAGE2) begin
             if (isDark) begin
-                if (x >= 100 && x < 120 && y >= 100 && y < 120) begin
-                    pixel_addr = (x - 100 + y * 320) % 76800;
+                if (x >= 180 && x < 200 && y >= 200 && y < 220) begin
+                    pixel_addr = (x - 180 + (y - 100) * 320) % 76800;
                     isObject = 1;
                 end
             end else begin
-                if (x >= 100 && x < 120 && y >= 100 && y < 120) begin
-                    pixel_addr = (x - 80 + y * 320) % 76800;
+                if (x >= 180 && x < 200 && y >= 200 && y < 220) begin
+                    pixel_addr = (x - 160 + (y - 100) * 320) % 76800;
                     isObject = 1;
                 end
             end
