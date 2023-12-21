@@ -384,11 +384,11 @@ always @(posedge clk_23) begin
                 key_find <= key_find + 1;
         end
         1: begin
-            if (player_x >= 220 && player_x < 255 && player_y >= 25 && player_y < 55)
+            if (player_x >= 220 && player_x < 250 && player_y >= 25 && player_y < 55)
                 key_find <= key_find + 1;
         end
         2: begin
-            if (player_x >= 220 && player_x < 255 && player_y >= 195 && player_y < 255)
+            if (player_x >= 220 && player_x < 250 && player_y >= 195 && player_y < 255)
                 key_find <= key_find + 1;
         end
         endcase
