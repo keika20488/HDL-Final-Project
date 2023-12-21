@@ -41,13 +41,13 @@ always@(*)begin
         end
         if (state == STAGE2) begin
             if (isDark) begin
-                if (x >= 180 && x < 200 && y >= 200 && y < 220) begin
-                    pixel_addr = (x - 180 + (y - 100) * 320) % 76800;
+                if (x >= 180 && x < 200 && y >= 135 && y < 155) begin
+                    pixel_addr = (x - 180 + (y - 35) * 320) % 76800;
                     isObject = 1;
                 end
             end else begin
-                if (x >= 180 && x < 200 && y >= 200 && y < 220) begin
-                    pixel_addr = (x - 160 + (y - 100) * 320) % 76800;
+                if (x >= 180 && x < 200 && y >= 135 && y < 155) begin
+                    pixel_addr = (x - 160 + (y - 35) * 320) % 76800;
                     isObject = 1;
                 end
             end

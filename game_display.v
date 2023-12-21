@@ -105,6 +105,12 @@ always@(*)begin
         if (isInterface) begin
             pixel_addr = interface_addr;
             notBlank = 1;
+        end else if (isPlayer) begin
+            pixel_addr = player_addr;
+            notBlank = 1;
+        end else if (isBoss) begin
+            pixel_addr = boss_addr;
+            notBlank = 1;
         end else if (isObj) begin
             pixel_addr = obj_addr;
             notBlank = 1;
@@ -113,12 +119,6 @@ always@(*)begin
             notBlank = 1;
         end else if (isDoor) begin
             pixel_addr = door_addr;
-            notBlank = 1;
-        end else if (isPlayer) begin
-            pixel_addr = player_addr;
-            notBlank = 1;
-        end else if (isBoss) begin
-            pixel_addr = boss_addr;
             notBlank = 1;
         end
     end

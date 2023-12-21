@@ -278,98 +278,6 @@ always @(posedge clk_23) begin
     end
     endcase
 end
-// Boss Position
-reg [8:0] next_boss_x;
-reg [8:0] next_boss_y;
-
-//BFS
-integer i;
-reg [8:0] quene_x[0:20];
-reg [8:0] quene_y[0:20];
-reg [8:0] _front = 0;
-reg [8:0] _end = 0;
-reg [8:0] _x, _y;
-reg [2:0] steped[0:20];
-parameter[2:0] UP = 1, LEFT = 2, DOWN = 3, RIGHT = 4 ;
-
-always @(*) begin
-    for(i = 1; i < 5; i = i+1)begin
-        _x = quene_x[_front];
-        _y = quene_y[_front];
-
-        case(i)
-        UP:begin
-            _y = _y - 1; 
-        end
-        LEFT:begin
-            _x = _x - 1;
-        end
-        DOWN:begin
-            _y = _y + 1;
-        end
-        RIGHT:begin
-            _x = _x + 1;
-        end
-        endcase
-
-        if(!map[(_y - 30)/5][(_x - 60)/5] && !steped[_y - 30][_x - 60])begin
-            quene_x[_end] = _x;
-            quene_y[_end] = _y;
-            steped[_y - 30][_x - 60] = i;
-            _end = _end + 1;
-        end
-    end
-    _front = _front + 1;
-
-    while (_front != _end && steped[player_y - 30][player_x - 60] == NONE) begin
-        for(i = 1; i < 5; i = i+1)begin
-            _x = quene_x[_front];
-            _y = quene_y[_front];
-
-            case(i)
-            UP:begin
-                _y = _y - 1; 
-            end
-            LEFT:begin
-                _x = _x - 1;
-            end
-            DOWN:begin
-                _y = _y + 1;
-            end
-            RIGHT:begin
-                _x = _x + 1;
-            end
-            endcase
-
-            if(!map[(_y - 30)/5][(_x - 60)/5]&& !steped[_y - 30][_x - 60])begin
-                quene_x[_end] = _x;
-                quene_y[_end] = _y;
-                steped[_y - 30][_x - 60] = steped[quene_y[_front] - 30][quene_x[_front] - 60];
-                _end = _end + 1;
-            end
-        end
-        _front = _front + 1;
-    end
-    case(steped[player_y - 30][player_x - 60])
-    UP:begin
-        next_boss_y = boss_y - 1; 
-    end
-    LEFT:begin
-        next_boss_x = boss_x - 1;
-    end
-    DOWN:begin
-        next_boss_y = boss_y + 1;
-    end
-    RIGHT:begin
-        next_boss_x = boss_x + 1;
-    end
-    endcase
-end
-
-always @(posedge clk_23) begin
-    boss_x <= next_boss_x;
-    boss_y <= next_boss_y;
-end
 // Object Position
 
 // Collide
@@ -401,11 +309,11 @@ always @(posedge clk_23) begin
                     key_find <= key_find + 1;
             end
             1: begin
-                if (player_x >= 220 && player_x < 255 && player_y >= 25 && player_y < 55)
+                if (player_x >= 220 && player_x < 250 && player_y >= 25 && player_y < 55)
                     key_find <= key_find + 1;
             end
             2: begin
-                if (player_x >= 220 && player_x < 255 && player_y >= 195 && player_y < 255)
+                if (player_x >= 220 && player_x < 250 && player_y >= 195 && player_y < 255)
                     key_find <= key_find + 1;
             end
             endcase
@@ -425,7 +333,7 @@ always @(posedge clk_23) begin
     isDark <= isDark;
     case(state)
     STAGE2: begin
-        if (player_x >= 250 && player_x < 280 && player_y >= 110 && player_y < 140)
+        if (player_x >= 170 && player_x < 200 && player_y >= 125 && player_y < 150)
             isDark <= 0;
     end
     default: isDark <= 1;
