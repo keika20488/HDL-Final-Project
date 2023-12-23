@@ -85,7 +85,7 @@ always @(*) begin
     end
     STAGE2:begin
         if(x >= 120 && x < 200 && y >= 0 && y < 20)begin//stage2 title
-            pixel_addr = (x + (`stage1_show_h-120)+(y +(`stage1_show_v))*320)%76800;
+            pixel_addr = (x - 120 +(y + 60)*320)%76800;
             isObject = 1;
         end else if(x >= 0 && x<40 && y >= 30 && y < 50)begin//find
             pixel_addr = (x+20+(y+90)*320)%76800;
@@ -111,7 +111,7 @@ always @(*) begin
     end
     STAGE3:begin
         if(x >= 120 && x < 200 && y >= 0 && y < 20)begin//stage3 title
-            pixel_addr = (x + (`stage1_show_h-120)+(y +(`stage1_show_v))*320)%76800;
+            pixel_addr = (x - 40 +(y + 60)*320)%76800;
             isObject = 1;
         end else if(x >= 0 && x<40 && y >= 30 && y < 50)begin//find
             pixel_addr = (x+20+(y+90)*320)%76800;
