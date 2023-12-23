@@ -179,7 +179,7 @@ parameter [3:0] RIGHT1 = 3, RIGHT2 = 4, RIGHT3 = 5;
 parameter [3:0] LEFT1 = 6, LEFT2 = 7, LEFT3 = 8;
 parameter [3:0] DOWN1 = 9, DOWN2 = 10, DOWN3 = 11;
 
-parameter [40:0] map [40:0] = {
+parameter [40:0] map [0:40] = {
 41'b11111111111111111111111111111111111111111,
 41'b10000000000000000000000000000000000000001,
 41'b10000000000000000000000000000000000000001,
@@ -283,7 +283,7 @@ end
 reg [8:0] next_boss_x;
 reg [8:0] next_boss_y;
 
-parameter [337:0] shortest_dir[168:0]={
+parameter [337:0] shortest_dir[0:168]={
 338'b00101010101010101010101010010000000000100000000000100100101010101010101010001001001000000000000000100010010010101010101010101000100100100000000000000000001001001010101010101010101010010001000000000000000000100100010001010101010101001001000100010001000100010010010101010100010001000100100000000000000000010001001001010101010101010100101010,
 338'b11001010101010101010101010111111111111101111111111101111101010101010101010111011111011111111111111101110111110101010101010101011101111101111111111111111111011111010101010101010101010111110111111111111111111101111111111111111111111111011111111111111111111111110111111111111111111111111101111111111111111111110111011111111111111111111101010,
 338'b11110010101010101010101010111111111111101111111111101111101010101010101010111011111011111111111111101110111110101010101010101011101111101111111111111111111011111010101010101010101010111110111111111111111111101111101111111111111111111011111111111111111111111110111111111111111111111011101111111111111111111110111011111111111111111111101010,
@@ -456,41 +456,13 @@ parameter [337:0] shortest_dir[168:0]={
 
 };
 wire [1:0] boss_dir;
-assign boss_dir = {shortest_dir[((player_x-65)/5)*13+(player_y-35)/5][(((boss_x-65)/5)*13+(boss_y-35)/5)*2+1],shortest_dir[((player_x-65)/5)*13+(player_y-35)/5][(((boss_x-65)/5)*13+(boss_y-35)/5)*2]};
-always @(*) begin
-    case(state)
-    STAGE2:begin
-        case(boss_dir)
-            0:begin//up
-                next_boss_x = boss_x;
-                next_boss_y = boss_y - 1;
-            end
-            1:begin//down
-                next_boss_x = boss_x;
-                next_boss_y = boss_y + 1;
-            end
-            2:begin//right
-                next_boss_x = boss_x + 1;
-                next_boss_y = boss_y;
-            end
-            3:begin//left
-                next_boss_x = boss_x - 1;
-                next_boss_y = boss_y;
-            end
-            default:begin
-                next_boss_x = boss_x;
-                next_boss_y = boss_y;
-            end
-            endcase
-            end
-    endcase
-    
-end
+assign boss_dir = {shortest_dir[(((player_x-60)/5)-1)/3*13+(((player_y-30)/5)-1)/3][((((boss_x-60)/5)-1)/3*13+(((boss_y-30)/5)-1)/3)*2+1],shortest_dir[(((player_x-60)/5)-1)/3*13+(((player_y-30)/5)-1)/3][((((boss_x-60)/5)-1)/3*13+(((boss_y-30)/5)-1)/3)*2]};
+
 always @(posedge clk_23 or posedge rst) begin
     if (rst) boss_state <= RIGHT1;
     else begin
         case(state)
-        STAGE2: begin
+        STAGE3: begin
                 case (boss_dir)
                 0: boss_state <= (boss_state == UP2) ? UP3 : UP2;
                 3: boss_state <= (boss_state == LEFT2) ? LEFT3 : LEFT2;
@@ -509,8 +481,36 @@ always @(posedge clk_23 or posedge rst) begin
         boss_y <= 35;
     end
     else begin
-        boss_x <= next_boss_x;
-        boss_y <= next_boss_y;
+        boss_x <=  250;
+        boss_y <= 35;
+        /*
+        case(state)
+        STAGE3:begin
+        case(boss_dir)
+            0:begin//up
+                boss_x <= boss_x;
+                boss_y <= boss_y - 1;
+            end
+            1:begin//down
+                boss_x <= boss_x;
+                boss_y <= boss_y + 1;
+            end
+            2:begin//right
+                boss_x <= boss_x + 1;
+                boss_y <= boss_y;
+            end
+            3:begin//left
+                boss_x <= boss_x - 1;
+                boss_y <= boss_y;
+            end
+            default:begin
+                boss_x <= boss_x;
+                boss_y <= boss_y;
+            end
+            endcase
+            end
+        endcase
+        */
     end
 end
 

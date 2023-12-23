@@ -25,8 +25,8 @@ always @(*) begin
     pixel_addr = 0;
     case(state)
     STAGE3: begin
-        if(x >= boss_x && x < boss_x+20 && y >= boss_y && y < boss_y+20)begin
-            pixel_addr = ((x - boss_x)*boss_state + (y-boss_y+20)*320)%76800;
+        if(x >= boss_x && x < boss_x+10 && y >= boss_y && y < boss_y+10)begin
+            pixel_addr = ((x - boss_x)+10*boss_state + (y+20-boss_y)*320)%76800;
             isObject = 1;
         end
     end
