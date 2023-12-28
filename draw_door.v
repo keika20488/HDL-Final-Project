@@ -19,15 +19,15 @@ always@(*)begin
     pixel_addr = 0;
     case(state)
     STAGE1, STAGE2, STAGE3:begin
-        if(x >= 260 && x <280 && y>=120 && y<140)begin
+        if(x >= 265 && x <275 && y>=125 && y<135)begin
             if(isLocked)begin
-                pixel_addr = (x -240+(y -40)*320)%76800;
+                pixel_addr = (x + 75 + (y - 105)*360)%86400;
                 isObject = 1;
             end else begin
-                pixel_addr = (x -220+(y -40)*320)%76800;
+                pixel_addr = (x + 85 + (y - 105)*360)%86400;
                 isObject = 1;
             end
-        end//lock 
+        end
     end
     endcase
 end

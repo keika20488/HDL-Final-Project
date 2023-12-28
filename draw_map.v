@@ -66,7 +66,7 @@ always@(*)begin
     STAGE1, STAGE2, STAGE3:begin
         if(x >= 60 && x < 265 && y >= 30 && y < 235)begin
             if(map[(y - 30)/5][(x - 60)/5])begin
-                pixel_addr = (x%5 + (y%5 + 120) * 320)%76800;
+                pixel_addr = (x%5 + 330 + (y%5 + 30) * 360)%86400;
                 isObject = 1;
             end 
         end

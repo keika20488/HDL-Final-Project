@@ -23,7 +23,7 @@ always @(*) begin
     case(state)
     STAGE1, STAGE2, STAGE3: begin
         if(x >= player_x && x < player_x+10 && y >= player_y && y < player_y+10)begin
-            pixel_addr = ((x - player_x)+10*player_state + (y-player_y)*320)%76800;
+            pixel_addr = ((x - player_x)+10*player_state + (y-player_y)*360)%86400;
             isObject = 1;
         end
     end

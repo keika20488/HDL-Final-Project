@@ -22,51 +22,51 @@ always@(*)begin
     case(state)
     STAGE1, STAGE3:begin
         if(key_find == 0)begin
-            if(x >= 65 && x < 85 && y >= 35 && y < 55)begin
-                pixel_addr = (x - 65 + (y + 45)*320)%76800;
+            if(x >= 70 && x < 80 && y >= 40 && y < 50)begin
+                pixel_addr = (x + 250 + (y - 10)*360)%86400;
                 isObject = 1;
             end//key1
         end
         else if(key_find == 1)begin
-            if(x >= 230 && x < 250 && y >= 35 && y < 55)begin
-                pixel_addr = (x - 230 + (y + 45)*320)%76800;
+            if(x >= 235 && x < 245 && y >= 40 && y < 50)begin
+                pixel_addr = (x + 85 + (y - 10)*360)%86400;
                 isObject = 1;
             end//key2
         end
         else if(key_find == 2)begin
-            if(x >= 230 && x < 250 && y >= 205 && y < 225)begin
-                pixel_addr = (x -230 +(y - 125)*320)%76800;
+            if(x >= 215 && x < 225 && y >= 220 && y < 230)begin
+                pixel_addr = (x + 105 +(y - 90)*360)%86400;
                 isObject = 1;
             end//key3
         end
     end
     STAGE2:begin
         if(!isDark && key_find == 0)begin
-            if(x >= 65 && x < 85 && y >= 35 && y < 55)begin
-                pixel_addr = (x - 65 + (y + 45)*320)%76800;
+            if(x >= 70 && x < 80 && y >= 40 && y < 50)begin
+                pixel_addr = (x + 250 + (y - 10)*360)%86400;
                 isObject = 1;
             end//key1
         end
         else if(key_find == 1)begin
-            if(x >= 230 && x < 250 && y >= 35 && y < 55)begin
-                pixel_addr = (x - 230 + (y + 45)*320)%76800;
+            if(x >= 235 && x < 245 && y >= 40 && y < 50)begin
+                pixel_addr = (x + 85 + (y - 10)*360)%86400;
                 isObject = 1;
             end//key2
         end
         else if(key_find == 2)begin
-            if(x >= 230 && x < 250 && y >= 205 && y < 225)begin
-                pixel_addr = (x -230 +(y - 125)*320)%76800;
+            if(x >= 215 && x < 225 && y >= 220 && y < 230)begin
+                pixel_addr = (x + 105 +(y - 90)*360)%86400;
                 isObject = 1;
             end//key3
         end
         if (isDark) begin
-            if (x >= 180 && x < 200 && y >= 135 && y < 155) begin
-                pixel_addr = (x - 180 + (y - 35) * 320) % 76800;
+            if (x >= 70 && x < 80 && y >= 220 && y < 230) begin
+                pixel_addr = (x + 250 + (y - 200) * 360) % 86400;
                 isObject = 1;
             end
         end else begin
-            if (x >= 180 && x < 200 && y >= 135 && y < 155) begin
-                pixel_addr = (x - 160 + (y - 35) * 320) % 76800;
+            if (x >= 70 && x < 80 && y >= 220 && y < 230) begin
+                pixel_addr = (x + 260 + (y - 200) * 360) % 86400;
                 isObject = 1;
             end
         end
