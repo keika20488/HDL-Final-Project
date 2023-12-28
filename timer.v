@@ -48,7 +48,7 @@ assign sec_1 = second % 10;
 always @(posedge clk) begin
     case(state)
     TITLE, STAFF: nums = 16'hAAAA;
-    STAGE1, STAGE2, STAGE3: nums = {min_10, min_1, sec_10, sec_1};
+    STAGE1, STAGE2, STAGE3, FAIL: nums = {min_10, min_1, sec_10, sec_1};
     default: nums <= nums;
     endcase
 end
