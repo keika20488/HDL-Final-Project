@@ -8,9 +8,9 @@ module top(
 
     inout wire PS2_DATA,
     inout wire PS2_CLK,
-    output [3:0] vgaRed,
-    output [3:0] vgaGreen,
-    output [3:0] vgaBlue,
+    output reg [3:0] vgaRed,
+    output reg [3:0] vgaGreen,
+    output reg [3:0] vgaBlue,
     output hsync,
     output vsync,
     output audio_mclk,
@@ -23,6 +23,9 @@ module top(
     output [3:0] DIGIT
 );
 
+wire [1:0] key_find;
+wire [3:0] play_valid, state, player_state, boss_state;
+wire [8:0] player_x, player_y, boss_x, boss_y, obj_x, obj_y;
 // Clock Divider
 clock_divider #(2) div_25M(.clk(clk), .clk_div(clk_25MHz));
 
@@ -56,7 +59,19 @@ wire [11:0] pixel;
 wire [9:0] h_cnt; //640
 wire [9:0] v_cnt; //480
 
-assign {vgaRed, vgaGreen, vgaBlue} = (valid && notBlank) ? pixel:12'h0;
+always @(*) begin
+    {vgaRed, vgaGreen, vgaBlue} = 0;
+    if (valid && notBlank) begin
+        if (state == 4 && h_cnt >= 60 && h_cnt <= 265 && v_cnt >= 30 && v_cnt <= 235) begin// STAGE2
+            if (isDark) begin
+                if ((h_cnt - player_x)*(h_cnt - player_x) + (v_cnt - player_y)*(v_cnt - player_y) < 150) // Player
+                    {vgaRed, vgaGreen, vgaBlue} = pixel;
+                else if ((h_cnt - player_x)*(h_cnt - player_x) + (v_cnt - player_y)*(v_cnt - player_y) < 150) // Light
+                    {vgaRed, vgaGreen, vgaBlue} = pixel;
+            end
+        end else {vgaRed, vgaGreen, vgaBlue} = pixel;
+    end
+end
 
 blk_mem_gen_0 blk_mem_gen_0_inst(
     .clka(clk_25MHz),
@@ -79,9 +94,6 @@ vga_controller vga_inst(
 
 // Game
 // play : output state & player's position
-wire [1:0] key_find;
-wire [3:0] play_valid, state, player_state, boss_state;
-wire [8:0] player_x, player_y, boss_x, boss_y, obj_x, obj_y;
 game_play play(
     .rst(rst),
     .clk(clk),
