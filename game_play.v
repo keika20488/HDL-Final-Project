@@ -467,7 +467,7 @@ assign player_x_maze = ((player_x-60)/5-1)/3;
 assign player_y_maze = ((player_y-30)/5-1)/3;
 assign next_boss_dir = shortest_dir[(player_x_maze+player_y_maze*13)][(boss_x_maze+boss_y_maze*13)*2]*2+shortest_dir[(player_x_maze+player_y_maze*13)][(boss_x_maze+boss_y_maze*13)*2+1];
 always @(posedge clk_23) begin
-    if((boss_x-65)%15==2&&(boss_y-35)%15==2)begin
+    if((boss_x-65)%15<3&&(boss_y-35)%15<3)begin
         boss_dir <= next_boss_dir;
     end
     else boss_dir<=boss_dir;
@@ -491,8 +491,8 @@ always @(posedge clk_23 or posedge rst) begin
 end
 always @(posedge clk_23 or posedge rst) begin
     if(rst)begin
-        boss_x <=  247;
-        boss_y <= 37;
+        boss_x <=  250;
+        boss_y <= 20;
     end
     else begin
         boss_x <=  boss_x;
@@ -537,15 +537,15 @@ always @(posedge clk_23) begin
     STAGE1, STAGE3: begin
         case (key_find)
         0: begin
-            if (player_x >= 55 && player_x < 85 && player_y >= 25 && player_y < 55)
+            if (player_x >= 60 && player_x < 80 && player_y >= 30 && player_y < 50)
                 key_find <= key_find + 1;
         end
         1: begin
-            if (player_x >= 220 && player_x < 250 && player_y >= 25 && player_y < 55)
+            if (player_x >= 225 && player_x < 245 && player_y >= 30 && player_y < 50)
                 key_find <= key_find + 1;
         end
         2: begin
-            if (player_x >= 220 && player_x < 250 && player_y >= 195 && player_y < 255)
+            if (player_x >= 205 && player_x < 225 && player_y >= 210 && player_y < 230)
                 key_find <= key_find + 1;
         end
         endcase
@@ -554,15 +554,15 @@ always @(posedge clk_23) begin
         if (!isDark) begin
             case (key_find)
             0: begin
-                if (player_x >= 55 && player_x < 85 && player_y >= 25 && player_y < 55)
+                if (player_x >= 60 && player_x < 80 && player_y >= 30 && player_y < 50)
                     key_find <= key_find + 1;
             end
             1: begin
-                if (player_x >= 220 && player_x < 250 && player_y >= 25 && player_y < 55)
+                if (player_x >= 225 && player_x < 245 && player_y >= 30 && player_y < 50)
                     key_find <= key_find + 1;
             end
             2: begin
-                if (player_x >= 220 && player_x < 250 && player_y >= 195 && player_y < 255)
+                if (player_x >= 205 && player_x < 225 && player_y >= 210 && player_y < 230)
                     key_find <= key_find + 1;
             end
             endcase
@@ -573,7 +573,7 @@ always @(posedge clk_23) begin
 end
 // Pass
 always @(posedge clk_23) begin
-    if (key_find == 3 && player_x >= 250 && player_x < 280 && player_y >= 110 && player_y < 140)
+    if (key_find == 3 && player_x >= 255 && player_x < 275 && player_y >= 115 && player_y < 135)
         pass <= 1;
     else pass <= 0;
 end
@@ -582,7 +582,7 @@ always @(posedge clk_23) begin
     isDark <= isDark;
     case(state)
     STAGE2: begin
-        if (player_x >= 170 && player_x < 200 && player_y >= 125 && player_y < 150)
+        if (player_x >= 60 && player_x < 80 && player_y >= 210 && player_y < 230)
             isDark <= 0;
     end
     default: isDark <= 1;
