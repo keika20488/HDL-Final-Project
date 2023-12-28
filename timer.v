@@ -4,7 +4,7 @@ module Timer (
     input [3:0] state,
     output reg [16:0] nums
 );
-reg [19:0] cnt;
+reg [26:0] cnt;
 reg [6:0] minute;
 reg [5:0] second;
 wire [4:0] min_10, min_1, sec_10, sec_1;
@@ -17,7 +17,7 @@ always @(posedge clk) begin
     cnt <= 0;
     case(state)
     STAGE1, STAGE2, STAGE3:begin
-        if (cnt < 1000000) cnt <= cnt + 1;
+        if (cnt < 100000000) cnt <= cnt + 1;
         else cnt <= 0;
     end
     endcase
@@ -28,8 +28,9 @@ always @(posedge clk) begin
     minute <= minute;
     case(state)
     STAGE1, STAGE2, STAGE3:begin
-        if (cnt == 1000000 && second < 59)
+        if (cnt == 100000000 && second < 59)
             second <= second + 1;
+        else second <= 0;
         if (second == 59 && minute < 99)
             minute <= minute + 1;
         else minute <= minute; 

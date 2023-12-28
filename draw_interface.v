@@ -135,6 +135,45 @@ always @(*) begin
             isObject = 1;
         end
     end
+    SUCCESS1, SUCCESS2:begin 
+        if(x >= 40 && x < 280 && y >= 40 && y < 100)begin //title
+            pixel_addr = (x + 20+(y +40)*320)%76800;
+            isObject = 1;
+        end else if(x >= 120 && x < 200)begin
+            if(y >= 140 && y < 160)begin//next
+                pixel_addr = (x - 120 + (y - 100)*320)%76800;
+                isObject = 1;
+            end else if(y >= 180 && y < 200)begin//back
+                pixel_addr = (x - 40 + (y - 140)*320)%76800;
+                isObject = 1;
+            end
+        end
+    end
+    SUCCESS3:begin 
+        if(x >= 40 && x < 280 && y >= 40 && y < 100)begin //title
+            pixel_addr = (x + 20+(y +40)*320)%76800;
+            isObject = 1;
+        end else if(x >= 120 && x < 200)begin
+            if(y >= 140 && y < 160)begin//next
+                pixel_addr = (x - 120 + (y - 100)*320)%76800;
+                isObject = 1;
+            end
+        end
+    end
+    FAIL:begin 
+        if(x >= 40 && x < 280 && y >= 40 && y < 100)begin //title
+            pixel_addr = (x + 20+(y +40)*320)%76800;
+            isObject = 1;
+        end else if(x >= 120 && x < 200)begin
+            if(y >= 140 && y < 160)begin//retry
+                pixel_addr = (x + 40 + (y - 100)*320)%76800;
+                isObject = 1;
+            end else if(y >= 180 && y < 200)begin//back
+                pixel_addr = (x - 40 + (y - 140)*320)%76800;
+                isObject = 1;
+            end
+        end
+    end
     endcase
 end
 

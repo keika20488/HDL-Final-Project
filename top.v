@@ -58,17 +58,24 @@ wire [16:0] pixel_addr;
 wire [11:0] pixel;
 wire [9:0] h_cnt; //640
 wire [9:0] v_cnt; //480
+wire [8:0] x, y, dx1, dy1, dx2, dy2;
+assign x = h_cnt >> 1;
+assign y = v_cnt >> 1;
+assign dx1 = (x > player_x + 5) ? x - player_x - 5 : player_x + 5 - x;
+assign dy1 = (y > player_y + 5) ? y - player_y - 5 : player_y + 5 - y; // Player
+assign dx2 = (x > player_x + 5) ? x - player_x - 5 : player_x + 5 - x;
+assign dy2 = (y > player_y + 5) ? y - player_y - 5 : player_y + 5 - y; // Light
 
 always @(*) begin
     {vgaRed, vgaGreen, vgaBlue} = 0;
     if (valid && notBlank) begin
-        if (state == 4 && h_cnt >= 60 && h_cnt <= 265 && v_cnt >= 30 && v_cnt <= 235) begin// STAGE2
+        if (state == 4 && x >= 60 && x <= 285 && y >= 30 && y <= 235) begin// STAGE2
             if (isDark) begin
-                if ((h_cnt - player_x)*(h_cnt - player_x) + (v_cnt - player_y)*(v_cnt - player_y) < 150) // Player
+                if (dx1 * dx1 + dy1 * dy1 < 200)
                     {vgaRed, vgaGreen, vgaBlue} = pixel;
-                else if ((h_cnt - player_x)*(h_cnt - player_x) + (v_cnt - player_y)*(v_cnt - player_y) < 150) // Light
+                else if (dx2 * dx2 + dy2 * dy2 < 200)
                     {vgaRed, vgaGreen, vgaBlue} = pixel;
-            end
+            end else {vgaRed, vgaGreen, vgaBlue} = pixel;
         end else {vgaRed, vgaGreen, vgaBlue} = pixel;
     end
 end
@@ -136,7 +143,13 @@ game_display display(
 // sound : music of state // sound effect?
 
 // Sevensegment
-reg [15:0] nums;
+wire [15:0] nums;
+Timer timer(
+    .clk(clk),
+    .state(state),
+    .nums(nums)
+);
+
 SevenSegment seg(
     .display(DISPLAY),
     .digit(DIGIT),
