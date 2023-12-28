@@ -7,7 +7,7 @@ module Timer (
 reg [26:0] cnt;
 reg [6:0] minute;
 reg [5:0] second;
-wire [4:0] min_10, min_1, sec_10, sec_1;
+wire [3:0] min_10, min_1, sec_10, sec_1;
 parameter [3:0] TITLE = 0, STAFF = 1;
 parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
 parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
@@ -28,12 +28,12 @@ always @(posedge clk) begin
     minute <= minute;
     case(state)
     STAGE1, STAGE2, STAGE3:begin
-        if (cnt == 100000000 && second < 59)
-            second <= second + 1;
-        else second <= 0;
-        if (second == 59 && minute < 99)
-            minute <= minute + 1;
-        else minute <= minute; 
+        if (cnt == 100000000) begin
+            if (second < 59) second <= second + 1;
+            else second = 0;
+            if (second == 59 && minute < 99)
+                minute <= minute + 1;
+        end
     end
     default:begin
         second <= 0;
@@ -41,9 +41,9 @@ always @(posedge clk) begin
     end
     endcase
 end
-assign min_10 = minute / 10;
+assign min_10 = minute / 10 % 10;
 assign min_1 = minute % 10;
-assign sec_10 = second / 10;
+assign sec_10 = second / 10 % 10;
 assign sec_1 = second % 10;
 always @(posedge clk) begin
     case(state)

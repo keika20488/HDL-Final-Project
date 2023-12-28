@@ -81,7 +81,7 @@ always @(posedge clk or posedge rst) begin
         case(state)
         SUCCESS1: play_valid <= 4'b0110;
         SUCCESS2: play_valid <= 4'b1110;
-        default: play_valid <= 4'b1111;
+        default: play_valid <= play_valid;
         endcase
     end
 end

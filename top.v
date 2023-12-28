@@ -71,7 +71,7 @@ always @(*) begin
     if (valid && notBlank) begin
         if (state == 4 && x >= 60 && x <= 285 && y >= 30 && y <= 235) begin// STAGE2
             if (isDark) begin
-                if (dx1 * dx1 + dy1 * dy1 < 200)
+                if (dx1 * dx1 + dy1 * dy1 < 400)
                     {vgaRed, vgaGreen, vgaBlue} = pixel;
                 else if (dx2 * dx2 + dy2 * dy2 < 200)
                     {vgaRed, vgaGreen, vgaBlue} = pixel;
