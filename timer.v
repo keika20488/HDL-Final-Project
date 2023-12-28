@@ -30,7 +30,7 @@ always @(posedge clk) begin
     STAGE1, STAGE2, STAGE3:begin
         if (cnt == 100000000) begin
             if (second < 59) second <= second + 1;
-            else second = 0;
+            else second <= 0;
             if (second == 59 && minute < 99)
                 minute <= minute + 1;
         end

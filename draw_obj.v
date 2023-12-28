@@ -28,14 +28,14 @@ always@(*)begin
             end//key1
         end
         else if(key_find == 1)begin
-            if(x >= 235 && x < 245 && y >= 40 && y < 50)begin
-                pixel_addr = (x + 85 + (y - 10)*360)%86400;
+            if(x >= 250 && x < 260 && y >= 40 && y < 50)begin
+                pixel_addr = (x + 70 + (y - 10)*360)%86400;
                 isObject = 1;
             end//key2
         end
         else if(key_find == 2)begin
             if(x >= 215 && x < 225 && y >= 220 && y < 230)begin
-                pixel_addr = (x + 105 +(y - 90)*360)%86400;
+                pixel_addr = (x + 105 +(y - 190)*360)%86400;
                 isObject = 1;
             end//key3
         end
@@ -48,14 +48,14 @@ always@(*)begin
             end//key1
         end
         else if(key_find == 1)begin
-            if(x >= 235 && x < 245 && y >= 40 && y < 50)begin
-                pixel_addr = (x + 85 + (y - 10)*360)%86400;
+            if(x >= 250 && x < 260 && y >= 40 && y < 50)begin
+                pixel_addr = (x + 70 + (y - 10)*360)%86400;
                 isObject = 1;
             end//key2
         end
         else if(key_find == 2)begin
             if(x >= 215 && x < 225 && y >= 220 && y < 230)begin
-                pixel_addr = (x + 105 +(y - 90)*360)%86400;
+                pixel_addr = (x + 105 +(y - 190)*360)%86400;
                 isObject = 1;
             end//key3
         end

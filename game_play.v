@@ -491,8 +491,8 @@ always @(posedge clk_23 or posedge rst) begin
 end
 always @(posedge clk_23 or posedge rst) begin
     if(rst)begin
-        boss_x <=  250;
-        boss_y <= 20;
+        boss_x <=  245;
+        boss_y <= 37;
     end
     else begin
         boss_x <=  boss_x;
@@ -541,7 +541,7 @@ always @(posedge clk_23) begin
                 key_find <= key_find + 1;
         end
         1: begin
-            if (player_x >= 225 && player_x < 245 && player_y >= 30 && player_y < 50)
+            if (player_x >= 240 && player_x < 260 && player_y >= 30 && player_y < 50)
                 key_find <= key_find + 1;
         end
         2: begin
@@ -558,7 +558,7 @@ always @(posedge clk_23) begin
                     key_find <= key_find + 1;
             end
             1: begin
-                if (player_x >= 225 && player_x < 245 && player_y >= 30 && player_y < 50)
+                if (player_x >= 240 && player_x < 260 && player_y >= 30 && player_y < 50)
                     key_find <= key_find + 1;
             end
             2: begin
@@ -573,7 +573,7 @@ always @(posedge clk_23) begin
 end
 // Pass
 always @(posedge clk_23) begin
-    if (key_find == 3 && player_x >= 255 && player_x < 275 && player_y >= 115 && player_y < 135)
+    if (key_find == 3 && player_x >= 250 && player_x < 270 && player_y >= 117 && player_y < 137)
         pass <= 1;
     else pass <= 0;
 end

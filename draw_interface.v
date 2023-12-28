@@ -27,11 +27,11 @@ always @(*) begin
     case(state)
     TITLE:begin 
         if(x >= 40 && x < 280 && y >= 40 && y < 100)begin //title
-            pixel_addr = (x + (y + 20)*360)%86400;
+            pixel_addr = (x - 40 + (y + 20)*360)%86400;
             isObject = 1;
         end else if(x >= 120 && x < 200)begin
             if(y >= 120 && y < 140)begin//stage1
-                pixel_addr = (x + (y - 80)*360)%86400;
+                pixel_addr = (x - 120 + (y - 80)*360)%86400;
                 isObject = 1;
             end else if(y >= 160 && y < 180)begin//stage2
                 if(play_valid[2])begin
@@ -68,8 +68,8 @@ always @(*) begin
         end else if(x >= 20 && x<30 && key_find>=2 && y>=55 && y<65)begin//key2
             pixel_addr = (x + 300 + (y - 25)*360)%86400;
             isObject = 1;
-        end else if(x >= 40 && x<60 && key_find==3 && y>=55 && y<65)begin//key3
-            pixel_addr = (x + 280 + (y - 25)*360)%86400;
+        end else if(x >= 35 && x<45 && key_find==3 && y>=55 && y<65)begin//key3
+            pixel_addr = (x + 285 + (y - 25)*360)%86400;
             isObject = 1;
         end
     end
@@ -92,8 +92,8 @@ always @(*) begin
         end else if(x >= 20 && x<30 && key_find>=2 && y>=55 && y<65)begin//key2
             pixel_addr = (x + 300 + (y - 25)*360)%86400;
             isObject = 1;
-        end else if(x >= 40 && x<60 && key_find==3 && y>=55 && y<65)begin//key3
-            pixel_addr = (x + 280 + (y - 25)*360)%86400;
+        end else if(x >= 35 && x<45 && key_find==3 && y>=55 && y<65)begin//key3
+            pixel_addr = (x + 285 + (y - 25)*360)%86400;
             isObject = 1;
         end
     end
@@ -113,8 +113,8 @@ always @(*) begin
         end else if(x >= 20 && x<30 && key_find>=2 && y>=55 && y<65)begin//key2
             pixel_addr = (x + 300 + (y - 25)*360)%86400;
             isObject = 1;
-        end else if(x >= 40 && x<60 && key_find==3 && y>=55 && y<65)begin//key3
-            pixel_addr = (x + 280 + (y - 25)*360)%86400;
+        end else if(x >= 35 && x<45 && key_find==3 && y>=55 && y<65)begin//key3
+            pixel_addr = (x + 285 + (y - 25)*360)%86400;
             isObject = 1;
         end
     end
@@ -127,7 +127,7 @@ always @(*) begin
                 pixel_addr = (x + (y - 140)*360)%86400;
                 isObject = 1;
             end else if(y >= 180 && y < 200)begin//back
-                pixel_addr = (x + 80 + (y - 140)*360)%86400;
+                pixel_addr = (x + 80 + (y - 180)*360)%86400;
                 isObject = 1;
             end
         end
@@ -152,7 +152,7 @@ always @(*) begin
                 pixel_addr = (x + 160 + (y - 140)*360)%86400;
                 isObject = 1;
             end else if(y >= 180 && y < 200)begin//back
-                pixel_addr = (x + 80 + (y - 140)*360)%86400;
+                pixel_addr = (x + 80 + (y - 180)*360)%86400;
                 isObject = 1;
             end
         end

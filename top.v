@@ -63,13 +63,13 @@ assign x = h_cnt >> 1;
 assign y = v_cnt >> 1;
 assign dx1 = (x > player_x + 5) ? x - player_x - 5 : player_x + 5 - x;
 assign dy1 = (y > player_y + 5) ? y - player_y - 5 : player_y + 5 - y; // Player
-assign dx2 = (x > player_x + 5) ? x - player_x - 5 : player_x + 5 - x;
-assign dy2 = (y > player_y + 5) ? y - player_y - 5 : player_y + 5 - y; // Light
+assign dx2 = (x > 70 + 5) ? x - 70 - 5 : 70 + 5 - x;
+assign dy2 = (y > 220 + 5) ? y - 220 - 5 : 220 + 5 - y; // Light
 
 always @(*) begin
     {vgaRed, vgaGreen, vgaBlue} = 0;
     if (valid && notBlank) begin
-        if (state == 4 && x >= 60 && x <= 285 && y >= 30 && y <= 235) begin// STAGE2
+        if (state == 4 && x >= 60 && y >= 30) begin// STAGE2
             if (isDark) begin
                 if (dx1 * dx1 + dy1 * dy1 < 400)
                     {vgaRed, vgaGreen, vgaBlue} = pixel;
@@ -83,7 +83,7 @@ end
 blk_mem_gen_0 blk_mem_gen_0_inst(
     .clka(clk_25MHz),
     .wea(0),
-    .addra(pixel_addr),
+    .addra(pixel_addr + 1),
     .dina(data[11:0]),
     .douta(pixel)
 ); 
@@ -101,6 +101,7 @@ vga_controller vga_inst(
 
 // Game
 // play : output state & player's position
+wire [1:0] todo;
 game_play play(
     .rst(rst),
     .clk(clk),
@@ -117,7 +118,8 @@ game_play play(
     .obj_y(obj_y),
     .key_find(key_find),
     .play_valid(play_valid),
-    .isDark(isDark)
+    .isDark(isDark),
+    .todo(todo)
 );
 // display : find obj on (h,v) and output pixel_addr with finding obj's addr by draw_obj
 game_display display(
@@ -138,7 +140,8 @@ game_display display(
     .key_find(key_find),
     .play_valid(play_valid),
     .pixel_addr(pixel_addr),
-    .notBlank(notBlank)
+    .notBlank(notBlank),
+    .todo(todo)
 );
 // sound : music of state // sound effect?
 
