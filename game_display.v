@@ -17,6 +17,7 @@ module game_display(
     input [8:0] obj_y,
     input [3:0] play_valid,
     input [1:0] key_find,
+    input [1:0] life,
     output reg [16:0] pixel_addr,
     output reg notBlank
 );
@@ -48,7 +49,7 @@ draw_interface interface(
     .h_cnt(h_cnt),
     .v_cnt(v_cnt),
     .key_find(key_find),
-    .heart(heart),
+    .life(life),
     .todo(todo),
     .play_valid(play_valid),
     .pixel_addr(interface_addr),

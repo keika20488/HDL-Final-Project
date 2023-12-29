@@ -24,6 +24,7 @@ module top(
 );
 
 wire [1:0] key_find;
+wire [1:0] life;
 wire [3:0] play_valid, state, player_state, boss_state;
 wire [8:0] player_x, player_y, boss_x, boss_y, obj_x, obj_y;
 // Clock Divider
@@ -117,9 +118,10 @@ game_play play(
     .obj_x(obj_x),
     .obj_y(obj_y),
     .key_find(key_find),
-    .play_valid(play_valid),
+    .play_valid(play_vaild),//play_vaild
     .isDark(isDark),
-    .todo(todo)
+    .todo(todo),
+    .life(life)
 );
 // display : find obj on (h,v) and output pixel_addr with finding obj's addr by draw_obj
 game_display display(
@@ -141,7 +143,8 @@ game_display display(
     .play_valid(play_valid),
     .pixel_addr(pixel_addr),
     .notBlank(notBlank),
-    .todo(todo)
+    .todo(todo),
+    .life(life)
 );
 // sound : music of state // sound effect?
 

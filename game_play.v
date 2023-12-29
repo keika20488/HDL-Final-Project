@@ -16,6 +16,7 @@ module game_play (
     output reg [8:0] obj_x,
     output reg [8:0] obj_y,
     output reg [1:0] key_find,
+    output reg [1:0] life,
     output reg [3:0] play_valid,
     output reg isDark
 );
@@ -76,11 +77,11 @@ parameter [3:0] STAGE3 = 6, SUCCESS3 = 7, FAIL = 8;
 reg pass, fail;
 
 always @(posedge clk or posedge rst) begin
-    if (rst) play_valid <= 4'b0010;
+    if (rst) play_valid <= 4'b1110;
     else begin
         case(state)
-        SUCCESS1: play_valid <= 4'b0110;
-        SUCCESS2: play_valid <= 4'b1110;
+        //SUCCESS1: play_valid <= 4'b0110;
+        //SUCCESS2: play_valid <= 4'b1110;
         default: play_valid <= play_valid;
         endcase
     end
@@ -223,6 +224,8 @@ parameter [0:40] map [0:40] = {
 41'b11111111111111111111111111111111111111111
 };
 
+reg collide;
+
 always @(posedge clk_23 or posedge rst) begin
     if (rst) player_state <= RIGHT1;
     else begin
@@ -244,40 +247,46 @@ always @(posedge clk_23 or posedge rst) begin
 end
 
 always @(posedge clk_23) begin
-    player_x <= player_x;
-    player_y <= player_y;
-    case(state)
-    STAGE1, STAGE2, STAGE3: begin
-        if(key_down[last_change]) begin
-            case (key_num)
-            4: begin
-                if(!map[(player_y -1 - 30)/5][(player_x - 60)/5] && !map[(player_y -1 - 30 +10)/5][(player_x - 60 +10)/5] && !map[(player_y -1 - 30+10)/5][(player_x - 60)/5] && !map[(player_y -1 - 30)/5][(player_x - 60 +10)/5])begin
-                    player_y <= player_y - 1;
-                end
-            end
-            5: begin
-                if(!map[(player_y - 30)/5][(player_x -1 - 60)/5] && !map[(player_y - 30 +10)/5][(player_x -1 - 60 +10)/5] && !map[(player_y - 30+10)/5][(player_x -1 - 60)/5] && !map[(player_y - 30 )/5][(player_x -1 - 60 +10)/5])begin
-                    player_x <= player_x - 1;
-                end
-            end
-            6: begin
-                if(!map[(player_y +1 - 30)/5][(player_x - 60)/5] && !map[(player_y +1 - 30 +10)/5][(player_x - 60 +10)/5] && !map[(player_y +1 - 30+10)/5][(player_x - 60)/5] && !map[(player_y +1 - 30 )/5][(player_x - 60 +10)/5])begin
-                    player_y <= player_y + 1;
-                end
-            end
-            7: begin
-                if(!map[(player_y - 30)/5][(player_x +1 - 60)/5] && !map[(player_y - 30 +10)/5][(player_x +1 - 60 +10)/5] && !map[(player_y - 30+10)/5][(player_x +1 - 60)/5] && !map[(player_y - 30 )/5][(player_x +1 - 60 +10)/5])begin
-                    player_x <= player_x + 1;
-                end
-            end
-            endcase
-        end
-    end
-    default: begin
+    if(collide)begin
         player_x <= 65;
         player_y <= 125;
     end
-    endcase
+    else begin
+        player_x <= player_x;
+        player_y <= player_y;
+        case(state)
+        STAGE1, STAGE2, STAGE3: begin
+            if(key_down[last_change]) begin
+                case (key_num)
+                4: begin
+                    if(!map[(player_y -1 - 30)/5][(player_x - 60)/5] && !map[(player_y -1 - 30 +10)/5][(player_x - 60 +10)/5] && !map[(player_y -1 - 30+10)/5][(player_x - 60)/5] && !map[(player_y -1 - 30)/5][(player_x - 60 +10)/5])begin
+                        player_y <= player_y - 1;
+                    end
+                end
+                5: begin
+                    if(!map[(player_y - 30)/5][(player_x -1 - 60)/5] && !map[(player_y - 30 +10)/5][(player_x -1 - 60 +10)/5] && !map[(player_y - 30+10)/5][(player_x -1 - 60)/5] && !map[(player_y - 30 )/5][(player_x -1 - 60 +10)/5])begin
+                        player_x <= player_x - 1;
+                    end
+                end
+                6: begin
+                    if(!map[(player_y +1 - 30)/5][(player_x - 60)/5] && !map[(player_y +1 - 30 +10)/5][(player_x - 60 +10)/5] && !map[(player_y +1 - 30+10)/5][(player_x - 60)/5] && !map[(player_y +1 - 30 )/5][(player_x - 60 +10)/5])begin
+                        player_y <= player_y + 1;
+                    end
+                end
+                7: begin
+                    if(!map[(player_y - 30)/5][(player_x +1 - 60)/5] && !map[(player_y - 30 +10)/5][(player_x +1 - 60 +10)/5] && !map[(player_y - 30+10)/5][(player_x +1 - 60)/5] && !map[(player_y - 30 )/5][(player_x +1 - 60 +10)/5])begin
+                        player_x <= player_x + 1;
+                    end
+                end
+                endcase
+            end
+        end
+        default: begin
+            player_x <= 65;
+            player_y <= 125;
+        end
+        endcase
+    end
 end
 //Boss position
 reg [8:0] next_boss_x;
@@ -466,12 +475,19 @@ assign boss_y_maze = ((boss_y-30)/5-1)/3;
 assign player_x_maze = ((player_x-60)/5-1)/3;
 assign player_y_maze = ((player_y-30)/5-1)/3;
 assign next_boss_dir = shortest_dir[(player_x_maze+player_y_maze*13)][(boss_x_maze+boss_y_maze*13)*2]*2+shortest_dir[(player_x_maze+player_y_maze*13)][(boss_x_maze+boss_y_maze*13)*2+1];
+
 always @(posedge clk_23) begin
-    if((boss_x-65)%15<3&&(boss_y-35)%15<3)begin
-        boss_dir <= next_boss_dir;
+    case(state)
+    STAGE3: begin
+        if((boss_x-65)%15<3&&(boss_y-35)%15<3)begin
+            boss_dir <= next_boss_dir;
+        end
+        else boss_dir<=boss_dir;
     end
-    else boss_dir<=boss_dir;
+    default: boss_dir <= 0;
+    endcase
 end
+
 always @(posedge clk_23 or posedge rst) begin
     if (rst) boss_state <= RIGHT1;
     else begin
@@ -489,47 +505,109 @@ always @(posedge clk_23 or posedge rst) begin
         endcase
     end
 end
+
+
 always @(posedge clk_23 or posedge rst) begin
     if(rst)begin
         boss_x <=  245;
         boss_y <= 37;
     end
     else begin
-        boss_x <=  boss_x;
-        boss_y <= boss_y;
-        
-        case(state)
-        STAGE3:begin
-        case (boss_dir)
-            0: begin
-                if(!map[(boss_y -1 - 30)/5][(boss_x - 60)/5] && !map[(boss_y -1 - 30 +10)/5][(boss_x - 60 +10)/5])begin
-                    boss_y <= boss_y - 1;
+        if(collide)begin
+            boss_x <=  245;
+            boss_y <= 37;
+        end
+        else begin
+            boss_x <=  boss_x;
+            boss_y <= boss_y;
+            
+            case(state)
+            STAGE3:begin
+            case (boss_dir)
+                0: begin
+                    if(!map[(boss_y -1 - 30)/5][(boss_x - 60)/5] && !map[(boss_y -1 - 30 +10)/5][(boss_x - 60 +10)/5])begin
+                        boss_y <= boss_y - 1;
+                    end
                 end
-            end
-            3: begin
-                if(!map[(boss_y - 30)/5][(boss_x -1 - 60)/5] && !map[(boss_y - 30 +10)/5][(boss_x -1 - 60 +10)/5])begin
-                    boss_x <= boss_x - 1;
+                3: begin
+                    if(!map[(boss_y - 30)/5][(boss_x -1 - 60)/5] && !map[(boss_y - 30 +10)/5][(boss_x -1 - 60 +10)/5])begin
+                        boss_x <= boss_x - 1;
+                    end
                 end
-            end
-            1: begin
-                if(!map[(boss_y +1 - 30)/5][(boss_x - 60)/5] && !map[(boss_y +1 - 30 +10)/5][(boss_x - 60 +10)/5])begin
-                    boss_y <= boss_y + 1;
+                1: begin
+                    if(!map[(boss_y +1 - 30)/5][(boss_x - 60)/5] && !map[(boss_y +1 - 30 +10)/5][(boss_x - 60 +10)/5])begin
+                        boss_y <= boss_y + 1;
+                    end
                 end
-            end
-            2: begin
-                if(!map[(boss_y - 30)/5][(boss_x +1 - 60)/5] && !map[(boss_y - 30 +10)/5][(boss_x +1 - 60 +10)/5])begin
-                    boss_x <= boss_x + 1;
+                2: begin
+                    if(!map[(boss_y - 30)/5][(boss_x +1 - 60)/5] && !map[(boss_y - 30 +10)/5][(boss_x +1 - 60 +10)/5])begin
+                        boss_x <= boss_x + 1;
+                    end
                 end
+                endcase
             end
+            
+            default: begin
+                boss_x <=  245;
+                boss_y <= 37;
+            end
+            
             endcase
         end
-        endcase
     end
 end
 
 // Object Position
 
 // Collide
+always @(posedge clk_23 or posedge rst) begin
+    if(rst)begin
+        collide <= 0;
+    end
+    else begin
+        if(collide == 1)collide <= 0;
+        else begin
+            case(state)
+            STAGE3:begin
+                if(((boss_x > player_x && player_x+10 >= boss_x) || (player_x > boss_x && player_x < boss_x+10)) && ((boss_y > player_y && player_y+10 >= boss_y) || (player_y > boss_y && player_y < boss_y+10)))begin
+                    collide <= 1;
+                end
+                else begin
+                    collide <= 0;
+                end
+            end
+            default : begin
+                collide <= 0;
+            end
+            endcase
+        end
+    end
+end
+
+always @(posedge clk_23 or posedge rst) begin
+    if(rst)begin
+        life <= 3;
+    end
+    else begin
+        if(collide)begin
+            life <= life - 1;
+        end
+        else begin
+            life <= life;
+        end
+    end
+end
+//fail
+always @(posedge clk_23) begin
+    case(state)
+        STAGE3:begin
+            if(life == 0)begin
+                fail <= 1;
+            end
+            else fail <= 0;
+        end
+    endcase
+end
 // Key
 always @(posedge clk_23) begin
     key_find <= key_find;

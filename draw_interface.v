@@ -5,7 +5,7 @@ module draw_interface(
     input [9:0] h_cnt,
     input [9:0] v_cnt,
     input [1:0] key_find,
-    input [1:0] heart,
+    input [1:0] life,
     input [1:0] todo,
     input [3:0] play_valid,
     output reg [16:0] pixel_addr,
@@ -115,6 +115,15 @@ always @(*) begin
             isObject = 1;
         end else if(x >= 35 && x<45 && key_find==3 && y>=55 && y<65)begin//key3
             pixel_addr = (x + 285 + (y - 25)*360)%86400;
+            isObject = 1;
+        end else if(life >= 1 && x >= 265 && x < 280 && y >= 30 && y < 45)begin//life1
+            pixel_addr = (x + 55 + (y + 10)*360)%86400;
+            isObject = 1;
+        end else if(life >= 2 && x >= 280 && x < 295 && y >= 30 && y < 45)begin//life2
+            pixel_addr = (x + 40 + (y + 10)*360)%86400;
+            isObject = 1;
+        end else if(life == 3 && x >= 295 && x < 310 && y >= 30 && y < 45)begin//life1
+            pixel_addr = (x + 25 + (y + 10)*360)%86400;
             isObject = 1;
         end
     end
