@@ -589,47 +589,45 @@ always @(posedge clk_23 or posedge rst) begin
         life <= 3;
     end
     else begin
-        if(collide)begin
-            life <= life - 1;
+        case(state)
+        STAGE3:begin
+            if(collide)begin
+                life <= life - 1;
+            end
+            else begin
+                life <= life;
+            end
         end
-        else begin
-            life <= life;
-        end
+        default: life <= 3;
+        endcase
     end
 end
 //fail
-always @(posedge clk_23) begin
-    case(state)
-        STAGE3:begin
-            if(life == 0)begin
-                fail <= 1;
+always @(posedge clk_23 or posedge rst) begin
+    if(rst)begin
+        fail <= 0;
+    end
+    else begin
+        case(state)
+            STAGE3:begin
+                if(life == 0)begin
+                    fail <= 1;
+                end
+                else fail <= 0;
             end
-            else fail <= 0;
-        end
-    endcase
-end
-// Key
-always @(posedge clk_23) begin
-    key_find <= key_find;
-    case(state)
-    STAGE1, STAGE3: begin
-        case (key_find)
-        0: begin
-            if (player_x >= 60 && player_x < 80 && player_y >= 30 && player_y < 50)
-                key_find <= key_find + 1;
-        end
-        1: begin
-            if (player_x >= 240 && player_x < 260 && player_y >= 30 && player_y < 50)
-                key_find <= key_find + 1;
-        end
-        2: begin
-            if (player_x >= 205 && player_x < 225 && player_y >= 210 && player_y < 230)
-                key_find <= key_find + 1;
-        end
+            default : fail <= 0;
         endcase
     end
-    STAGE2: begin
-        if (!isDark) begin
+end
+// Key
+always @(posedge clk_23 or posedge rst) begin
+    if(rst)begin
+        key_find <= 0;
+    end
+    else begin
+        key_find <= key_find;
+        case(state)
+        STAGE1, STAGE3: begin
             case (key_find)
             0: begin
                 if (player_x >= 60 && player_x < 80 && player_y >= 30 && player_y < 50)
@@ -645,9 +643,27 @@ always @(posedge clk_23) begin
             end
             endcase
         end
+        STAGE2: begin
+            if (!isDark) begin
+                case (key_find)
+                0: begin
+                    if (player_x >= 60 && player_x < 80 && player_y >= 30 && player_y < 50)
+                        key_find <= key_find + 1;
+                end
+                1: begin
+                    if (player_x >= 240 && player_x < 260 && player_y >= 30 && player_y < 50)
+                        key_find <= key_find + 1;
+                end
+                2: begin
+                    if (player_x >= 205 && player_x < 225 && player_y >= 210 && player_y < 230)
+                        key_find <= key_find + 1;
+                end
+                endcase
+            end
+        end
+        default: key_find <= 0;
+        endcase
     end
-    default: key_find <= 0;
-    endcase
 end
 // Pass
 always @(posedge clk_23) begin
