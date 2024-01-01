@@ -118,7 +118,7 @@ game_play play(
     .obj_x(obj_x),
     .obj_y(obj_y),
     .key_find(key_find),
-    .play_valid(play_vaild),//play_vaild
+    .play_valid(play_valid),//play_vaild
     .isDark(isDark),
     .todo(todo),
     .life(life)

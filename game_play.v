@@ -53,7 +53,13 @@ parameter [6:0] KEY_CODES [0:10] = {
 
 always @(*) begin
     case(last_change)
-    KEY_CODES[0] : key_num = 0;
+    KEY_CODES[0] : begin
+        if(key_down[KEY_CODES[4]])key_num = 4;
+        else if(key_down[KEY_CODES[5]])key_num = 5;
+        else if(key_down[KEY_CODES[6]])key_num = 6;
+        else if(key_down[KEY_CODES[7]])key_num = 7;
+        else key_num = 0;
+    end
     KEY_CODES[1] : key_num = 1;
     KEY_CODES[2] : key_num = 2;
     KEY_CODES[3] : key_num = 3;
@@ -77,11 +83,11 @@ parameter [3:0] STAGE3 = 6, SUCCESS3 = 7, FAIL = 8;
 reg pass, fail;
 
 always @(posedge clk or posedge rst) begin
-    if (rst) play_valid <= 4'b1110;
+    if (rst) play_valid <= 4'b0010;
     else begin
         case(state)
-        //SUCCESS1: play_valid <= 4'b0110;
-        //SUCCESS2: play_valid <= 4'b1110;
+        SUCCESS1: play_valid <= 4'b0110;
+        SUCCESS2: play_valid <= 4'b1110;
         default: play_valid <= play_valid;
         endcase
     end
@@ -173,6 +179,10 @@ end
 
 // Clock Divider
 clock_divider #(23) div_23(.clk(clk), .clk_div(clk_23));
+clock_divider #(22) div_22(.clk(clk), .clk_div(clk_22));
+clock_divider #(21) div_21(.clk(clk), .clk_div(clk_21));
+
+
 
 // Player Position
 parameter [3:0] UP1 = 0, UP2 = 1, UP3 = 2;
@@ -226,7 +236,13 @@ parameter [0:40] map [0:40] = {
 
 reg collide;
 
-always @(posedge clk_23 or posedge rst) begin
+// Player Speed
+wire shift_down;
+wire player_clk;
+assign shift_down = key_down[KEY_CODES[0]];
+assign player_clk = ((shift_down)?clk_21:clk_23);
+
+always @(posedge player_clk or posedge rst) begin
     if (rst) player_state <= RIGHT1;
     else begin
         case(state)
@@ -246,7 +262,7 @@ always @(posedge clk_23 or posedge rst) begin
     end
 end
 
-always @(posedge clk_23) begin
+always @(posedge player_clk) begin
     if(collide)begin
         player_x <= 65;
         player_y <= 125;
@@ -256,7 +272,7 @@ always @(posedge clk_23) begin
         player_y <= player_y;
         case(state)
         STAGE1, STAGE2, STAGE3: begin
-            if(key_down[last_change]) begin
+            if(key_down[last_change] ) begin
                 case (key_num)
                 4: begin
                     if(!map[(player_y -1 - 30)/5][(player_x - 60)/5] && !map[(player_y -1 - 30 +10)/5][(player_x - 60 +10)/5] && !map[(player_y -1 - 30+10)/5][(player_x - 60)/5] && !map[(player_y -1 - 30)/5][(player_x - 60 +10)/5])begin
@@ -476,7 +492,7 @@ assign player_x_maze = ((player_x-60)/5-1)/3;
 assign player_y_maze = ((player_y-30)/5-1)/3;
 assign next_boss_dir = shortest_dir[(player_x_maze+player_y_maze*13)][(boss_x_maze+boss_y_maze*13)*2]*2+shortest_dir[(player_x_maze+player_y_maze*13)][(boss_x_maze+boss_y_maze*13)*2+1];
 
-always @(posedge clk_23) begin
+always @(posedge clk_22) begin
     case(state)
     STAGE3: begin
         if((boss_x-65)%15<3&&(boss_y-35)%15<3)begin
@@ -488,7 +504,7 @@ always @(posedge clk_23) begin
     endcase
 end
 
-always @(posedge clk_23 or posedge rst) begin
+always @(posedge clk_22 or posedge rst) begin
     if (rst) boss_state <= RIGHT1;
     else begin
         case(state)
@@ -507,7 +523,7 @@ always @(posedge clk_23 or posedge rst) begin
 end
 
 
-always @(posedge clk_23 or posedge rst) begin
+always @(posedge clk_22 or posedge rst) begin
     if(rst)begin
         boss_x <=  245;
         boss_y <= 37;
@@ -560,7 +576,7 @@ end
 // Object Position
 
 // Collide
-always @(posedge clk_23 or posedge rst) begin
+always @(posedge player_clk or posedge rst) begin
     if(rst)begin
         collide <= 0;
     end
@@ -584,7 +600,7 @@ always @(posedge clk_23 or posedge rst) begin
     end
 end
 
-always @(posedge clk_23 or posedge rst) begin
+always @(posedge player_clk or posedge rst) begin
     if(rst)begin
         life <= 3;
     end
@@ -603,7 +619,7 @@ always @(posedge clk_23 or posedge rst) begin
     end
 end
 //fail
-always @(posedge clk_23 or posedge rst) begin
+always @(posedge player_clk or posedge rst) begin
     if(rst)begin
         fail <= 0;
     end
