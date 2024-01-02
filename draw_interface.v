@@ -166,6 +166,18 @@ always @(*) begin
             end
         end
     end
+    STAFF:begin
+        if(x >= 80 && x < 240 && y >= 40 && y < 100)begin //Staff
+            pixel_addr = (x + 80 +(y + 80)*360)%86400;
+            isObject = 1;
+        end else if(x >= 100 && x < 220 && y >= 120 && y < 160)begin//ting&ting
+            pixel_addr = (x + 60 + (y + 60)*360)%86400;
+            isObject = 1;
+        end else if(x >= 120 && x < 200 && y >= 180 && y < 200)begin//back
+            pixel_addr = (x + 80 + (y - 180)*360)%86400;
+            isObject = 1;
+        end
+    end
     endcase
 end
 
