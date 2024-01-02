@@ -41,7 +41,36 @@ onepulse p3(.clk(clk), . pb_in(_volDOWN_d), .pb_out(Vol_down));
 
 // Music
 // music sheet
-//
+//volume
+reg [2:0] volume;
+wire [15:0] audio_in_left, audio_in_right;
+
+always @ (posedge clk or posedge rst) begin
+    if (rst) volume <= 3;
+    else if (!_mute) begin
+        if (Vol_down && volume > 1) volume <= volume - 1;
+        else if (Vol_up && volume < 5) volume <= volume + 1;
+    end else volume <= volume;
+end
+
+game_sound bgm(
+    .clk(clk),
+    .rst(rst),
+    .state(state),
+    .toneL(freqL),
+    .toneR(freqR)
+);
+
+note_gen noteGen(
+    .clk(clk), 
+    .rst(rst), 
+    .volume(volume),
+    .note_div_left(freq_outL), 
+    .note_div_right(freq_outR), 
+    .audio_left(audio_in_left),     // left sound audio
+    .audio_right(audio_in_right)    // right sound audio
+);
+
 speaker_control sc(
     .clk(clk), 
     .rst(rst), 
