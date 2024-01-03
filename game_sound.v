@@ -2,6 +2,7 @@
 module game_sound(
     input clk,
     input rst,
+    input mute,
     input [3:0] state,
     output reg [31:0] freqL,
     output reg [31:0] freqR
@@ -35,44 +36,49 @@ bgm_help bgmHelp(
 );
 
 always @(*) begin
-    case(state)
-    TITLE: begin
-        freqL = title_l / 50000000;
-        freqR = title_r / 50000000;
-    end
-    STAFF: begin
-        freqL = staff_l / 50000000;
-        freqR = staff_r / 50000000;
-    end
-    STAGE1: begin
-        freqL = stage1_l / 50000000;
-        freqR = stage1_r / 50000000;
-    end
-    STAGE2: begin
-        freqL = stage2_l / 50000000;
-        freqR = stage2_r / 50000000;
-    end
-    STAGE3: begin
-        freqL = stage3_l / 50000000;
-        freqR = stage3_r / 50000000;
-    end
-    FAIL: begin
-        freqL = fail_l / 50000000;
-        freqR = fail_r / 50000000;
-    end
-    HELP: begin
-        freqL = help_l / 50000000;
-        freqR = help_r / 50000000;
-    end
-    SUCCESS1, SUCCESS2, SUCCESS3: begin
-        freqL = success_l / 50000000;
-        freqR = success_r / 50000000;
-    end
-    default: begin
+    if (mute) begin
         freqL = 1;
         freqR = 1;
+    end else begin
+        case(state)
+        TITLE: begin
+            freqL = title_l / 50000000;
+            freqR = title_r / 50000000;
+        end
+        STAFF: begin
+            freqL = staff_l / 50000000;
+            freqR = staff_r / 50000000;
+        end
+        STAGE1: begin
+            freqL = stage1_l / 50000000;
+            freqR = stage1_r / 50000000;
+        end
+        STAGE2: begin
+            freqL = stage2_l / 50000000;
+            freqR = stage2_r / 50000000;
+        end
+        STAGE3: begin
+            freqL = stage3_l / 50000000;
+            freqR = stage3_r / 50000000;
+        end
+        FAIL: begin
+            freqL = fail_l / 50000000;
+            freqR = fail_r / 50000000;
+        end
+        HELP: begin
+            freqL = help_l / 50000000;
+            freqR = help_r / 50000000;
+        end
+        SUCCESS1, SUCCESS2, SUCCESS3: begin
+            freqL = success_l / 50000000;
+            freqR = success_r / 50000000;
+        end
+        default: begin
+            freqL = 1;
+            freqR = 1;
+        end
+        endcase
     end
-    endcase
 end
 
 endmodule

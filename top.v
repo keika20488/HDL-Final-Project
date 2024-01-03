@@ -18,11 +18,15 @@ module top(
     output audio_sck,
     output audio_sdin,
 
-    output [15:0] led,     // state, volume // debug
+    output [4:0] led,     // state, volume // debug
     output [6:0] DISPLAY,  // time record // debug
     output [3:0] DIGIT
 );
 
+
+reg [2:0] volume;
+wire [15:0] audio_in_left, audio_in_right;
+wire [31:0] freqL, freqR;        
 wire [1:0] key_find;
 wire [1:0] life;
 wire [3:0] play_valid, state, player_state, boss_state;
@@ -38,12 +42,11 @@ onepulse p2(.clk(clk), . pb_in(_volUP_d), .pb_out(Vol_up));
 debounce de3(.clk(clk), .pb(_volDOWN), .pb_debounced(_volDOWN_d));
 onepulse p3(.clk(clk), . pb_in(_volDOWN_d), .pb_out(Vol_down));
 
+assign _led = (_mute) ? 5'b0 : 5'b11111 >> (5 - volume);
 
 // Music
 // music sheet
 //volume
-reg [2:0] volume;
-wire [15:0] audio_in_left, audio_in_right;
 
 always @ (posedge clk or posedge rst) begin
     if (rst) volume <= 3;
@@ -56,6 +59,7 @@ end
 game_sound bgm(
     .clk(clk),
     .rst(rst),
+    .mute(_mute),
     .state(state),
     .freqL(freqL),
     .freqR(freqR)
