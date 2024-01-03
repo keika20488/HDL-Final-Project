@@ -51,7 +51,8 @@ parameter [6:0] KEY_CODES [0:10] = {
     7'b010_0011,  //d  //right //23
     7'b011_0001,  //n  //next  //31
     7'b011_0010,  //b  //back  //32
-    7'b010_1101   //r  //retry //2D
+    7'b010_1101,  //r  //retry //2D
+    7'b011_0011   //h  //help  //33
 };
 
 always @(*) begin
@@ -73,6 +74,7 @@ always @(*) begin
     KEY_CODES[8] : key_num = 8;
     KEY_CODES[9] : key_num = 9;
     KEY_CODES[10]: key_num = 10;
+    KEY_CODES[11]: key_num = 11;
     default : key_num = 15;
     endcase
 end
@@ -149,6 +151,11 @@ always @(posedge clk or posedge rst) begin
             if (key_down[last_change] && key_num == 9)
                 state <= TITLE;
             else state <= STAFF;
+        end
+        HELP: begin
+            if (key_down[last_change] && key_num == 9)
+                state <= TITLE;
+            else state <= HELP;
         end
         default: state <= state;
         endcase
