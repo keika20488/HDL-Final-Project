@@ -38,11 +38,19 @@ bgm_staff #(.LEN(1536)) bgmSTAFF(
 );
 
 bgm_stage1 #(.LEN(1408)) bgmSTAGE1(
-    .clk(clk_21),
+    .clk(clk_22),
     .rst(rst),
 	.en(state == STAGE1),
 	.toneL(stage1_l),
     .toneR(stage1_r)
+);
+
+bgm_fail #(.LEN(1152)) bgmHFail(
+    .clk(clk_22),
+    .rst(rst),
+	.en(state == FAIL),
+	.toneL(fail_l),
+    .toneR(fail_r)
 );
 
 bgm_help #(.LEN(1024)) bgmHelp(
