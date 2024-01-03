@@ -26,15 +26,20 @@ module game_display(
 wire [16:0] door_addr, interface_addr, map_addr, obj_addr, boss_addr, player_addr;
 wire isLocked;
 assign isLocked = (key_find < 3) ? 1 : 0;
-draw_boss boss(
+draw_ppl ppl(
     .state(state),
     .h_cnt(h_cnt),
     .v_cnt(v_cnt),
-    .pixel_addr(boss_addr),
+    .boss_addr(boss_addr),
+    .player_addr(player_addr),
     .boss_x(boss_x),
     .boss_y(boss_y),
     .boss_state(boss_state),
-    .isObject(isBoss)
+    .player_x(player_x),
+    .player_y(player_y),
+    .player_state(player_state),
+    .isBoss(isBoss),
+    .isPlayer(isPlayer)
 );
 draw_door door(
     .state(state),
@@ -55,7 +60,6 @@ draw_interface interface(
     .pixel_addr(interface_addr),
     .isObject(isInterface)
 );
-
 draw_map map(
     .state(state),
     .h_cnt(h_cnt),
@@ -63,7 +67,6 @@ draw_map map(
     .pixel_addr(map_addr),
     .isObject(isMap)
 );
-
 draw_obj obj(
     .state(state),
     .h_cnt(h_cnt),
@@ -72,17 +75,6 @@ draw_obj obj(
     .key_find(key_find),
     .pixel_addr(obj_addr),
     .isObject(isObj)
-);
-
-draw_player player(
-    .state(state),
-    .h_cnt(h_cnt),
-    .v_cnt(v_cnt),
-    .player_x(player_x),
-    .player_y(player_y),
-    .player_state(player_state),
-    .pixel_addr(player_addr),
-    .isObject(isPlayer)
 );
 
 parameter [3:0] TITLE = 0, STAFF = 1;
