@@ -17,6 +17,7 @@ assign x = h_cnt >> 1;
 assign y = v_cnt >> 1;
 always @(*) begin
     isObject = 0;
+    pixel_addr = 0;
     case(state)
     STAGE1: begin
         if(x >= player_x && x < player_x+10 && y >= player_y && y < player_y+10)begin

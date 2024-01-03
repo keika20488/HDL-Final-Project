@@ -18,21 +18,24 @@ module top(
     output audio_sck,
     output audio_sdin,
 
-    output [4:0] led,     // state, volume // debug
-    output [6:0] DISPLAY,  // time record // debug
+    output [4:0] led,      // volume
+    output [6:0] DISPLAY,  // time record
     output [3:0] DIGIT
 );
 
 
 reg [2:0] volume;
 wire [15:0] audio_in_left, audio_in_right;
-wire [31:0] freqL, freqR;        
+wire [25:0] freqL, freqR;        
 wire [1:0] key_find;
 wire [1:0] life;
 wire [3:0] play_valid, state, player_state, boss_state;
 wire [8:0] player_x, player_y, boss_x, boss_y, obj_x, obj_y;
 // Clock Divider
 clock_divider #(2) div_25M(.clk(clk), .clk_div(clk_25MHz));
+clock_divider #(23) div_23(.clk(clk), .clk_div(clk_23));
+clock_divider #(22) div_22(.clk(clk), .clk_div(clk_22));
+clock_divider #(21) div_21(.clk(clk), .clk_div(clk_21));
 
 // Button
 debounce de1(.clk(clk), .pb(_rst), .pb_debounced(rst_d));
@@ -42,7 +45,7 @@ onepulse p2(.clk(clk), . pb_in(_volUP_d), .pb_out(Vol_up));
 debounce de3(.clk(clk), .pb(_volDOWN), .pb_debounced(_volDOWN_d));
 onepulse p3(.clk(clk), . pb_in(_volDOWN_d), .pb_out(Vol_down));
 
-assign _led = (_mute) ? 5'b0 : 5'b11111 >> (5 - volume);
+assign led = (_mute) ? 5'b0 : 5'b11111 >> (5 - volume);
 
 // Music
 // music sheet
@@ -57,7 +60,7 @@ always @ (posedge clk or posedge rst) begin
 end
 
 game_sound bgm(
-    .clk(clk),
+    .clk(clk_22),
     .rst(rst),
     .mute(_mute),
     .state(state),
@@ -69,8 +72,8 @@ note_gen noteGen(
     .clk(clk), 
     .rst(rst), 
     .volume(volume),
-    .note_div_left(freqL), 
-    .note_div_right(freqR), 
+    .note_div_left(50000000/freqL), 
+    .note_div_right(50000000/freqR), 
     .audio_left(audio_in_left),     // left sound audio
     .audio_right(audio_in_right)    // right sound audio
 );
@@ -139,6 +142,9 @@ wire [1:0] todo;
 game_play play(
     .rst(rst),
     .clk(clk),
+    .clk_21(clk_21),
+    .clk_22(clk_22),
+    .clk_23(clk_23),
     .PS2_DATA(PS2_DATA),
     .PS2_CLK(PS2_CLK),
     .state(state),
@@ -179,7 +185,6 @@ game_display display(
     .todo(todo),
     .life(life)
 );
-// sound : music of state // sound effect?
 
 // Sevensegment
 wire [15:0] nums;
