@@ -29,7 +29,7 @@ bgm_title #(.LEN(2240)) bgmTitle(
     .toneR(title_r)
 );
 
-bgm_staff #(.LEN(1536)) bgmSTAFF(
+bgm_staff #(.LEN(1600)) bgmSTAFF(
     .clk(clk_21),
     .rst(rst),
 	.en(state == STAFF),

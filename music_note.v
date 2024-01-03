@@ -4611,7 +4611,7 @@ module bgm_staff(
             12'd968: toneL = `D3;   12'd969: toneL = `D3;
             12'd970: toneL = `D3;   12'd971: toneL = `D3;
             12'd972: toneL = `D3;   12'd973: toneL = `D3;
-            12'd974: toneL = `D3;   12'd975: toneL = `D3;
+            12'd974: toneL = `D3;   12'd975: toneL = `SIL;
 
             12'd976: toneL = `D3;   12'd977: toneL = `D3;
             12'd978: toneL = `D3;   12'd979: toneL = `D3;
@@ -4629,7 +4629,7 @@ module bgm_staff(
             12'd1000: toneL = `C3;   12'd1001: toneL = `C3;
             12'd1002: toneL = `C3;   12'd1003: toneL = `C3;
             12'd1004: toneL = `C3;   12'd1005: toneL = `C3;
-            12'd1006: toneL = `C3;   12'd1007: toneL = `C3;
+            12'd1006: toneL = `C3;   12'd1007: toneL = `SIL;
 
             12'd1008: toneL = `C3;   12'd1009: toneL = `C3;
             12'd1010: toneL = `C3;   12'd1011: toneL = `C3;
@@ -5066,7 +5066,7 @@ module bgm_stage1(
             12'd376: toneR = `A4;   12'd377: toneR = `A4;
             12'd378: toneR = `A4;   12'd379: toneR = `A4;
             12'd380: toneR = `A4;   12'd381: toneR = `A4;
-            12'd382: toneR = `A4;   12'd383: toneR = `A4;
+            12'd382: toneR = `A4;   12'd383: toneR = `SIL;
 
             // Measure 7 //
             12'd384: toneR = `A4;   12'd385: toneR = `A4;
