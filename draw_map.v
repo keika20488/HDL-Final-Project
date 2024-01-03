@@ -6,10 +6,7 @@ module draw_map(
     output reg [16:0] pixel_addr,
     output reg isObject
 );
-parameter [3:0] TITLE = 0, STAFF = 1;
-parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
-parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
-parameter [3:0] STAGE3 = 6, SUCCESS3 = 7, FAIL = 8;
+parameter [3:0] STAGE1 = 2, STAGE2 = 4, STAGE3 = 6;
 
 parameter [0:40] map [0:40] = {
 41'b11111111111111111111111111111111111111111,

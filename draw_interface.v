@@ -14,7 +14,8 @@ module draw_interface(
 parameter [3:0] TITLE = 0, STAFF = 1;
 parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
 parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
-parameter [3:0] STAGE3 = 6, SUCCESS3 = 7, FAIL = 8;
+parameter [3:0] STAGE3 = 6, SUCCESS3 = 7;
+parameter [3:0] FAIL = 8, HELP = 9;
 
 parameter [1:0] NONE = 0, FIND_KEY = 1, FIND_LIGHT = 2, FIND_DOOR = 3; 
 wire [8:0] x,y;

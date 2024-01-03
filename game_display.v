@@ -85,11 +85,11 @@ draw_player player(
     .isObject(isPlayer)
 );
 
-//assign pixel_addr = ((h_cnt>>1)+320*(v_cnt>>1) )% 76800;  //640*480 --> 320*240 
 parameter [3:0] TITLE = 0, STAFF = 1;
 parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
 parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
-parameter [3:0] STAGE3 = 6, SUCCESS3 = 7, FAIL = 8;
+parameter [3:0] STAGE3 = 6, SUCCESS3 = 7;
+parameter [3:0] FAIL = 8, HELP = 9;
 
 always@(posedge clk or posedge rst)begin
 end
