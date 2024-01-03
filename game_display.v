@@ -36,6 +36,14 @@ draw_boss boss(
     .boss_state(boss_state),
     .isObject(isBoss)
 );
+draw_door door(
+    .state(state),
+    .h_cnt(h_cnt),
+    .v_cnt(v_cnt),
+    .isLocked(isLocked),
+    .pixel_addr(door_addr),
+    .isObject(isDoor)
+);
 draw_interface interface(
     .state(state),
     .h_cnt(h_cnt),
@@ -52,7 +60,6 @@ draw_map map(
     .state(state),
     .h_cnt(h_cnt),
     .v_cnt(v_cnt),
-    .isLocked(isLocked),
     .pixel_addr(map_addr),
     .isObject(isMap)
 );
@@ -111,6 +118,9 @@ always@(*)begin
             notBlank = 1;
         end else if (isMap) begin
             pixel_addr = map_addr;
+            notBlank = 1;
+        end else if (isDoor) begin
+            pixel_addr = door_addr;
             notBlank = 1;
         end
     end

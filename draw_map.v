@@ -1,9 +1,8 @@
-// map
+// wall
 module draw_map(
     input [3:0] state,
     input [9:0] h_cnt,
     input [9:0] v_cnt,
-    input isLocked,
     output reg [16:0] pixel_addr,
     output reg isObject
 );
@@ -62,15 +61,7 @@ always@(*)begin
     pixel_addr = 0;
     case(state)
     STAGE1, STAGE2, STAGE3:begin
-        if(x >= 260 && x <270 && y>=127 && y<137)begin
-            if(isLocked)begin
-                pixel_addr = (x + 80 + (y - 107)*360)%86400;
-                isObject = 1;
-            end else begin
-                pixel_addr = (x + 90 + (y - 107)*360)%86400;
-                isObject = 1;
-            end
-        end else if(x >= 60 && x < 265 && y >= 30 && y < 235)begin
+        if(x >= 60 && x < 265 && y >= 30 && y < 235)begin
             if(map[(y - 30)/5][(x - 60)/5])begin
                 pixel_addr = (x%5 + 330 + (y%5 + 30) * 360)%86400;
                 isObject = 1;
@@ -78,6 +69,7 @@ always@(*)begin
         end
     end
     endcase
+    
 end
 endmodule
 //200*200->40*40 player20*20->4*4
