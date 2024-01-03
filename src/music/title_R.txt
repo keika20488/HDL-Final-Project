@@ -1,0 +1,1436 @@
+// Measure 1 //
+'d0: toneR = `D6;   'd1: toneR = `D6;
+'d2: toneR = `D6;   'd3: toneR = `D6;
+'d4: toneR = `D6;   'd5: toneR = `D6;
+'d6: toneR = `D6;   'd7: toneR = `D6;
+
+'d8: toneR = `D6;   'd9: toneR = `D6;
+'d10: toneR = `D6;   'd11: toneR = `D6;
+'d12: toneR = `D6;   'd13: toneR = `D6;
+'d14: toneR = `D6;   'd15: toneR = `D6;
+
+'d16: toneR = `D6;   'd17: toneR = `D6;
+'d18: toneR = `D6;   'd19: toneR = `D6;
+'d20: toneR = `D6;   'd21: toneR = `D6;
+'d22: toneR = `D6;   'd23: toneR = `D6;
+
+'d24: toneR = `D6;   'd25: toneR = `D6;
+'d26: toneR = `D6;   'd27: toneR = `D6;
+'d28: toneR = `D6;   'd29: toneR = `D6;
+'d30: toneR = `D6;   'd31: toneR = `D6;
+
+'d32: toneR = `D6;   'd33: toneR = `D6;
+'d34: toneR = `D6;   'd35: toneR = `D6;
+'d36: toneR = `D6;   'd37: toneR = `D6;
+'d38: toneR = `D6;   'd39: toneR = `D6;
+
+'d40: toneR = `D6;   'd41: toneR = `D6;
+'d42: toneR = `D6;   'd43: toneR = `D6;
+'d44: toneR = `D6;   'd45: toneR = `D6;
+'d46: toneR = `D6;   'd47: toneR = `D6;
+
+'d48: toneR = `D5;   'd49: toneR = `D5;
+'d50: toneR = `D5;   'd51: toneR = `D5;
+'d52: toneR = `D5;   'd53: toneR = `D5;
+'d54: toneR = `D5;   'd55: toneR = `D5;
+
+'d56: toneR = `G5;   'd57: toneR = `G5;
+'d58: toneR = `G5;   'd59: toneR = `G5;
+'d60: toneR = `G5;   'd61: toneR = `G5;
+'d62: toneR = `G5;   'd63: toneR = `G5;
+
+// Measure 2 //
+'d64: toneR = `A5;   'd65: toneR = `A5;
+'d66: toneR = `A5;   'd67: toneR = `A5;
+'d68: toneR = `A5;   'd69: toneR = `A5;
+'d70: toneR = `A5;   'd71: toneR = `A5;
+
+'d72: toneR = `A5;   'd73: toneR = `A5;
+'d74: toneR = `A5;   'd75: toneR = `A5;
+'d76: toneR = `A5;   'd77: toneR = `A5;
+'d78: toneR = `SIL;   'd79: toneR = `SIL;
+
+'d80: toneR = `B5;   'd81: toneR = `B5;
+'d82: toneR = `B5;   'd83: toneR = `B5;
+'d84: toneR = `B5;   'd85: toneR = `B5;
+'d86: toneR = `B5;   'd87: toneR = `B5;
+
+'d88: toneR = `B5;   'd89: toneR = `B5;
+'d90: toneR = `B5;   'd91: toneR = `B5;
+'d92: toneR = `B5;   'd93: toneR = `B5;
+'d94: toneR = `SIL;   'd95: toneR = `SIL;
+
+'d96: toneR = `A5;   'd97: toneR = `A5;
+'d98: toneR = `B5;   'd99: toneR = `B5;
+'d100: toneR = `A5;   'd101: toneR = `A5;
+'d102: toneR = `A5;   'd103: toneR = `A5;
+
+'d104: toneR = `A5;   'd105: toneR = `A5;
+'d106: toneR = `A5;   'd107: toneR = `A5;
+'d108: toneR = `A5;   'd109: toneR = `A5;
+'d110: toneR = `SIL;   'd111: toneR = `SIL;
+
+'d112: toneR = `G5;   'd113: toneR = `G5;
+'d114: toneR = `G5;   'd115: toneR = `G5;
+'d116: toneR = `G5;   'd117: toneR = `G5;
+'d118: toneR = `G5;   'd119: toneR = `G5;
+
+'d120: toneR = `G5;   'd121: toneR = `G5;
+'d122: toneR = `G5;   'd123: toneR = `G5;
+'d124: toneR = `G5;   'd125: toneR = `G5;
+'d126: toneR = `G5;   'd127: toneR = `G5;
+
+// Measure 3 //
+'d128: toneR = `D6;   'd129: toneR = `D6;
+'d130: toneR = `D6;   'd131: toneR = `D6;
+'d132: toneR = `D6;   'd133: toneR = `D6;
+'d134: toneR = `D6;   'd135: toneR = `D6;
+
+'d136: toneR = `D6;   'd137: toneR = `D6;
+'d138: toneR = `D6;   'd139: toneR = `D6;
+'d140: toneR = `D6;   'd141: toneR = `D6;
+'d142: toneR = `D6;   'd143: toneR = `D6;
+
+'d144: toneR = `D6;   'd145: toneR = `D6;
+'d146: toneR = `D6;   'd147: toneR = `D6;
+'d148: toneR = `D6;   'd149: toneR = `D6;
+'d150: toneR = `D6;   'd151: toneR = `D6;
+
+'d152: toneR = `D6;   'd153: toneR = `D6;
+'d154: toneR = `D6;   'd155: toneR = `D6;
+'d156: toneR = `D6;   'd157: toneR = `D6;
+'d158: toneR = `D6;   'd159: toneR = `D6;
+
+'d160: toneR = `D6;   'd161: toneR = `D6;
+'d162: toneR = `D6;   'd163: toneR = `D6;
+'d164: toneR = `D6;   'd165: toneR = `D6;
+'d166: toneR = `D6;   'd167: toneR = `D6;
+
+'d168: toneR = `D6;   'd169: toneR = `D6;
+'d170: toneR = `D6;   'd171: toneR = `D6;
+'d172: toneR = `D6;   'd173: toneR = `D6;
+'d174: toneR = `D6;   'd175: toneR = `D6;
+
+'d176: toneR = `D5;   'd177: toneR = `D5;
+'d178: toneR = `D5;   'd179: toneR = `D5;
+'d180: toneR = `D5;   'd181: toneR = `D5;
+'d182: toneR = `D5;   'd183: toneR = `D5;
+
+'d184: toneR = `G5;   'd185: toneR = `G5;
+'d186: toneR = `G5;   'd187: toneR = `G5;
+'d188: toneR = `G5;   'd189: toneR = `G5;
+'d190: toneR = `G5;   'd191: toneR = `G5;
+
+// Measure 4 //
+'d192: toneR = `A5;   'd193: toneR = `A5;
+'d194: toneR = `A5;   'd195: toneR = `A5;
+'d196: toneR = `A5;   'd197: toneR = `A5;
+'d198: toneR = `A5;   'd199: toneR = `A5;
+
+'d200: toneR = `A5;   'd201: toneR = `A5;
+'d202: toneR = `A5;   'd203: toneR = `A5;
+'d204: toneR = `A5;   'd205: toneR = `A5;
+'d206: toneR = `SIL;   'd207: toneR = `SIL;
+
+'d208: toneR = `B5;   'd209: toneR = `B5;
+'d210: toneR = `B5;   'd211: toneR = `B5;
+'d212: toneR = `B5;   'd213: toneR = `B5;
+'d214: toneR = `B5;   'd215: toneR = `B5;
+
+'d216: toneR = `B5;   'd217: toneR = `B5;
+'d218: toneR = `B5;   'd219: toneR = `B5;
+'d220: toneR = `B5;   'd221: toneR = `B5;
+'d222: toneR = `SIL;   'd223: toneR = `SIL;
+
+'d224: toneR = `A5;   'd225: toneR = `A5;
+'d226: toneR = `B5;   'd227: toneR = `B5;
+'d228: toneR = `A5;   'd229: toneR = `A5;
+'d230: toneR = `A5;   'd231: toneR = `A5;
+
+'d232: toneR = `A5;   'd233: toneR = `A5;
+'d234: toneR = `A5;   'd235: toneR = `A5;
+'d236: toneR = `A5;   'd237: toneR = `A5;
+'d238: toneR = `SIL;   'd239: toneR = `SIL;
+
+'d240: toneR = `G5;   'd241: toneR = `G5;
+'d242: toneR = `G5;   'd243: toneR = `G5;
+'d244: toneR = `G5;   'd245: toneR = `G5;
+'d246: toneR = `G5;   'd247: toneR = `G5;
+
+'d248: toneR = `G5;   'd249: toneR = `G5;
+'d250: toneR = `G5;   'd251: toneR = `G5;
+'d252: toneR = `G5;   'd253: toneR = `G5;
+'d254: toneR = `G5;   'd255: toneR = `G5;
+
+// Measure 5 //
+'d256: toneR = `Cs6;   'd257: toneR = `Cs6;
+'d258: toneR = `Cs6;   'd259: toneR = `Cs6;
+'d260: toneR = `Cs6;   'd261: toneR = `Cs6;
+'d262: toneR = `Cs6;   'd263: toneR = `Cs6;
+
+'d264: toneR = `Cs6;   'd265: toneR = `Cs6;
+'d266: toneR = `Cs6;   'd267: toneR = `Cs6;
+'d268: toneR = `Cs6;   'd269: toneR = `Cs6;
+'d270: toneR = `Cs6;   'd271: toneR = `Cs6;
+
+'d272: toneR = `Cs6;   'd273: toneR = `Cs6;
+'d274: toneR = `Cs6;   'd275: toneR = `Cs6;
+'d276: toneR = `Cs6;   'd277: toneR = `Cs6;
+'d278: toneR = `Cs6;   'd279: toneR = `Cs6;
+
+'d280: toneR = `Cs6;   'd281: toneR = `Cs6;
+'d282: toneR = `Cs6;   'd283: toneR = `Cs6;
+'d284: toneR = `Cs6;   'd285: toneR = `Cs6;
+'d286: toneR = `Cs6;   'd287: toneR = `Cs6;
+
+'d288: toneR = `Cs6;   'd289: toneR = `Cs6;
+'d290: toneR = `Cs6;   'd291: toneR = `Cs6;
+'d292: toneR = `Cs6;   'd293: toneR = `Cs6;
+'d294: toneR = `Cs6;   'd295: toneR = `Cs6;
+
+'d296: toneR = `Cs6;   'd297: toneR = `Cs6;
+'d298: toneR = `Cs6;   'd299: toneR = `Cs6;
+'d300: toneR = `Cs6;   'd301: toneR = `Cs6;
+'d302: toneR = `Cs6;   'd303: toneR = `Cs6;
+
+'d304: toneR = `Cs5;   'd305: toneR = `Cs5;
+'d306: toneR = `Cs5;   'd307: toneR = `Cs5;
+'d308: toneR = `Cs5;   'd309: toneR = `Cs5;
+'d310: toneR = `Cs5;   'd311: toneR = `Cs5;
+
+'d312: toneR = `E5;   'd313: toneR = `E5;
+'d314: toneR = `E5;   'd315: toneR = `E5;
+'d316: toneR = `E5;   'd317: toneR = `E5;
+'d318: toneR = `E5;   'd319: toneR = `E5;
+
+// Measure 6 //
+'d320: toneR = `Fs5;   'd321: toneR = `Fs5;
+'d322: toneR = `Fs5;   'd323: toneR = `Fs5;
+'d324: toneR = `Fs5;   'd325: toneR = `Fs5;
+'d326: toneR = `Fs5;   'd327: toneR = `Fs5;
+
+'d328: toneR = `Fs5;   'd329: toneR = `Fs5;
+'d330: toneR = `Fs5;   'd331: toneR = `Fs5;
+'d332: toneR = `Fs5;   'd333: toneR = `Fs5;
+'d334: toneR = `SIL;   'd335: toneR = `SIL;
+
+'d336: toneR = `G5;   'd337: toneR = `G5;
+'d338: toneR = `G5;   'd339: toneR = `G5;
+'d340: toneR = `G5;   'd341: toneR = `G5;
+'d342: toneR = `G5;   'd343: toneR = `G5;
+
+'d344: toneR = `G5;   'd345: toneR = `G5;
+'d346: toneR = `G5;   'd347: toneR = `G5;
+'d348: toneR = `G5;   'd349: toneR = `G5;
+'d350: toneR = `SIL;   'd351: toneR = `SIL;
+
+'d352: toneR = `A5;   'd353: toneR = `A5;
+'d354: toneR = `B5;   'd355: toneR = `B5;
+'d356: toneR = `A5;   'd357: toneR = `A5;
+'d358: toneR = `A5;   'd359: toneR = `A5;
+
+'d360: toneR = `A5;   'd361: toneR = `A5;
+'d362: toneR = `A5;   'd363: toneR = `A5;
+'d364: toneR = `A5;   'd365: toneR = `A5;
+'d366: toneR = `A5;   'd367: toneR = `A5;
+
+'d368: toneR = `A5;   'd369: toneR = `A5;
+'d370: toneR = `A5;   'd371: toneR = `A5;
+'d372: toneR = `A5;   'd373: toneR = `A5;
+'d374: toneR = `SIL;   'd375: toneR = `SIL;
+
+'d376: toneR = `D6;   'd377: toneR = `D6;
+'d378: toneR = `D6;   'd379: toneR = `D6;
+'d380: toneR = `D6;   'd381: toneR = `D6;
+'d382: toneR = `D6;   'd383: toneR = `D6;
+
+// Measure 7 //
+'d384: toneR = `B5;   'd385: toneR = `B5;
+'d386: toneR = `B5;   'd387: toneR = `B5;
+'d388: toneR = `B5;   'd389: toneR = `B5;
+'d390: toneR = `B5;   'd391: toneR = `B5;
+
+'d392: toneR = `B5;   'd393: toneR = `B5;
+'d394: toneR = `B5;   'd395: toneR = `B5;
+'d396: toneR = `B5;   'd397: toneR = `B5;
+'d398: toneR = `B5;   'd399: toneR = `B5;
+
+'d400: toneR = `B5;   'd401: toneR = `B5;
+'d402: toneR = `B5;   'd403: toneR = `B5;
+'d404: toneR = `B5;   'd405: toneR = `B5;
+'d406: toneR = `B5;   'd407: toneR = `B5;
+
+'d408: toneR = `B5;   'd409: toneR = `B5;
+'d410: toneR = `B5;   'd411: toneR = `B5;
+'d412: toneR = `B5;   'd413: toneR = `B5;
+'d414: toneR = `B5;   'd415: toneR = `B5;
+
+'d416: toneR = `B5;   'd417: toneR = `B5;
+'d418: toneR = `B5;   'd419: toneR = `B5;
+'d420: toneR = `B5;   'd421: toneR = `B5;
+'d422: toneR = `B5;   'd423: toneR = `B5;
+
+'d424: toneR = `B5;   'd425: toneR = `B5;
+'d426: toneR = `B5;   'd427: toneR = `B5;
+'d428: toneR = `B5;   'd429: toneR = `B5;
+'d430: toneR = `B5;   'd431: toneR = `B5;
+
+'d432: toneR = `SIL;   'd433: toneR = `SIL;
+'d434: toneR = `SIL;   'd435: toneR = `SIL;
+'d436: toneR = `SIL;   'd437: toneR = `SIL;
+'d438: toneR = `SIL;   'd439: toneR = `SIL;
+
+'d440: toneR = `SIL;   'd441: toneR = `SIL;
+'d442: toneR = `SIL;   'd443: toneR = `SIL;
+'d444: toneR = `SIL;   'd445: toneR = `SIL;
+'d446: toneR = `SIL;   'd447: toneR = `SIL;
+
+// Measure 8 //
+'d448: toneR = `SIL;   'd449: toneR = `SIL;
+'d450: toneR = `SIL;   'd451: toneR = `SIL;
+'d452: toneR = `SIL;   'd453: toneR = `SIL;
+'d454: toneR = `SIL;   'd455: toneR = `SIL;
+
+'d456: toneR = `SIL;   'd457: toneR = `SIL;
+'d458: toneR = `SIL;   'd459: toneR = `SIL;
+'d460: toneR = `SIL;   'd461: toneR = `SIL;
+'d462: toneR = `SIL;   'd463: toneR = `SIL;
+
+'d464: toneR = `SIL;   'd465: toneR = `SIL;
+'d466: toneR = `SIL;   'd467: toneR = `SIL;
+'d468: toneR = `SIL;   'd469: toneR = `SIL;
+'d470: toneR = `SIL;   'd471: toneR = `SIL;
+
+'d472: toneR = `SIL;   'd473: toneR = `SIL;
+'d474: toneR = `SIL;   'd475: toneR = `SIL;
+'d476: toneR = `SIL;   'd477: toneR = `SIL;
+'d478: toneR = `SIL;   'd479: toneR = `SIL;
+
+'d480: toneR = `SIL;   'd481: toneR = `SIL;
+'d482: toneR = `SIL;   'd483: toneR = `SIL;
+'d484: toneR = `SIL;   'd485: toneR = `SIL;
+'d486: toneR = `SIL;   'd487: toneR = `SIL;
+
+'d488: toneR = `SIL;   'd489: toneR = `SIL;
+'d490: toneR = `SIL;   'd491: toneR = `SIL;
+'d492: toneR = `SIL;   'd493: toneR = `SIL;
+'d494: toneR = `SIL;   'd495: toneR = `SIL;
+
+'d496: toneR = `SIL;   'd497: toneR = `SIL;
+'d498: toneR = `SIL;   'd499: toneR = `SIL;
+'d500: toneR = `SIL;   'd501: toneR = `SIL;
+'d502: toneR = `SIL;   'd503: toneR = `SIL;
+
+'d504: toneR = `SIL;   'd505: toneR = `SIL;
+'d506: toneR = `SIL;   'd507: toneR = `SIL;
+'d508: toneR = `SIL;   'd509: toneR = `SIL;
+'d510: toneR = `SIL;   'd511: toneR = `SIL;
+
+// Measure 9 //
+'d512: toneR = `D6;   'd513: toneR = `D6;
+'d514: toneR = `D6;   'd515: toneR = `D6;
+'d516: toneR = `D6;   'd517: toneR = `D6;
+'d518: toneR = `D6;   'd519: toneR = `D6;
+
+'d520: toneR = `D6;   'd521: toneR = `D6;
+'d522: toneR = `D6;   'd523: toneR = `D6;
+'d524: toneR = `D6;   'd525: toneR = `D6;
+'d526: toneR = `D6;   'd527: toneR = `D6;
+
+'d528: toneR = `D6;   'd529: toneR = `D6;
+'d530: toneR = `D6;   'd531: toneR = `D6;
+'d532: toneR = `D6;   'd533: toneR = `D6;
+'d534: toneR = `D6;   'd535: toneR = `D6;
+
+'d536: toneR = `D6;   'd537: toneR = `D6;
+'d538: toneR = `D6;   'd539: toneR = `D6;
+'d540: toneR = `D6;   'd541: toneR = `D6;
+'d542: toneR = `D6;   'd543: toneR = `D6;
+
+'d544: toneR = `D6;   'd545: toneR = `D6;
+'d546: toneR = `D6;   'd547: toneR = `D6;
+'d548: toneR = `D6;   'd549: toneR = `D6;
+'d550: toneR = `D6;   'd551: toneR = `D6;
+
+'d552: toneR = `D6;   'd553: toneR = `D6;
+'d554: toneR = `D6;   'd555: toneR = `D6;
+'d556: toneR = `D6;   'd557: toneR = `D6;
+'d558: toneR = `D6;   'd559: toneR = `D6;
+
+'d560: toneR = `D5;   'd561: toneR = `D5;
+'d562: toneR = `D5;   'd563: toneR = `D5;
+'d564: toneR = `D5;   'd565: toneR = `D5;
+'d566: toneR = `D5;   'd567: toneR = `D5;
+
+'d568: toneR = `G5;   'd569: toneR = `G5;
+'d570: toneR = `G5;   'd571: toneR = `G5;
+'d572: toneR = `G5;   'd573: toneR = `G5;
+'d574: toneR = `G5;   'd575: toneR = `G5;
+
+// Measure 10 //
+'d576: toneR = `A5;   'd577: toneR = `A5;
+'d578: toneR = `A5;   'd579: toneR = `A5;
+'d580: toneR = `A5;   'd581: toneR = `A5;
+'d582: toneR = `A5;   'd583: toneR = `A5;
+
+'d584: toneR = `A5;   'd585: toneR = `A5;
+'d586: toneR = `A5;   'd587: toneR = `A5;
+'d588: toneR = `A5;   'd589: toneR = `A5;
+'d590: toneR = `SIL;   'd591: toneR = `SIL;
+
+'d592: toneR = `B5;   'd593: toneR = `B5;
+'d594: toneR = `B5;   'd595: toneR = `B5;
+'d596: toneR = `B5;   'd597: toneR = `B5;
+'d598: toneR = `B5;   'd599: toneR = `B5;
+
+'d600: toneR = `B5;   'd601: toneR = `B5;
+'d602: toneR = `B5;   'd603: toneR = `B5;
+'d604: toneR = `B5;   'd605: toneR = `B5;
+'d606: toneR = `SIL;   'd607: toneR = `SIL;
+
+'d608: toneR = `A5;   'd609: toneR = `A5;
+'d610: toneR = `B5;   'd611: toneR = `B5;
+'d612: toneR = `A5;   'd613: toneR = `A5;
+'d614: toneR = `A5;   'd615: toneR = `A5;
+
+'d616: toneR = `A5;   'd617: toneR = `A5;
+'d618: toneR = `A5;   'd619: toneR = `A5;
+'d620: toneR = `A5;   'd621: toneR = `A5;
+'d622: toneR = `SIL;   'd623: toneR = `SIL;
+
+'d624: toneR = `G5;   'd625: toneR = `G5;
+'d626: toneR = `G5;   'd627: toneR = `G5;
+'d628: toneR = `G5;   'd629: toneR = `G5;
+'d630: toneR = `G5;   'd631: toneR = `G5;
+
+'d632: toneR = `G5;   'd633: toneR = `G5;
+'d634: toneR = `G5;   'd635: toneR = `G5;
+'d636: toneR = `G5;   'd637: toneR = `G5;
+'d638: toneR = `G5;   'd639: toneR = `G5;
+
+// Measure 11 //
+'d640: toneR = `D6;   'd641: toneR = `D6;
+'d642: toneR = `D6;   'd643: toneR = `D6;
+'d644: toneR = `D6;   'd645: toneR = `D6;
+'d646: toneR = `D6;   'd647: toneR = `D6;
+
+'d648: toneR = `D6;   'd649: toneR = `D6;
+'d650: toneR = `D6;   'd651: toneR = `D6;
+'d652: toneR = `D6;   'd653: toneR = `D6;
+'d654: toneR = `D6;   'd655: toneR = `D6;
+
+'d656: toneR = `D6;   'd657: toneR = `D6;
+'d658: toneR = `D6;   'd659: toneR = `D6;
+'d660: toneR = `D6;   'd661: toneR = `D6;
+'d662: toneR = `D6;   'd663: toneR = `D6;
+
+'d664: toneR = `D6;   'd665: toneR = `D6;
+'d666: toneR = `D6;   'd667: toneR = `D6;
+'d668: toneR = `D6;   'd669: toneR = `D6;
+'d670: toneR = `D6;   'd671: toneR = `D6;
+
+'d672: toneR = `D6;   'd673: toneR = `D6;
+'d674: toneR = `D6;   'd675: toneR = `D6;
+'d676: toneR = `D6;   'd677: toneR = `D6;
+'d678: toneR = `D6;   'd679: toneR = `D6;
+
+'d680: toneR = `D6;   'd681: toneR = `D6;
+'d682: toneR = `D6;   'd683: toneR = `D6;
+'d684: toneR = `D6;   'd685: toneR = `D6;
+'d686: toneR = `D6;   'd687: toneR = `D6;
+
+'d688: toneR = `D5;   'd689: toneR = `D5;
+'d690: toneR = `D5;   'd691: toneR = `D5;
+'d692: toneR = `D5;   'd693: toneR = `D5;
+'d694: toneR = `D5;   'd695: toneR = `D5;
+
+'d696: toneR = `G5;   'd697: toneR = `G5;
+'d698: toneR = `G5;   'd699: toneR = `G5;
+'d700: toneR = `G5;   'd701: toneR = `G5;
+'d702: toneR = `G5;   'd703: toneR = `G5;
+
+// Measure 12 //
+'d704: toneR = `A5;   'd705: toneR = `A5;
+'d706: toneR = `A5;   'd707: toneR = `A5;
+'d708: toneR = `A5;   'd709: toneR = `A5;
+'d710: toneR = `A5;   'd711: toneR = `A5;
+
+'d712: toneR = `A5;   'd713: toneR = `A5;
+'d714: toneR = `A5;   'd715: toneR = `A5;
+'d716: toneR = `A5;   'd717: toneR = `A5;
+'d718: toneR = `SIL;   'd719: toneR = `SIL;
+
+'d720: toneR = `B5;   'd721: toneR = `B5;
+'d722: toneR = `B5;   'd723: toneR = `B5;
+'d724: toneR = `B5;   'd725: toneR = `B5;
+'d726: toneR = `B5;   'd727: toneR = `B5;
+
+'d728: toneR = `B5;   'd729: toneR = `B5;
+'d730: toneR = `B5;   'd731: toneR = `B5;
+'d732: toneR = `B5;   'd733: toneR = `B5;
+'d734: toneR = `SIL;   'd735: toneR = `SIL;
+
+'d736: toneR = `A5;   'd737: toneR = `A5;
+'d738: toneR = `B5;   'd739: toneR = `B5;
+'d740: toneR = `A5;   'd741: toneR = `A5;
+'d742: toneR = `A5;   'd743: toneR = `A5;
+
+'d744: toneR = `A5;   'd745: toneR = `A5;
+'d746: toneR = `A5;   'd747: toneR = `A5;
+'d748: toneR = `A5;   'd749: toneR = `A5;
+'d750: toneR = `SIL;   'd751: toneR = `SIL;
+
+'d752: toneR = `G5;   'd753: toneR = `G5;
+'d754: toneR = `G5;   'd755: toneR = `G5;
+'d756: toneR = `G5;   'd757: toneR = `G5;
+'d758: toneR = `G5;   'd759: toneR = `G5;
+
+'d760: toneR = `G5;   'd761: toneR = `G5;
+'d762: toneR = `G5;   'd763: toneR = `G5;
+'d764: toneR = `G5;   'd765: toneR = `G5;
+'d766: toneR = `G5;   'd767: toneR = `G5;
+
+// Measure 13 //
+'d768: toneR = `Cs6;   'd769: toneR = `Cs6;
+'d770: toneR = `Cs6;   'd771: toneR = `Cs6;
+'d772: toneR = `Cs6;   'd773: toneR = `Cs6;
+'d774: toneR = `Cs6;   'd775: toneR = `Cs6;
+
+'d776: toneR = `Cs6;   'd777: toneR = `Cs6;
+'d778: toneR = `Cs6;   'd779: toneR = `Cs6;
+'d780: toneR = `Cs6;   'd781: toneR = `Cs6;
+'d782: toneR = `Cs6;   'd783: toneR = `Cs6;
+
+'d784: toneR = `Cs6;   'd785: toneR = `Cs6;
+'d786: toneR = `Cs6;   'd787: toneR = `Cs6;
+'d788: toneR = `Cs6;   'd789: toneR = `Cs6;
+'d790: toneR = `Cs6;   'd791: toneR = `Cs6;
+
+'d792: toneR = `Cs6;   'd793: toneR = `Cs6;
+'d794: toneR = `Cs6;   'd795: toneR = `Cs6;
+'d796: toneR = `Cs6;   'd797: toneR = `Cs6;
+'d798: toneR = `Cs6;   'd799: toneR = `Cs6;
+
+'d800: toneR = `Cs6;   'd801: toneR = `Cs6;
+'d802: toneR = `Cs6;   'd803: toneR = `Cs6;
+'d804: toneR = `Cs6;   'd805: toneR = `Cs6;
+'d806: toneR = `Cs6;   'd807: toneR = `Cs6;
+
+'d808: toneR = `Cs6;   'd809: toneR = `Cs6;
+'d810: toneR = `Cs6;   'd811: toneR = `Cs6;
+'d812: toneR = `Cs6;   'd813: toneR = `Cs6;
+'d814: toneR = `Cs6;   'd815: toneR = `Cs6;
+
+'d816: toneR = `E5;   'd817: toneR = `E5;
+'d818: toneR = `E5;   'd819: toneR = `E5;
+'d820: toneR = `E5;   'd821: toneR = `E5;
+'d822: toneR = `E5;   'd823: toneR = `E5;
+
+'d824: toneR = `Fs5;   'd825: toneR = `Fs5;
+'d826: toneR = `Fs5;   'd827: toneR = `Fs5;
+'d828: toneR = `Fs5;   'd829: toneR = `Fs5;
+'d830: toneR = `Fs5;   'd831: toneR = `Fs5;
+
+// Measure 14 //
+'d832: toneR = `A5;   'd833: toneR = `A5;
+'d834: toneR = `A5;   'd835: toneR = `A5;
+'d836: toneR = `A5;   'd837: toneR = `A5;
+'d838: toneR = `A5;   'd839: toneR = `A5;
+
+'d840: toneR = `A5;   'd841: toneR = `A5;
+'d842: toneR = `A5;   'd843: toneR = `A5;
+'d844: toneR = `A5;   'd845: toneR = `A5;
+'d846: toneR = `SIL;   'd847: toneR = `SIL;
+
+'d848: toneR = `B5;   'd849: toneR = `B5;
+'d850: toneR = `B5;   'd851: toneR = `B5;
+'d852: toneR = `B5;   'd853: toneR = `B5;
+'d854: toneR = `B5;   'd855: toneR = `B5;
+
+'d856: toneR = `B5;   'd857: toneR = `B5;
+'d858: toneR = `B5;   'd859: toneR = `B5;
+'d860: toneR = `B5;   'd861: toneR = `B5;
+'d862: toneR = `SIL;   'd863: toneR = `SIL;
+
+'d864: toneR = `E6;   'd865: toneR = `E6;
+'d866: toneR = `E6;   'd867: toneR = `E6;
+'d868: toneR = `E6;   'd869: toneR = `E6;
+'d870: toneR = `E6;   'd871: toneR = `E6;
+
+'d872: toneR = `D6;   'd873: toneR = `D6;
+'d874: toneR = `D6;   'd875: toneR = `D6;
+'d876: toneR = `D6;   'd877: toneR = `D6;
+'d878: toneR = `D6;   'd879: toneR = `D6;
+
+'d880: toneR = `D6;   'd881: toneR = `D6;
+'d882: toneR = `D6;   'd883: toneR = `D6;
+'d884: toneR = `D6;   'd885: toneR = `D6;
+'d886: toneR = `SIL;   'd887: toneR = `SIL;
+
+'d888: toneR = `Cs6;   'd889: toneR = `Cs6;
+'d890: toneR = `Cs6;   'd891: toneR = `Cs6;
+'d892: toneR = `Cs6;   'd893: toneR = `Cs6;
+'d894: toneR = `Cs6;   'd895: toneR = `SIL;
+
+// Measure 15 //
+'d896: toneR = `A5;   'd897: toneR = `A5;
+'d898: toneR = `A5;   'd899: toneR = `A5;
+'d900: toneR = `A5;   'd901: toneR = `A5;
+'d902: toneR = `A5;   'd903: toneR = `A5;
+
+'d904: toneR = `A5;   'd905: toneR = `A5;
+'d906: toneR = `A5;   'd907: toneR = `A5;
+'d908: toneR = `A5;   'd909: toneR = `A5;
+'d910: toneR = `A5;   'd911: toneR = `A5;
+
+'d912: toneR = `A5;   'd913: toneR = `A5;
+'d914: toneR = `A5;   'd915: toneR = `A5;
+'d916: toneR = `A5;   'd917: toneR = `A5;
+'d918: toneR = `A5;   'd919: toneR = `A5;
+
+'d920: toneR = `A5;   'd921: toneR = `A5;
+'d922: toneR = `A5;   'd923: toneR = `A5;
+'d924: toneR = `A5;   'd925: toneR = `A5;
+'d926: toneR = `A5;   'd927: toneR = `A5;
+
+'d928: toneR = `A5;   'd929: toneR = `A5;
+'d930: toneR = `A5;   'd931: toneR = `A5;
+'d932: toneR = `A5;   'd933: toneR = `A5;
+'d934: toneR = `A5;   'd935: toneR = `A5;
+
+'d936: toneR = `A5;   'd937: toneR = `A5;
+'d938: toneR = `A5;   'd939: toneR = `A5;
+'d940: toneR = `A5;   'd941: toneR = `A5;
+'d942: toneR = `A5;   'd943: toneR = `A5;
+
+'d944: toneR = `SIL;   'd945: toneR = `SIL;
+'d946: toneR = `SIL;   'd947: toneR = `SIL;
+'d948: toneR = `SIL;   'd949: toneR = `SIL;
+'d950: toneR = `SIL;   'd951: toneR = `SIL;
+
+'d952: toneR = `SIL;   'd953: toneR = `SIL;
+'d954: toneR = `SIL;   'd955: toneR = `SIL;
+'d956: toneR = `SIL;   'd957: toneR = `SIL;
+'d958: toneR = `SIL;   'd959: toneR = `SIL;
+
+// Measure 16 //
+'d960: toneR = `SIL;   'd961: toneR = `SIL;
+'d962: toneR = `SIL;   'd963: toneR = `SIL;
+'d964: toneR = `SIL;   'd965: toneR = `SIL;
+'d966: toneR = `SIL;   'd967: toneR = `SIL;
+
+'d968: toneR = `SIL;   'd969: toneR = `SIL;
+'d970: toneR = `SIL;   'd971: toneR = `SIL;
+'d972: toneR = `SIL;   'd973: toneR = `SIL;
+'d974: toneR = `SIL;   'd975: toneR = `SIL;
+
+'d976: toneR = `SIL;   'd977: toneR = `SIL;
+'d978: toneR = `SIL;   'd979: toneR = `SIL;
+'d980: toneR = `SIL;   'd981: toneR = `SIL;
+'d982: toneR = `SIL;   'd983: toneR = `SIL;
+
+'d984: toneR = `SIL;   'd985: toneR = `SIL;
+'d986: toneR = `SIL;   'd987: toneR = `SIL;
+'d988: toneR = `SIL;   'd989: toneR = `SIL;
+'d990: toneR = `SIL;   'd991: toneR = `SIL;
+
+'d992: toneR = `SIL;   'd993: toneR = `SIL;
+'d994: toneR = `SIL;   'd995: toneR = `SIL;
+'d996: toneR = `SIL;   'd997: toneR = `SIL;
+'d998: toneR = `SIL;   'd999: toneR = `SIL;
+
+'d1000: toneR = `SIL;   'd1001: toneR = `SIL;
+'d1002: toneR = `SIL;   'd1003: toneR = `SIL;
+'d1004: toneR = `SIL;   'd1005: toneR = `SIL;
+'d1006: toneR = `SIL;   'd1007: toneR = `SIL;
+
+'d1008: toneR = `SIL;   'd1009: toneR = `SIL;
+'d1010: toneR = `SIL;   'd1011: toneR = `SIL;
+'d1012: toneR = `SIL;   'd1013: toneR = `SIL;
+'d1014: toneR = `SIL;   'd1015: toneR = `SIL;
+
+'d1016: toneR = `SIL;   'd1017: toneR = `SIL;
+'d1018: toneR = `SIL;   'd1019: toneR = `SIL;
+'d1020: toneR = `SIL;   'd1021: toneR = `SIL;
+'d1022: toneR = `SIL;   'd1023: toneR = `SIL;
+
+// Measure 17 //
+'d1024: toneR = `D6;   'd1025: toneR = `D6;
+'d1026: toneR = `D6;   'd1027: toneR = `D6;
+'d1028: toneR = `D6;   'd1029: toneR = `D6;
+'d1030: toneR = `D6;   'd1031: toneR = `D6;
+
+'d1032: toneR = `D6;   'd1033: toneR = `D6;
+'d1034: toneR = `D6;   'd1035: toneR = `D6;
+'d1036: toneR = `D6;   'd1037: toneR = `D6;
+'d1038: toneR = `D6;   'd1039: toneR = `D6;
+
+'d1040: toneR = `D6;   'd1041: toneR = `D6;
+'d1042: toneR = `D6;   'd1043: toneR = `D6;
+'d1044: toneR = `D6;   'd1045: toneR = `D6;
+'d1046: toneR = `D6;   'd1047: toneR = `D6;
+
+'d1048: toneR = `D6;   'd1049: toneR = `D6;
+'d1050: toneR = `D6;   'd1051: toneR = `D6;
+'d1052: toneR = `D6;   'd1053: toneR = `D6;
+'d1054: toneR = `D6;   'd1055: toneR = `D6;
+
+'d1056: toneR = `D6;   'd1057: toneR = `D6;
+'d1058: toneR = `D6;   'd1059: toneR = `D6;
+'d1060: toneR = `D6;   'd1061: toneR = `D6;
+'d1062: toneR = `D6;   'd1063: toneR = `D6;
+
+'d1064: toneR = `D6;   'd1065: toneR = `D6;
+'d1066: toneR = `D6;   'd1067: toneR = `D6;
+'d1068: toneR = `D6;   'd1069: toneR = `D6;
+'d1070: toneR = `D6;   'd1071: toneR = `D6;
+
+'d1072: toneR = `Bf5;   'd1073: toneR = `Bf5;
+'d1074: toneR = `Bf5;   'd1075: toneR = `Bf5;
+'d1076: toneR = `Bf5;   'd1077: toneR = `Bf5;
+'d1078: toneR = `Bf5;   'd1079: toneR = `Bf5;
+
+'d1080: toneR = `C6;   'd1081: toneR = `C6;
+'d1082: toneR = `C6;   'd1083: toneR = `C6;
+'d1084: toneR = `C6;   'd1085: toneR = `C6;
+'d1086: toneR = `C6;   'd1087: toneR = `C6;
+
+// Measure 18 //
+'d1088: toneR = `D6;   'd1089: toneR = `D6;
+'d1090: toneR = `D6;   'd1091: toneR = `D6;
+'d1092: toneR = `D6;   'd1093: toneR = `D6;
+'d1094: toneR = `D6;   'd1095: toneR = `D6;
+
+'d1096: toneR = `D6;   'd1097: toneR = `D6;
+'d1098: toneR = `D6;   'd1099: toneR = `D6;
+'d1100: toneR = `D6;   'd1101: toneR = `D6;
+'d1102: toneR = `SIL;   'd1103: toneR = `SIL;
+
+'d1104: toneR = `F6;   'd1105: toneR = `F6;
+'d1106: toneR = `F6;   'd1107: toneR = `F6;
+'d1108: toneR = `F6;   'd1109: toneR = `F6;
+'d1110: toneR = `F6;   'd1111: toneR = `F6;
+
+'d1112: toneR = `F6;   'd1113: toneR = `F6;
+'d1114: toneR = `F6;   'd1115: toneR = `F6;
+'d1116: toneR = `F6;   'd1117: toneR = `F6;
+'d1118: toneR = `SIL;   'd1119: toneR = `SIL;
+
+'d1120: toneR = `Bf6;   'd1121: toneR = `Bf6;
+'d1122: toneR = `Bf6;   'd1123: toneR = `Bf6;
+'d1124: toneR = `Bf6;   'd1125: toneR = `Bf6;
+'d1126: toneR = `Bf6;   'd1127: toneR = `Bf6;
+
+'d1128: toneR = `Bf6;   'd1129: toneR = `Bf6;
+'d1130: toneR = `Bf6;   'd1131: toneR = `Bf6;
+'d1132: toneR = `Bf6;   'd1133: toneR = `Bf6;
+'d1134: toneR = `Bf6;   'd1135: toneR = `Bf6;
+
+'d1136: toneR = `Bf6;   'd1137: toneR = `Bf6;
+'d1138: toneR = `Bf6;   'd1139: toneR = `Bf6;
+'d1140: toneR = `Bf6;   'd1141: toneR = `Bf6;
+'d1142: toneR = `Bf6;   'd1143: toneR = `Bf6;
+
+'d1144: toneR = `A6;   'd1145: toneR = `A6;
+'d1146: toneR = `A6;   'd1147: toneR = `A6;
+'d1148: toneR = `A6;   'd1149: toneR = `A6;
+'d1150: toneR = `A6;   'd1151: toneR = `SIL;
+
+// Measure 19 //
+'d1152: toneR = `G6;   'd1153: toneR = `G6;
+'d1154: toneR = `G6;   'd1155: toneR = `G6;
+'d1156: toneR = `G6;   'd1157: toneR = `G6;
+'d1158: toneR = `G6;   'd1159: toneR = `G6;
+
+'d1160: toneR = `F6;   'd1161: toneR = `F6;
+'d1162: toneR = `F6;   'd1163: toneR = `F6;
+'d1164: toneR = `F6;   'd1165: toneR = `F6;
+'d1166: toneR = `F6;   'd1167: toneR = `F6;
+
+'d1168: toneR = `D6;   'd1169: toneR = `D6;
+'d1170: toneR = `D6;   'd1171: toneR = `D6;
+'d1172: toneR = `D6;   'd1173: toneR = `D6;
+'d1174: toneR = `D6;   'd1175: toneR = `D6;
+
+'d1176: toneR = `D6;   'd1177: toneR = `D6;
+'d1178: toneR = `D6;   'd1179: toneR = `D6;
+'d1180: toneR = `D6;   'd1181: toneR = `D6;
+'d1182: toneR = `D6;   'd1183: toneR = `D6;
+
+'d1184: toneR = `D6;   'd1185: toneR = `D6;
+'d1186: toneR = `D6;   'd1187: toneR = `D6;
+'d1188: toneR = `D6;   'd1189: toneR = `D6;
+'d1190: toneR = `D6;   'd1191: toneR = `D6;
+
+'d1192: toneR = `D6;   'd1193: toneR = `D6;
+'d1194: toneR = `D6;   'd1195: toneR = `D6;
+'d1196: toneR = `D6;   'd1197: toneR = `D6;
+'d1198: toneR = `D6;   'd1199: toneR = `D6;
+
+'d1200: toneR = `D6;   'd1201: toneR = `D6;
+'d1202: toneR = `D6;   'd1203: toneR = `D6;
+'d1204: toneR = `D6;   'd1205: toneR = `D6;
+'d1206: toneR = `D6;   'd1207: toneR = `D6;
+
+'d1208: toneR = `D6;   'd1209: toneR = `D6;
+'d1210: toneR = `D6;   'd1211: toneR = `D6;
+'d1212: toneR = `D6;   'd1213: toneR = `D6;
+'d1214: toneR = `D6;   'd1215: toneR = `D6;
+
+// Measure 20 //
+'d1216: toneR = `D6;   'd1217: toneR = `D6;
+'d1218: toneR = `D6;   'd1219: toneR = `D6;
+'d1220: toneR = `D6;   'd1221: toneR = `D6;
+'d1222: toneR = `D6;   'd1223: toneR = `D6;
+
+'d1224: toneR = `D6;   'd1225: toneR = `D6;
+'d1226: toneR = `D6;   'd1227: toneR = `D6;
+'d1228: toneR = `D6;   'd1229: toneR = `D6;
+'d1230: toneR = `D6;   'd1231: toneR = `D6;
+
+'d1232: toneR = `D6;   'd1233: toneR = `D6;
+'d1234: toneR = `D6;   'd1235: toneR = `D6;
+'d1236: toneR = `D6;   'd1237: toneR = `D6;
+'d1238: toneR = `D6;   'd1239: toneR = `D6;
+
+'d1240: toneR = `D6;   'd1241: toneR = `D6;
+'d1242: toneR = `D6;   'd1243: toneR = `D6;
+'d1244: toneR = `D6;   'd1245: toneR = `D6;
+'d1246: toneR = `D6;   'd1247: toneR = `D6;
+
+'d1248: toneR = `D6;   'd1249: toneR = `D6;
+'d1250: toneR = `D6;   'd1251: toneR = `D6;
+'d1252: toneR = `D6;   'd1253: toneR = `D6;
+'d1254: toneR = `D6;   'd1255: toneR = `D6;
+
+'d1256: toneR = `D6;   'd1257: toneR = `D6;
+'d1258: toneR = `D6;   'd1259: toneR = `D6;
+'d1260: toneR = `D6;   'd1261: toneR = `D6;
+'d1262: toneR = `D6;   'd1263: toneR = `D6;
+
+'d1264: toneR = `SIL;   'd1265: toneR = `SIL;
+'d1266: toneR = `SIL;   'd1267: toneR = `SIL;
+'d1268: toneR = `SIL;   'd1269: toneR = `SIL;
+'d1270: toneR = `SIL;   'd1271: toneR = `SIL;
+
+'d1272: toneR = `SIL;   'd1273: toneR = `SIL;
+'d1274: toneR = `SIL;   'd1275: toneR = `SIL;
+'d1276: toneR = `SIL;   'd1277: toneR = `SIL;
+'d1278: toneR = `SIL;   'd1279: toneR = `SIL;
+
+// Measure 21 //
+'d1280: toneR = `Df6;   'd1281: toneR = `Df6;
+'d1282: toneR = `Df6;   'd1283: toneR = `Df6;
+'d1284: toneR = `Df6;   'd1285: toneR = `Df6;
+'d1286: toneR = `Df6;   'd1287: toneR = `Df6;
+
+'d1288: toneR = `Df6;   'd1289: toneR = `Df6;
+'d1290: toneR = `Df6;   'd1291: toneR = `Df6;
+'d1292: toneR = `Df6;   'd1293: toneR = `Df6;
+'d1294: toneR = `Df6;   'd1295: toneR = `Df6;
+
+'d1296: toneR = `Df6;   'd1297: toneR = `Df6;
+'d1298: toneR = `Df6;   'd1299: toneR = `Df6;
+'d1300: toneR = `Df6;   'd1301: toneR = `Df6;
+'d1302: toneR = `Df6;   'd1303: toneR = `Df6;
+
+'d1304: toneR = `Df6;   'd1305: toneR = `Df6;
+'d1306: toneR = `Df6;   'd1307: toneR = `Df6;
+'d1308: toneR = `Df6;   'd1309: toneR = `Df6;
+'d1310: toneR = `Df6;   'd1311: toneR = `Df6;
+
+'d1312: toneR = `Df6;   'd1313: toneR = `Df6;
+'d1314: toneR = `Df6;   'd1315: toneR = `Df6;
+'d1316: toneR = `Df6;   'd1317: toneR = `Df6;
+'d1318: toneR = `Df6;   'd1319: toneR = `Df6;
+
+'d1320: toneR = `Df6;   'd1321: toneR = `Df6;
+'d1322: toneR = `Df6;   'd1323: toneR = `Df6;
+'d1324: toneR = `Df6;   'd1325: toneR = `Df6;
+'d1326: toneR = `Df6;   'd1327: toneR = `Df6;
+
+'d1328: toneR = `A5;   'd1329: toneR = `A5;
+'d1330: toneR = `A5;   'd1331: toneR = `A5;
+'d1332: toneR = `A5;   'd1333: toneR = `A5;
+'d1334: toneR = `A5;   'd1335: toneR = `A5;
+
+'d1336: toneR = `B5;   'd1337: toneR = `B5;
+'d1338: toneR = `B5;   'd1339: toneR = `B5;
+'d1340: toneR = `B5;   'd1341: toneR = `B5;
+'d1342: toneR = `B5;   'd1343: toneR = `B5;
+
+// Measure 22 //
+'d1344: toneR = `Df6;   'd1345: toneR = `Df6;
+'d1346: toneR = `Df6;   'd1347: toneR = `Df6;
+'d1348: toneR = `Df6;   'd1349: toneR = `Df6;
+'d1350: toneR = `Df6;   'd1351: toneR = `Df6;
+
+'d1352: toneR = `Df6;   'd1353: toneR = `Df6;
+'d1354: toneR = `Df6;   'd1355: toneR = `Df6;
+'d1356: toneR = `Df6;   'd1357: toneR = `Df6;
+'d1358: toneR = `SIL;   'd1359: toneR = `SIL;
+
+'d1360: toneR = `E6;   'd1361: toneR = `E6;
+'d1362: toneR = `E6;   'd1363: toneR = `E6;
+'d1364: toneR = `E6;   'd1365: toneR = `E6;
+'d1366: toneR = `E6;   'd1367: toneR = `E6;
+
+'d1368: toneR = `E6;   'd1369: toneR = `E6;
+'d1370: toneR = `E6;   'd1371: toneR = `E6;
+'d1372: toneR = `E6;   'd1373: toneR = `E6;
+'d1374: toneR = `SIL;   'd1375: toneR = `SIL;
+
+'d1376: toneR = `A6;   'd1377: toneR = `A6;
+'d1378: toneR = `A6;   'd1379: toneR = `A6;
+'d1380: toneR = `A6;   'd1381: toneR = `A6;
+'d1382: toneR = `A6;   'd1383: toneR = `A6;
+
+'d1384: toneR = `A6;   'd1385: toneR = `A6;
+'d1386: toneR = `A6;   'd1387: toneR = `A6;
+'d1388: toneR = `A6;   'd1389: toneR = `A6;
+'d1390: toneR = `A6;   'd1391: toneR = `A6;
+
+'d1392: toneR = `A6;   'd1393: toneR = `A6;
+'d1394: toneR = `A6;   'd1395: toneR = `A6;
+'d1396: toneR = `A6;   'd1397: toneR = `A6;
+'d1398: toneR = `A6;   'd1399: toneR = `A6;
+
+'d1400: toneR = `B6;   'd1401: toneR = `B6;
+'d1402: toneR = `B6;   'd1403: toneR = `B6;
+'d1404: toneR = `B6;   'd1405: toneR = `B6;
+'d1406: toneR = `B6;   'd1407: toneR = `SIL;
+
+// Measure 23 //
+'d1408: toneR = `Gf6;   'd1409: toneR = `Gf6;
+'d1410: toneR = `Gf6;   'd1411: toneR = `Gf6;
+'d1412: toneR = `Gf6;   'd1413: toneR = `Gf6;
+'d1414: toneR = `Gf6;   'd1415: toneR = `Gf6;
+
+'d1416: toneR = `Gf6;   'd1417: toneR = `Gf6;
+'d1418: toneR = `Gf6;   'd1419: toneR = `Gf6;
+'d1420: toneR = `Gf6;   'd1421: toneR = `Gf6;
+'d1422: toneR = `Gf6;   'd1423: toneR = `Gf6;
+
+'d1424: toneR = `Gf6;   'd1425: toneR = `Gf6;
+'d1426: toneR = `Gf6;   'd1427: toneR = `Gf6;
+'d1428: toneR = `Gf6;   'd1429: toneR = `Gf6;
+'d1430: toneR = `Gf6;   'd1431: toneR = `Gf6;
+
+'d1432: toneR = `Gf6;   'd1433: toneR = `Gf6;
+'d1434: toneR = `Gf6;   'd1435: toneR = `Gf6;
+'d1436: toneR = `Gf6;   'd1437: toneR = `Gf6;
+'d1438: toneR = `Gf6;   'd1439: toneR = `Gf6;
+
+'d1440: toneR = `Gf6;   'd1441: toneR = `Gf6;
+'d1442: toneR = `Gf6;   'd1443: toneR = `Gf6;
+'d1444: toneR = `Gf6;   'd1445: toneR = `Gf6;
+'d1446: toneR = `Gf6;   'd1447: toneR = `Gf6;
+
+'d1448: toneR = `Gf6;   'd1449: toneR = `Gf6;
+'d1450: toneR = `Gf6;   'd1451: toneR = `Gf6;
+'d1452: toneR = `Gf6;   'd1453: toneR = `Gf6;
+'d1454: toneR = `Gf6;   'd1455: toneR = `Gf6;
+
+'d1456: toneR = `Gf6;   'd1457: toneR = `Gf6;
+'d1458: toneR = `Gf6;   'd1459: toneR = `Gf6;
+'d1460: toneR = `Gf6;   'd1461: toneR = `Gf6;
+'d1462: toneR = `Gf6;   'd1463: toneR = `Gf6;
+
+'d1464: toneR = `Gf6;   'd1465: toneR = `Gf6;
+'d1466: toneR = `Gf6;   'd1467: toneR = `Gf6;
+'d1468: toneR = `Gf6;   'd1469: toneR = `Gf6;
+'d1470: toneR = `Gf6;   'd1471: toneR = `Gf6;
+
+// Measure 24 //
+'d1472: toneR = `Gf6;   'd1473: toneR = `Gf6;
+'d1474: toneR = `Gf6;   'd1475: toneR = `Gf6;
+'d1476: toneR = `Gf6;   'd1477: toneR = `Gf6;
+'d1478: toneR = `Gf6;   'd1479: toneR = `Gf6;
+
+'d1480: toneR = `Gf6;   'd1481: toneR = `Gf6;
+'d1482: toneR = `Gf6;   'd1483: toneR = `Gf6;
+'d1484: toneR = `Gf6;   'd1485: toneR = `Gf6;
+'d1486: toneR = `Gf6;   'd1487: toneR = `Gf6;
+
+'d1488: toneR = `Gf6;   'd1489: toneR = `Gf6;
+'d1490: toneR = `Gf6;   'd1491: toneR = `Gf6;
+'d1492: toneR = `Gf6;   'd1493: toneR = `Gf6;
+'d1494: toneR = `Gf6;   'd1495: toneR = `Gf6;
+
+'d1496: toneR = `Gf6;   'd1497: toneR = `Gf6;
+'d1498: toneR = `Gf6;   'd1499: toneR = `Gf6;
+'d1500: toneR = `Gf6;   'd1501: toneR = `Gf6;
+'d1502: toneR = `Gf6;   'd1503: toneR = `Gf6;
+
+'d1504: toneR = `Gf6;   'd1505: toneR = `Gf6;
+'d1506: toneR = `Gf6;   'd1507: toneR = `Gf6;
+'d1508: toneR = `Gf6;   'd1509: toneR = `Gf6;
+'d1510: toneR = `Gf6;   'd1511: toneR = `Gf6;
+
+'d1512: toneR = `Gf6;   'd1513: toneR = `Gf6;
+'d1514: toneR = `Gf6;   'd1515: toneR = `Gf6;
+'d1516: toneR = `Gf6;   'd1517: toneR = `Gf6;
+'d1518: toneR = `Gf6;   'd1519: toneR = `Gf6;
+
+'d1520: toneR = `SIL;   'd1521: toneR = `SIL;
+'d1522: toneR = `SIL;   'd1523: toneR = `SIL;
+'d1524: toneR = `SIL;   'd1525: toneR = `SIL;
+'d1526: toneR = `SIL;   'd1527: toneR = `SIL;
+
+'d1528: toneR = `SIL;   'd1529: toneR = `SIL;
+'d1530: toneR = `SIL;   'd1531: toneR = `SIL;
+'d1532: toneR = `SIL;   'd1533: toneR = `SIL;
+'d1534: toneR = `SIL;   'd1535: toneR = `SIL;
+
+// Measure 25 //
+'d1536: toneR = `SIL;   'd1537: toneR = `SIL;
+'d1538: toneR = `SIL;   'd1539: toneR = `SIL;
+'d1540: toneR = `SIL;   'd1541: toneR = `SIL;
+'d1542: toneR = `SIL;   'd1543: toneR = `SIL;
+
+'d1544: toneR = `SIL;   'd1545: toneR = `SIL;
+'d1546: toneR = `SIL;   'd1547: toneR = `SIL;
+'d1548: toneR = `SIL;   'd1549: toneR = `SIL;
+'d1550: toneR = `SIL;   'd1551: toneR = `SIL;
+
+'d1552: toneR = `SIL;   'd1553: toneR = `SIL;
+'d1554: toneR = `SIL;   'd1555: toneR = `SIL;
+'d1556: toneR = `SIL;   'd1557: toneR = `SIL;
+'d1558: toneR = `SIL;   'd1559: toneR = `SIL;
+
+'d1560: toneR = `SIL;   'd1561: toneR = `SIL;
+'d1562: toneR = `SIL;   'd1563: toneR = `SIL;
+'d1564: toneR = `SIL;   'd1565: toneR = `SIL;
+'d1566: toneR = `SIL;   'd1567: toneR = `SIL;
+
+'d1568: toneR = `SIL;   'd1569: toneR = `SIL;
+'d1570: toneR = `SIL;   'd1571: toneR = `SIL;
+'d1572: toneR = `SIL;   'd1573: toneR = `SIL;
+'d1574: toneR = `SIL;   'd1575: toneR = `SIL;
+
+'d1576: toneR = `SIL;   'd1577: toneR = `SIL;
+'d1578: toneR = `SIL;   'd1579: toneR = `SIL;
+'d1580: toneR = `SIL;   'd1581: toneR = `SIL;
+'d1582: toneR = `SIL;   'd1583: toneR = `SIL;
+
+'d1584: toneR = `Bf5;   'd1585: toneR = `Bf5;
+'d1586: toneR = `Bf5;   'd1587: toneR = `Bf5;
+'d1588: toneR = `Bf5;   'd1589: toneR = `Bf5;
+'d1590: toneR = `Bf5;   'd1591: toneR = `Bf5;
+
+'d1592: toneR = `C6;   'd1593: toneR = `C6;
+'d1594: toneR = `C6;   'd1595: toneR = `C6;
+'d1596: toneR = `C6;   'd1597: toneR = `C6;
+'d1598: toneR = `C6;   'd1599: toneR = `C6;
+
+// Measure 26 //
+'d1600: toneR = `D6;   'd1601: toneR = `D6;
+'d1602: toneR = `D6;   'd1603: toneR = `D6;
+'d1604: toneR = `D6;   'd1605: toneR = `D6;
+'d1606: toneR = `D6;   'd1607: toneR = `D6;
+
+'d1608: toneR = `D6;   'd1609: toneR = `D6;
+'d1610: toneR = `D6;   'd1611: toneR = `D6;
+'d1612: toneR = `D6;   'd1613: toneR = `D6;
+'d1614: toneR = `SIL;   'd1615: toneR = `SIL;
+
+'d1616: toneR = `F6;   'd1617: toneR = `F6;
+'d1618: toneR = `F6;   'd1619: toneR = `F6;
+'d1620: toneR = `F6;   'd1621: toneR = `F6;
+'d1622: toneR = `F6;   'd1623: toneR = `F6;
+
+'d1624: toneR = `F6;   'd1625: toneR = `F6;
+'d1626: toneR = `F6;   'd1627: toneR = `F6;
+'d1628: toneR = `F6;   'd1629: toneR = `F6;
+'d1630: toneR = `SIL;   'd1631: toneR = `SIL;
+
+'d1632: toneR = `Bf6;   'd1633: toneR = `Bf6;
+'d1634: toneR = `Bf6;   'd1635: toneR = `Bf6;
+'d1636: toneR = `Bf6;   'd1637: toneR = `Bf6;
+'d1638: toneR = `Bf6;   'd1639: toneR = `Bf6;
+
+'d1640: toneR = `Bf6;   'd1641: toneR = `Bf6;
+'d1642: toneR = `Bf6;   'd1643: toneR = `Bf6;
+'d1644: toneR = `Bf6;   'd1645: toneR = `Bf6;
+'d1646: toneR = `Bf6;   'd1647: toneR = `Bf6;
+
+'d1648: toneR = `Bf6;   'd1649: toneR = `Bf6;
+'d1650: toneR = `Bf6;   'd1651: toneR = `Bf6;
+'d1652: toneR = `Bf6;   'd1653: toneR = `Bf6;
+'d1654: toneR = `Bf6;   'd1655: toneR = `Bf6;
+
+'d1656: toneR = `A6;   'd1657: toneR = `A6;
+'d1658: toneR = `A6;   'd1659: toneR = `A6;
+'d1660: toneR = `A6;   'd1661: toneR = `A6;
+'d1662: toneR = `A6;   'd1663: toneR = `SIL;
+
+// Measure 27 //
+'d1664: toneR = `G6;   'd1665: toneR = `G6;
+'d1666: toneR = `G6;   'd1667: toneR = `G6;
+'d1668: toneR = `G6;   'd1669: toneR = `G6;
+'d1670: toneR = `G6;   'd1671: toneR = `G6;
+
+'d1672: toneR = `F6;   'd1673: toneR = `F6;
+'d1674: toneR = `F6;   'd1675: toneR = `F6;
+'d1676: toneR = `F6;   'd1677: toneR = `F6;
+'d1678: toneR = `F6;   'd1679: toneR = `F6;
+
+'d1680: toneR = `D6;   'd1681: toneR = `D6;
+'d1682: toneR = `D6;   'd1683: toneR = `D6;
+'d1684: toneR = `D6;   'd1685: toneR = `D6;
+'d1686: toneR = `D6;   'd1687: toneR = `D6;
+
+'d1688: toneR = `D6;   'd1689: toneR = `D6;
+'d1690: toneR = `D6;   'd1691: toneR = `D6;
+'d1692: toneR = `D6;   'd1693: toneR = `D6;
+'d1694: toneR = `D6;   'd1695: toneR = `D6;
+
+'d1696: toneR = `C6;   'd1697: toneR = `C6;
+'d1698: toneR = `C6;   'd1699: toneR = `C6;
+'d1700: toneR = `C6;   'd1701: toneR = `C6;
+'d1702: toneR = `C6;   'd1703: toneR = `C6;
+
+'d1704: toneR = `C6;   'd1705: toneR = `C6;
+'d1706: toneR = `C6;   'd1707: toneR = `C6;
+'d1708: toneR = `C6;   'd1709: toneR = `C6;
+'d1710: toneR = `C6;   'd1711: toneR = `C6;
+
+'d1712: toneR = `F6;   'd1713: toneR = `F6;
+'d1714: toneR = `F6;   'd1715: toneR = `F6;
+'d1716: toneR = `F6;   'd1717: toneR = `F6;
+'d1718: toneR = `F6;   'd1719: toneR = `F6;
+
+'d1720: toneR = `F6;   'd1721: toneR = `F6;
+'d1722: toneR = `F6;   'd1723: toneR = `F6;
+'d1724: toneR = `F6;   'd1725: toneR = `F6;
+'d1726: toneR = `F6;   'd1727: toneR = `F6;
+
+// Measure 28 //
+'d1728: toneR = `D6;   'd1729: toneR = `D6;
+'d1730: toneR = `D6;   'd1731: toneR = `D6;
+'d1732: toneR = `D6;   'd1733: toneR = `D6;
+'d1734: toneR = `D6;   'd1735: toneR = `D6;
+
+'d1736: toneR = `D6;   'd1737: toneR = `D6;
+'d1738: toneR = `D6;   'd1739: toneR = `D6;
+'d1740: toneR = `D6;   'd1741: toneR = `D6;
+'d1742: toneR = `D6;   'd1743: toneR = `D6;
+
+'d1744: toneR = `D6;   'd1745: toneR = `D6;
+'d1746: toneR = `D6;   'd1747: toneR = `D6;
+'d1748: toneR = `D6;   'd1749: toneR = `D6;
+'d1750: toneR = `D6;   'd1751: toneR = `D6;
+
+'d1752: toneR = `D6;   'd1753: toneR = `D6;
+'d1754: toneR = `D6;   'd1755: toneR = `D6;
+'d1756: toneR = `D6;   'd1757: toneR = `D6;
+'d1758: toneR = `D6;   'd1759: toneR = `D6;
+
+'d1760: toneR = `D6;   'd1761: toneR = `D6;
+'d1762: toneR = `D6;   'd1763: toneR = `D6;
+'d1764: toneR = `D6;   'd1765: toneR = `D6;
+'d1766: toneR = `D6;   'd1767: toneR = `D6;
+
+'d1768: toneR = `D6;   'd1769: toneR = `D6;
+'d1770: toneR = `D6;   'd1771: toneR = `D6;
+'d1772: toneR = `D6;   'd1773: toneR = `D6;
+'d1774: toneR = `D6;   'd1775: toneR = `D6;
+
+'d1776: toneR = `SIL;   'd1777: toneR = `SIL;
+'d1778: toneR = `SIL;   'd1779: toneR = `SIL;
+'d1780: toneR = `SIL;   'd1781: toneR = `SIL;
+'d1782: toneR = `SIL;   'd1783: toneR = `SIL;
+
+'d1784: toneR = `SIL;   'd1785: toneR = `SIL;
+'d1786: toneR = `SIL;   'd1787: toneR = `SIL;
+'d1788: toneR = `SIL;   'd1789: toneR = `SIL;
+'d1790: toneR = `SIL;   'd1791: toneR = `SIL;
+
+// Measure 29 //
+'d1792: toneR = `SIL;   'd1793: toneR = `SIL;
+'d1794: toneR = `SIL;   'd1795: toneR = `SIL;
+'d1796: toneR = `SIL;   'd1797: toneR = `SIL;
+'d1798: toneR = `SIL;   'd1799: toneR = `SIL;
+
+'d1800: toneR = `SIL;   'd1801: toneR = `SIL;
+'d1802: toneR = `SIL;   'd1803: toneR = `SIL;
+'d1804: toneR = `SIL;   'd1805: toneR = `SIL;
+'d1806: toneR = `SIL;   'd1807: toneR = `SIL;
+
+'d1808: toneR = `SIL;   'd1809: toneR = `SIL;
+'d1810: toneR = `SIL;   'd1811: toneR = `SIL;
+'d1812: toneR = `SIL;   'd1813: toneR = `SIL;
+'d1814: toneR = `SIL;   'd1815: toneR = `SIL;
+
+'d1816: toneR = `SIL;   'd1817: toneR = `SIL;
+'d1818: toneR = `SIL;   'd1819: toneR = `SIL;
+'d1820: toneR = `SIL;   'd1821: toneR = `SIL;
+'d1822: toneR = `SIL;   'd1823: toneR = `SIL;
+
+'d1824: toneR = `SIL;   'd1825: toneR = `SIL;
+'d1826: toneR = `SIL;   'd1827: toneR = `SIL;
+'d1828: toneR = `SIL;   'd1829: toneR = `SIL;
+'d1830: toneR = `SIL;   'd1831: toneR = `SIL;
+
+'d1832: toneR = `SIL;   'd1833: toneR = `SIL;
+'d1834: toneR = `SIL;   'd1835: toneR = `SIL;
+'d1836: toneR = `SIL;   'd1837: toneR = `SIL;
+'d1838: toneR = `SIL;   'd1839: toneR = `SIL;
+
+'d1840: toneR = `A5;   'd1841: toneR = `A5;
+'d1842: toneR = `A5;   'd1843: toneR = `A5;
+'d1844: toneR = `A5;   'd1845: toneR = `A5;
+'d1846: toneR = `A5;   'd1847: toneR = `A5;
+
+'d1848: toneR = `B5;   'd1849: toneR = `B5;
+'d1850: toneR = `B5;   'd1851: toneR = `B5;
+'d1852: toneR = `B5;   'd1853: toneR = `B5;
+'d1854: toneR = `B5;   'd1855: toneR = `B5;
+
+// Measure 30 //
+'d1856: toneR = `Df6;   'd1857: toneR = `Df6;
+'d1858: toneR = `Df6;   'd1859: toneR = `Df6;
+'d1860: toneR = `Df6;   'd1861: toneR = `Df6;
+'d1862: toneR = `Df6;   'd1863: toneR = `Df6;
+
+'d1864: toneR = `Df6;   'd1865: toneR = `Df6;
+'d1866: toneR = `Df6;   'd1867: toneR = `Df6;
+'d1868: toneR = `Df6;   'd1869: toneR = `Df6;
+'d1870: toneR = `Df6;   'd1871: toneR = `Df6;
+
+'d1872: toneR = `E6;   'd1873: toneR = `E6;
+'d1874: toneR = `E6;   'd1875: toneR = `E6;
+'d1876: toneR = `E6;   'd1877: toneR = `E6;
+'d1878: toneR = `E6;   'd1879: toneR = `E6;
+
+'d1880: toneR = `E6;   'd1881: toneR = `E6;
+'d1882: toneR = `E6;   'd1883: toneR = `E6;
+'d1884: toneR = `E6;   'd1885: toneR = `E6;
+'d1886: toneR = `E6;   'd1887: toneR = `E6;
+
+'d1888: toneR = `A6;   'd1889: toneR = `A6;
+'d1890: toneR = `A6;   'd1891: toneR = `A6;
+'d1892: toneR = `A6;   'd1893: toneR = `A6;
+'d1894: toneR = `A6;   'd1895: toneR = `A6;
+
+'d1896: toneR = `A6;   'd1897: toneR = `A6;
+'d1898: toneR = `A6;   'd1899: toneR = `A6;
+'d1900: toneR = `A6;   'd1901: toneR = `A6;
+'d1902: toneR = `A6;   'd1903: toneR = `A6;
+
+'d1904: toneR = `A6;   'd1905: toneR = `A6;
+'d1906: toneR = `A6;   'd1907: toneR = `A6;
+'d1908: toneR = `A6;   'd1909: toneR = `A6;
+'d1910: toneR = `A6;   'd1911: toneR = `A6;
+
+'d1912: toneR = `Gf6;   'd1913: toneR = `Gf6;
+'d1914: toneR = `Gf6;   'd1915: toneR = `Gf6;
+'d1916: toneR = `Gf6;   'd1917: toneR = `Gf6;
+'d1918: toneR = `Gf6;   'd1919: toneR = `Gf6;
+
+// Measure 31 //
+'d1920: toneR = `Af6;   'd1921: toneR = `Af6;
+'d1922: toneR = `Af6;   'd1923: toneR = `Af6;
+'d1924: toneR = `Af6;   'd1925: toneR = `Af6;
+'d1926: toneR = `Af6;   'd1927: toneR = `Af6;
+
+'d1928: toneR = `Af6;   'd1929: toneR = `Af6;
+'d1930: toneR = `Af6;   'd1931: toneR = `Af6;
+'d1932: toneR = `Af6;   'd1933: toneR = `Af6;
+'d1934: toneR = `Af6;   'd1935: toneR = `Af6;
+
+'d1936: toneR = `Af6;   'd1937: toneR = `Af6;
+'d1938: toneR = `Af6;   'd1939: toneR = `Af6;
+'d1940: toneR = `Af6;   'd1941: toneR = `Af6;
+'d1942: toneR = `Af6;   'd1943: toneR = `Af6;
+
+'d1944: toneR = `Af6;   'd1945: toneR = `Af6;
+'d1946: toneR = `Af6;   'd1947: toneR = `Af6;
+'d1948: toneR = `Af6;   'd1949: toneR = `Af6;
+'d1950: toneR = `Af6;   'd1951: toneR = `Af6;
+
+'d1952: toneR = `Af6;   'd1953: toneR = `Af6;
+'d1954: toneR = `Af6;   'd1955: toneR = `Af6;
+'d1956: toneR = `Af6;   'd1957: toneR = `Af6;
+'d1958: toneR = `Af6;   'd1959: toneR = `Af6;
+
+'d1960: toneR = `Af6;   'd1961: toneR = `Af6;
+'d1962: toneR = `Af6;   'd1963: toneR = `Af6;
+'d1964: toneR = `Af6;   'd1965: toneR = `Af6;
+'d1966: toneR = `Af6;   'd1967: toneR = `Af6;
+
+'d1968: toneR = `B5;   'd1969: toneR = `B5;
+'d1970: toneR = `B5;   'd1971: toneR = `B5;
+'d1972: toneR = `B5;   'd1973: toneR = `B5;
+'d1974: toneR = `B5;   'd1975: toneR = `B5;
+
+'d1976: toneR = `Df6;   'd1977: toneR = `Df6;
+'d1978: toneR = `Df6;   'd1979: toneR = `Df6;
+'d1980: toneR = `Df6;   'd1981: toneR = `Df6;
+'d1982: toneR = `Df6;   'd1983: toneR = `Df6;
+
+// Measure 32 //
+'d1984: toneR = `Ef6;   'd1985: toneR = `Ef6;
+'d1986: toneR = `Ef6;   'd1987: toneR = `Ef6;
+'d1988: toneR = `Ef6;   'd1989: toneR = `Ef6;
+'d1990: toneR = `Ef6;   'd1991: toneR = `Ef6;
+
+'d1992: toneR = `Ef6;   'd1993: toneR = `Ef6;
+'d1994: toneR = `Ef6;   'd1995: toneR = `Ef6;
+'d1996: toneR = `Ef6;   'd1997: toneR = `Ef6;
+'d1998: toneR = `Ef6;   'd1999: toneR = `Ef6;
+
+'d2000: toneR = `Gf6;   'd2001: toneR = `Gf6;
+'d2002: toneR = `Gf6;   'd2003: toneR = `Gf6;
+'d2004: toneR = `Gf6;   'd2005: toneR = `Gf6;
+'d2006: toneR = `Gf6;   'd2007: toneR = `Gf6;
+
+'d2008: toneR = `Gf6;   'd2009: toneR = `Gf6;
+'d2010: toneR = `Gf6;   'd2011: toneR = `Gf6;
+'d2012: toneR = `Gf6;   'd2013: toneR = `Gf6;
+'d2014: toneR = `Gf6;   'd2015: toneR = `Gf6;
+
+'d2016: toneR = `B6;   'd2017: toneR = `B6;
+'d2018: toneR = `B6;   'd2019: toneR = `B6;
+'d2020: toneR = `B6;   'd2021: toneR = `B6;
+'d2022: toneR = `B6;   'd2023: toneR = `B6;
+
+'d2024: toneR = `B6;   'd2025: toneR = `B6;
+'d2026: toneR = `B6;   'd2027: toneR = `B6;
+'d2028: toneR = `B6;   'd2029: toneR = `B6;
+'d2030: toneR = `B6;   'd2031: toneR = `B6;
+
+'d2032: toneR = `B6;   'd2033: toneR = `B6;
+'d2034: toneR = `B6;   'd2035: toneR = `B6;
+'d2036: toneR = `B6;   'd2037: toneR = `B6;
+'d2038: toneR = `B6;   'd2039: toneR = `B6;
+
+'d2040: toneR = `Af6;   'd2041: toneR = `Af6;
+'d2042: toneR = `Af6;   'd2043: toneR = `Af6;
+'d2044: toneR = `Af6;   'd2045: toneR = `Af6;
+'d2046: toneR = `Af6;   'd2047: toneR = `Af6;
+
+// Measure 33 //
+'d2048: toneR = `Bf6;   'd2049: toneR = `Bf6;
+'d2050: toneR = `Bf6;   'd2051: toneR = `Bf6;
+'d2052: toneR = `Bf6;   'd2053: toneR = `Bf6;
+'d2054: toneR = `Bf6;   'd2055: toneR = `Bf6;
+
+'d2056: toneR = `Bf6;   'd2057: toneR = `Bf6;
+'d2058: toneR = `Bf6;   'd2059: toneR = `Bf6;
+'d2060: toneR = `Bf6;   'd2061: toneR = `Bf6;
+'d2062: toneR = `Bf6;   'd2063: toneR = `Bf6;
+
+'d2064: toneR = `Bf6;   'd2065: toneR = `Bf6;
+'d2066: toneR = `Bf6;   'd2067: toneR = `Bf6;
+'d2068: toneR = `Bf6;   'd2069: toneR = `Bf6;
+'d2070: toneR = `Bf6;   'd2071: toneR = `Bf6;
+
+'d2072: toneR = `Bf6;   'd2073: toneR = `Bf6;
+'d2074: toneR = `Bf6;   'd2075: toneR = `Bf6;
+'d2076: toneR = `Bf6;   'd2077: toneR = `Bf6;
+'d2078: toneR = `Bf6;   'd2079: toneR = `Bf6;
+
+'d2080: toneR = `Bf6;   'd2081: toneR = `Bf6;
+'d2082: toneR = `Bf6;   'd2083: toneR = `Bf6;
+'d2084: toneR = `Bf6;   'd2085: toneR = `Bf6;
+'d2086: toneR = `Bf6;   'd2087: toneR = `Bf6;
+
+'d2088: toneR = `Bf6;   'd2089: toneR = `Bf6;
+'d2090: toneR = `Bf6;   'd2091: toneR = `Bf6;
+'d2092: toneR = `Bf6;   'd2093: toneR = `Bf6;
+'d2094: toneR = `Bf6;   'd2095: toneR = `Bf6;
+
+'d2096: toneR = `Bf6;   'd2097: toneR = `Bf6;
+'d2098: toneR = `Bf6;   'd2099: toneR = `Bf6;
+'d2100: toneR = `Bf6;   'd2101: toneR = `Bf6;
+'d2102: toneR = `Bf6;   'd2103: toneR = `Bf6;
+
+'d2104: toneR = `Bf6;   'd2105: toneR = `Bf6;
+'d2106: toneR = `Bf6;   'd2107: toneR = `Bf6;
+'d2108: toneR = `Bf6;   'd2109: toneR = `Bf6;
+'d2110: toneR = `Bf6;   'd2111: toneR = `Bf6;
+
+// Measure 34 //
+'d2112: toneR = `Bf6;   'd2113: toneR = `Bf6;
+'d2114: toneR = `Bf6;   'd2115: toneR = `Bf6;
+'d2116: toneR = `Bf6;   'd2117: toneR = `Bf6;
+'d2118: toneR = `Bf6;   'd2119: toneR = `Bf6;
+
+'d2120: toneR = `Bf6;   'd2121: toneR = `Bf6;
+'d2122: toneR = `Bf6;   'd2123: toneR = `Bf6;
+'d2124: toneR = `Bf6;   'd2125: toneR = `Bf6;
+'d2126: toneR = `Bf6;   'd2127: toneR = `Bf6;
+
+'d2128: toneR = `Bf6;   'd2129: toneR = `Bf6;
+'d2130: toneR = `Bf6;   'd2131: toneR = `Bf6;
+'d2132: toneR = `Bf6;   'd2133: toneR = `Bf6;
+'d2134: toneR = `Bf6;   'd2135: toneR = `Bf6;
+
+'d2136: toneR = `Bf6;   'd2137: toneR = `Bf6;
+'d2138: toneR = `Bf6;   'd2139: toneR = `Bf6;
+'d2140: toneR = `Bf6;   'd2141: toneR = `Bf6;
+'d2142: toneR = `Bf6;   'd2143: toneR = `Bf6;
+
+'d2144: toneR = `Bf6;   'd2145: toneR = `Bf6;
+'d2146: toneR = `Bf6;   'd2147: toneR = `Bf6;
+'d2148: toneR = `Bf6;   'd2149: toneR = `Bf6;
+'d2150: toneR = `Bf6;   'd2151: toneR = `Bf6;
+
+'d2152: toneR = `Bf6;   'd2153: toneR = `Bf6;
+'d2154: toneR = `Bf6;   'd2155: toneR = `Bf6;
+'d2156: toneR = `Bf6;   'd2157: toneR = `Bf6;
+'d2158: toneR = `Bf6;   'd2159: toneR = `Bf6;
+
+'d2160: toneR = `SIL;   'd2161: toneR = `SIL;
+'d2162: toneR = `SIL;   'd2163: toneR = `SIL;
+'d2164: toneR = `SIL;   'd2165: toneR = `SIL;
+'d2166: toneR = `SIL;   'd2167: toneR = `SIL;
+
+'d2168: toneR = `SIL;   'd2169: toneR = `SIL;
+'d2170: toneR = `SIL;   'd2171: toneR = `SIL;
+'d2172: toneR = `SIL;   'd2173: toneR = `SIL;
+'d2174: toneR = `SIL;   'd2175: toneR = `SIL;
+
+// Measure 35 //
+'d2176: toneR = `Gf5;   'd2177: toneR = `Gf5;
+'d2178: toneR = `Gf5;   'd2179: toneR = `Gf5;
+'d2180: toneR = `Gf5;   'd2181: toneR = `Gf5;
+'d2182: toneR = `Gf5;   'd2183: toneR = `Gf5;
+
+'d2184: toneR = `Gf5;   'd2185: toneR = `Gf5;
+'d2186: toneR = `Gf5;   'd2187: toneR = `Gf5;
+'d2188: toneR = `Gf5;   'd2189: toneR = `Gf5;
+'d2190: toneR = `Gf5;   'd2191: toneR = `Gf5;
+
+'d2192: toneR = `Gf5;   'd2193: toneR = `Gf5;
+'d2194: toneR = `Gf5;   'd2195: toneR = `Gf5;
+'d2196: toneR = `Gf5;   'd2197: toneR = `Gf5;
+'d2198: toneR = `Gf5;   'd2199: toneR = `Gf5;
+
+'d2200: toneR = `Gf5;   'd2201: toneR = `Gf5;
+'d2202: toneR = `Gf5;   'd2203: toneR = `Gf5;
+'d2204: toneR = `Gf5;   'd2205: toneR = `Gf5;
+'d2206: toneR = `Gf5;   'd2207: toneR = `Gf5;
+
+'d2208: toneR = `Gf5;   'd2209: toneR = `Gf5;
+'d2210: toneR = `Gf5;   'd2211: toneR = `Gf5;
+'d2212: toneR = `Gf5;   'd2213: toneR = `Gf5;
+'d2214: toneR = `Gf5;   'd2215: toneR = `Gf5;
+
+'d2216: toneR = `Gf5;   'd2217: toneR = `Gf5;
+'d2218: toneR = `Gf5;   'd2219: toneR = `Gf5;
+'d2220: toneR = `Gf5;   'd2221: toneR = `Gf5;
+'d2222: toneR = `Gf5;   'd2223: toneR = `Gf5;
+
+'d2224: toneR = `SIL;   'd2225: toneR = `SIL;
+'d2226: toneR = `SIL;   'd2227: toneR = `SIL;
+'d2228: toneR = `SIL;   'd2229: toneR = `SIL;
+'d2230: toneR = `SIL;   'd2231: toneR = `SIL;
+
+'d2232: toneR = `SIL;   'd2233: toneR = `SIL;
+'d2234: toneR = `SIL;   'd2235: toneR = `SIL;
+'d2236: toneR = `SIL;   'd2237: toneR = `SIL;
+'d2238: toneR = `SIL;   'd2239: toneR = `SIL;
+
+
