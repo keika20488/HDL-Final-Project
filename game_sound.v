@@ -19,7 +19,7 @@ wire [25:0] stage1_l, stage1_r, stage2_l, stage2_r;
 wire [25:0] stage3_l, stage3_r, success_l, success_r;
 wire [25:0] fail_l, fail_r, help_l, help_r;
 
-bgm_title #(.LEN(1024)) bgmTitle(
+bgm_title #(.LEN(2240)) bgmTitle(
     .clk(clk),
     .rst(rst),
 	.en(state == TITLE),
