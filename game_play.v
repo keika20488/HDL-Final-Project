@@ -40,7 +40,7 @@ KeyboardDecoder key_de (
 );
 
 // KeyCodes: n, b, r, 1-3, WASD, right shift
-parameter [6:0] KEY_CODES [0:10] = {
+parameter [6:0] KEY_CODES [0:11] = {
     7'b101_1001,  //right shift//59
     7'b110_1001,  //1          //69
     7'b111_0010,  //2          //72
