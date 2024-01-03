@@ -1,6 +1,8 @@
 // freqL, freqR
 module game_sound(
-    input clk,
+    input clk_21,
+    input clk_22,
+    input clk_23,
     input rst,
     input mute,
     input [3:0] state,
@@ -20,7 +22,7 @@ wire [25:0] stage3_l, stage3_r, success_l, success_r;
 wire [25:0] fail_l, fail_r, help_l, help_r;
 
 bgm_title #(.LEN(2240)) bgmTitle(
-    .clk(clk),
+    .clk(clk_21),
     .rst(rst),
 	.en(state == TITLE),
 	.toneL(title_l),
@@ -28,7 +30,7 @@ bgm_title #(.LEN(2240)) bgmTitle(
 );
 
 bgm_help #(.LEN(1024)) bgmHelp(
-    .clk(clk),
+    .clk(clk_22),
     .rst(rst),
 	.en(state == HELP),
 	.toneL(help_l),

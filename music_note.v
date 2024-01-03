@@ -2988,7 +2988,7 @@ always @(*) begin
         12'd2184: toneL = `Bf4;   12'd2185: toneL = `Bf4;
         12'd2186: toneL = `Bf4;   12'd2187: toneL = `Bf4;
         12'd2188: toneL = `Bf4;   12'd2189: toneL = `Bf4;
-        12'd2190: toneL = `SIL;   12'd2191: toneL = `SIL;
+        12'd2190: toneL = `Bf4;   12'd2191: toneL = `Bf4;
 
         12'd2192: toneL = `Bf4;   12'd2193: toneL = `Bf4;
         12'd2194: toneL = `Bf4;   12'd2195: toneL = `Bf4;
@@ -2998,7 +2998,7 @@ always @(*) begin
         12'd2200: toneL = `Bf4;   12'd2201: toneL = `Bf4;
         12'd2202: toneL = `Bf4;   12'd2203: toneL = `Bf4;
         12'd2204: toneL = `Bf4;   12'd2205: toneL = `Bf4;
-        12'd2206: toneL = `SIL;   12'd2207: toneL = `SIL;
+        12'd2206: toneL = `Bf4;   12'd2207: toneL = `Bf4;
 
         12'd2208: toneL = `Bf4;   12'd2209: toneL = `Bf4;
         12'd2210: toneL = `Bf4;   12'd2211: toneL = `Bf4;
@@ -3008,7 +3008,7 @@ always @(*) begin
         12'd2216: toneL = `Bf4;   12'd2217: toneL = `Bf4;
         12'd2218: toneL = `Bf4;   12'd2219: toneL = `Bf4;
         12'd2220: toneL = `Bf4;   12'd2221: toneL = `Bf4;
-        12'd2222: toneL = `SIL;   12'd2223: toneL = `SIL;
+        12'd2222: toneL = `Bf4;   12'd2223: toneL = `Bf4;
 
         12'd2224: toneL = `SIL;   12'd2225: toneL = `SIL;
         12'd2226: toneL = `SIL;   12'd2227: toneL = `SIL;
