@@ -7,8 +7,8 @@ string key[12] =
 
 int main () {
     ofstream myfile;
-    myfile.open ("title_L.txt");
-    int num = 4, measure = 35;
+    myfile.open ("stage1_L.txt");
+    int num = 4, measure = 22;
     for (int k = 0; k < measure; k++) {
         myfile << "// Measure " << k+1 << " //\n";
         cout << "Measure " << k+1 << ":\n";
@@ -16,16 +16,18 @@ int main () {
             string note;
             cout << "note: ";
             cin >> note;
-            for (int j = 0; j < 4; j++) {
-                if (!(i%2) || j < 3) {
-                myfile << "'d" << 64*k+2*i*num+2*j << ": tone = `" << note << ";   ";
-                myfile << "'d" << 64*k+2*i*num+2*j+1 << ": tone = `" << note << ";\n";
-                } else {
-                myfile << "'d" << 64*k+2*i*num+2*3 << ": tone = `SIL;   ";
-                myfile << "'d" << 64*k+2*i*num+2*3+1 << ": tone = `SIL;\n";}
+            for (int j = 0; j < 2; j++) {
+                myfile << "12'd" << 64*k+2*i*num+2*j << ": tone = `" << note << ";   ";
+                myfile << "12'd" << 64*k+2*i*num+2*j+1 << ": tone = `" << note << ";\n";
+            }
+            cout << "note: ";
+            cin >> note;
+            for (int j = 2; j < 4; j++) {
+                myfile << "12'd" << 64*k+2*i*num+2*j << ": tone = `" << note << ";   ";
+                myfile << "12'd" << 64*k+2*i*num+2*j+1 << ": tone = `" << note << ";\n";
             }myfile << endl;
         }
-    }myfile << endl;
+    }
     myfile.close();
     return 0;
 }

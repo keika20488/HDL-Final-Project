@@ -29,6 +29,22 @@ bgm_title #(.LEN(2240)) bgmTitle(
     .toneR(title_r)
 );
 
+bgm_staff #(.LEN(1536)) bgmSTAFF(
+    .clk(clk_21),
+    .rst(rst),
+	.en(state == STAFF),
+	.toneL(staff_l),
+    .toneR(staff_r)
+);
+
+bgm_stage1 #(.LEN(1408)) bgmSTAGE1(
+    .clk(clk_21),
+    .rst(rst),
+	.en(state == STAGE1),
+	.toneL(stage1_l),
+    .toneR(stage1_r)
+);
+
 bgm_help #(.LEN(1024)) bgmHelp(
     .clk(clk_22),
     .rst(rst),
