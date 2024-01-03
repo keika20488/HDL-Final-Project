@@ -72,8 +72,8 @@ note_gen noteGen(
     .clk(clk), 
     .rst(rst), 
     .volume(volume),
-    .note_div_left(freqL), 
-    .note_div_right(freqR), 
+    .note_div_left(50000000/freqL), 
+    .note_div_right(50000000/freqR), 
     .audio_left(audio_in_left),     // left sound audio
     .audio_right(audio_in_right)    // right sound audio
 );
@@ -185,7 +185,6 @@ game_display display(
     .todo(todo),
     .life(life)
 );
-// sound : music of state // sound effect?
 
 // Sevensegment
 wire [15:0] nums;
