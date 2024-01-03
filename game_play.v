@@ -39,7 +39,7 @@ KeyboardDecoder key_de (
     .clk(clk)
 );
 
-// KeyCodes: n, b, r, 1-3, WASD, right shift
+// KeyCodes: n, b, r, h, 1-3, WASD, right shift
 parameter [6:0] KEY_CODES [0:11] = {
     7'b101_1001,  //right shift//59
     7'b110_1001,  //1          //69
@@ -79,8 +79,8 @@ always @(*) begin
     endcase
 end
 
-
-// State: title, stage1, success1, stage2, success2, stage3, success3, fail3, staff
+// State: title, stage1, success1, stage2, success2, stage3
+// success3, fail3, staff, help
 parameter [3:0] TITLE = 0, STAFF = 1;
 parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
 parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
@@ -576,8 +576,6 @@ always @(posedge clk_22 or posedge rst) begin
     end
 end
 
-// Object Position
-
 // Collide
 always @(posedge player_clk or posedge rst) begin
     if(rst)begin
@@ -621,6 +619,7 @@ always @(posedge player_clk or posedge rst) begin
         endcase
     end
 end
+
 //fail
 always @(posedge player_clk or posedge rst) begin
     if(rst)begin
