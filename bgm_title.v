@@ -1,4 +1,4 @@
-`define SIL   26'd50000000
+`define SIL  26'd50000000
 
 `define C1  26'd33
 `define Cs1 26'd35
@@ -118,8 +118,8 @@ module bgm_title(
     input clk,
     input rst,
 	input en,
-	output reg [31:0] toneL,
-    output reg [31:0] toneR
+	output reg [25:0] toneL,
+    output reg [25:0] toneR
 );
 
     

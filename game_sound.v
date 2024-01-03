@@ -4,8 +4,8 @@ module game_sound(
     input rst,
     input mute,
     input [3:0] state,
-    output reg [31:0] freqL,
-    output reg [31:0] freqR
+    output reg [25:0] freqL,
+    output reg [25:0] freqR
 );
 
 parameter [3:0] TITLE = 0, STAFF = 1;
@@ -14,12 +14,12 @@ parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
 parameter [3:0] STAGE3 = 6, SUCCESS3 = 7;
 parameter [3:0] FAIL = 8, HELP = 9;
 
-wire [31:0] title_l, title_r, staff_l, staff_r;
-wire [31:0] stage1_l, stage1_r, stage2_l, stage2_r;
-wire [31:0] stage3_l, stage3_r, success_l, success_r;
-wire [31:0] fail_l, fail_r, help_l, help_r;
+wire [25:0] title_l, title_r, staff_l, staff_r;
+wire [25:0] stage1_l, stage1_r, stage2_l, stage2_r;
+wire [25:0] stage3_l, stage3_r, success_l, success_r;
+wire [25:0] fail_l, fail_r, help_l, help_r;
 
-bgm_title bgmTitle(
+bgm_title #(.LEN(2240)) bgmTitle(
     .clk(clk),
     .rst(rst),
 	.en(state == TITLE),
@@ -27,7 +27,7 @@ bgm_title bgmTitle(
     .toneR(title_r)
 );
 
-bgm_help bgmHelp(
+bgm_help #(.LEN(1024)) bgmHelp(
     .clk(clk),
     .rst(rst),
 	.en(state == HELP),
@@ -42,36 +42,36 @@ always @(*) begin
     end else begin
         case(state)
         TITLE: begin
-            freqL = title_l / 50000000;
-            freqR = title_r / 50000000;
+            freqL = 50000000 / title_l;
+            freqR = 50000000 / title_r;
         end
         STAFF: begin
-            freqL = staff_l / 50000000;
-            freqR = staff_r / 50000000;
+            freqL = 50000000 / staff_l;
+            freqR = 50000000 / staff_r;
         end
         STAGE1: begin
-            freqL = stage1_l / 50000000;
-            freqR = stage1_r / 50000000;
+            freqL = 50000000 / stage1_l;
+            freqR = 50000000 / stage1_r;
         end
         STAGE2: begin
-            freqL = stage2_l / 50000000;
-            freqR = stage2_r / 50000000;
+            freqL = 50000000 / stage2_l;
+            freqR = 50000000 / stage2_r;
         end
         STAGE3: begin
-            freqL = stage3_l / 50000000;
-            freqR = stage3_r / 50000000;
+            freqL = 50000000 / stage3_l;
+            freqR = 50000000 / stage3_r;
         end
         FAIL: begin
-            freqL = fail_l / 50000000;
-            freqR = fail_r / 50000000;
+            freqL = 50000000 / fail_l;
+            freqR = 50000000 / fail_r;
         end
         HELP: begin
-            freqL = help_l / 50000000;
-            freqR = help_r / 50000000;
+            freqL = 50000000 / help_l;
+            freqR = 50000000 / help_r;
         end
         SUCCESS1, SUCCESS2, SUCCESS3: begin
-            freqL = success_l / 50000000;
-            freqR = success_r / 50000000;
+            freqL = 50000000 / success_l;
+            freqR = 50000000 / success_r;
         end
         default: begin
             freqL = 1;

@@ -3,6 +3,9 @@
 module game_play (
     input rst,
     input clk,
+    input clk_21,
+    input clk_22,
+    input clk_23,
     inout wire PS2_DATA,
     inout wire PS2_CLK,
     output reg [1:0] todo,
@@ -176,14 +179,6 @@ always @(posedge clk or posedge rst) begin
         endcase
     end
 end
-
-
-// Clock Divider
-clock_divider #(23) div_23(.clk(clk), .clk_div(clk_23));
-clock_divider #(22) div_22(.clk(clk), .clk_div(clk_22));
-clock_divider #(21) div_21(.clk(clk), .clk_div(clk_21));
-
-
 
 // Player Position
 parameter [3:0] UP1 = 0, UP2 = 1, UP3 = 2;
