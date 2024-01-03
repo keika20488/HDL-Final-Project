@@ -57,16 +57,16 @@ game_sound bgm(
     .clk(clk),
     .rst(rst),
     .state(state),
-    .toneL(freqL),
-    .toneR(freqR)
+    .freqL(freqL),
+    .freqR(freqR)
 );
 
 note_gen noteGen(
     .clk(clk), 
     .rst(rst), 
     .volume(volume),
-    .note_div_left(freq_outL), 
-    .note_div_right(freq_outR), 
+    .note_div_left(freqL), 
+    .note_div_right(freqR), 
     .audio_left(audio_in_left),     // left sound audio
     .audio_right(audio_in_right)    // right sound audio
 );
