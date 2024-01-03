@@ -60,7 +60,9 @@ always @ (posedge clk or posedge rst) begin
 end
 
 game_sound bgm(
-    .clk(clk_22),
+    .clk_21(clk_21),
+    .clk_22(clk_22),
+    .clk_23(clk_23),
     .rst(rst),
     .mute(_mute),
     .state(state),

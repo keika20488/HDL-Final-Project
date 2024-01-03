@@ -16,12 +16,14 @@ int main () {
             string note;
             cout << "note: ";
             cin >> note;
-            for (int j = 0; j < 3; j++) {
+            for (int j = 0; j < 4; j++) {
+                if (!(i%2) || j < 3) {
                 myfile << "'d" << 64*k+2*i*num+2*j << ": tone = `" << note << ";   ";
                 myfile << "'d" << 64*k+2*i*num+2*j+1 << ": tone = `" << note << ";\n";
-            }
+                } else {
                 myfile << "'d" << 64*k+2*i*num+2*3 << ": tone = `SIL;   ";
-                myfile << "'d" << 64*k+2*i*num+2*3+1 << ": tone = `SIL;\n"; myfile << endl;
+                myfile << "'d" << 64*k+2*i*num+2*3+1 << ": tone = `SIL;\n";}
+            }myfile << endl;
         }
     }myfile << endl;
     myfile.close();

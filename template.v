@@ -379,8 +379,8 @@ module note_gen(
             end
 
     wire [15:0] v_min, v_max;
-    assign v_min = 16'hFC00 - 16'h0400 * (volume - 1);
-    assign v_max = 16'h0400 + 16'h0400 * (volume - 1);
+    assign v_min = 16'hFFC0 - 16'h0040 * (volume - 1);
+    assign v_max = 16'h0040 + 16'h0040 * (volume - 1);
     // Assign the amplitude of the note
     // Volume is controlled here
     assign audio_left = (!volume || note_div_left == 22'd1) ? 16'h0000 : 
