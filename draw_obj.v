@@ -52,7 +52,7 @@ always@(*)begin
         end
         else if(key_find == 2)begin
             if(x >= 215 && x < 225 && y >= 130 && y < 140)begin
-                pixel_addr = (x + 115 +(y - 100)*360)%86400;
+                pixel_addr = (x + 105 +(y - 100)*360)%86400;
                 isObject = 1;
             end//key3
         end
