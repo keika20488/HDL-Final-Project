@@ -55,7 +55,6 @@ draw_interface interface(
     .pixel_addr(interface_addr),
     .isObject(isInterface)
 );
-
 draw_map map(
     .state(state),
     .h_cnt(h_cnt),
@@ -63,7 +62,6 @@ draw_map map(
     .pixel_addr(map_addr),
     .isObject(isMap)
 );
-
 draw_obj obj(
     .state(state),
     .h_cnt(h_cnt),
@@ -73,7 +71,6 @@ draw_obj obj(
     .pixel_addr(obj_addr),
     .isObject(isObj)
 );
-
 draw_player player(
     .state(state),
     .h_cnt(h_cnt),
@@ -91,8 +88,6 @@ parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
 parameter [3:0] STAGE3 = 6, SUCCESS3 = 7;
 parameter [3:0] FAIL = 8, HELP = 9;
 
-always@(posedge clk or posedge rst)begin
-end
 always@(*)begin
     notBlank = 0;
     pixel_addr = 0;

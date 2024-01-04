@@ -242,7 +242,7 @@
 12'd376: toneR = `A4;   12'd377: toneR = `A4;
 12'd378: toneR = `A4;   12'd379: toneR = `A4;
 12'd380: toneR = `A4;   12'd381: toneR = `A4;
-12'd382: toneR = `A4;   12'd383: toneR = `A4;
+12'd382: toneR = `A4;   12'd383: toneR = `SIL;
 
 // Measure 7 //
 12'd384: toneR = `A4;   12'd385: toneR = `A4;

@@ -23,7 +23,6 @@ module top(
     output [3:0] DIGIT
 );
 
-
 reg [2:0] volume;
 wire [15:0] audio_in_left, audio_in_right;
 wire [25:0] freqL, freqR;        
@@ -31,6 +30,7 @@ wire [1:0] key_find;
 wire [1:0] life;
 wire [3:0] play_valid, state, player_state, boss_state;
 wire [8:0] player_x, player_y, boss_x, boss_y, obj_x, obj_y;
+
 // Clock Divider
 clock_divider #(2) div_25M(.clk(clk), .clk_div(clk_25MHz));
 clock_divider #(23) div_23(.clk(clk), .clk_div(clk_23));
@@ -48,9 +48,7 @@ onepulse p3(.clk(clk), . pb_in(_volDOWN_d), .pb_out(Vol_down));
 assign led = (_mute) ? 5'b0 : 5'b11111 >> (5 - volume);
 
 // Music
-// music sheet
-//volume
-
+// volume
 always @ (posedge clk or posedge rst) begin
     if (rst) volume <= 3;
     else if (!_mute) begin
@@ -59,6 +57,7 @@ always @ (posedge clk or posedge rst) begin
     end else volume <= volume;
 end
 
+// bgm
 game_sound bgm(
     .clk_21(clk_21),
     .clk_22(clk_22),

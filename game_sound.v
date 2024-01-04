@@ -29,7 +29,7 @@ bgm_title #(.LEN(2240)) bgmTitle(
     .toneR(title_r)
 );
 
-bgm_staff #(.LEN(1536)) bgmSTAFF(
+bgm_staff #(.LEN(1600)) bgmSTAFF(
     .clk(clk_21),
     .rst(rst),
 	.en(state == STAFF),
@@ -38,11 +38,35 @@ bgm_staff #(.LEN(1536)) bgmSTAFF(
 );
 
 bgm_stage1 #(.LEN(1408)) bgmSTAGE1(
-    .clk(clk_21),
+    .clk(clk_22),
     .rst(rst),
 	.en(state == STAGE1),
 	.toneL(stage1_l),
     .toneR(stage1_r)
+);
+
+bgm_stage2 #(.LEN(288)) bgmStage2(
+    .clk(clk_21),
+    .rst(rst),
+	.en(state == STAGE2),
+	.toneL(stage2_l),
+    .toneR(stage2_r)
+);
+
+bgm_success #(.LEN(1536)) bgmSuccess(
+    .clk(clk_22),
+    .rst(rst),
+	.en((state == SUCCESS1) || (state == SUCCESS2) || (state == SUCCESS3)),
+	.toneL(success_l),
+    .toneR(success_r)
+);
+
+bgm_fail #(.LEN(1152)) bgmFail(
+    .clk(clk_22),
+    .rst(rst),
+	.en(state == FAIL),
+	.toneL(fail_l),
+    .toneR(fail_r)
 );
 
 bgm_help #(.LEN(1024)) bgmHelp(
