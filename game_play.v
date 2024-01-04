@@ -104,8 +104,11 @@ always @(posedge clk or posedge rst) begin
     else begin
         case(state)
         TITLE: begin
-            if (key_down[last_change] && key_num < 4 && play_valid[key_num])
+            if (key_down[last_change] && key_num < 4 && play_valid[key_num])begin
                 state <= key_num * 2;
+            end else if(key_down[last_change] && key_num == 11 )begin
+                state <= HELP;
+            end
             else state <= TITLE;
         end
         STAGE1: begin
@@ -645,7 +648,7 @@ always @(posedge player_clk or posedge rst) begin
     else begin
         key_find <= key_find;
         case(state)
-        STAGE1, STAGE3: begin
+        STAGE1: begin
             case (key_find)
             0: begin
                 if (player_x >= 60 && player_x < 80 && player_y >= 30 && player_y < 50)
@@ -665,19 +668,35 @@ always @(posedge player_clk or posedge rst) begin
             if (!isDark) begin
                 case (key_find)
                 0: begin
-                    if (player_x >= 60 && player_x < 80 && player_y >= 30 && player_y < 50)
+                    if (player_x >= 120 && player_x < 140 && player_y >= 30 && player_y < 50)
                         key_find <= key_find + 1;
                 end
                 1: begin
-                    if (player_x >= 240 && player_x < 260 && player_y >= 30 && player_y < 50)
+                    if (player_x >= 210 && player_x < 230 && player_y >= 60 && player_y < 80)
                         key_find <= key_find + 1;
                 end
                 2: begin
-                    if (player_x >= 205 && player_x < 225 && player_y >= 210 && player_y < 230)
+                    if (player_x >= 205 && player_x < 225 && player_y >= 120 && player_y < 140)
                         key_find <= key_find + 1;
                 end
                 endcase
             end
+        end
+        STAGE3: begin
+            case (key_find)
+            0: begin
+                if (player_x >= 220 && player_x < 80 && player_y >= 30 && player_y < 50)
+                    key_find <= key_find + 1;
+            end
+            1: begin
+                if (player_x >= 90 && player_x < 110 && player_y >= 100 && player_y < 120)
+                    key_find <= key_find + 1;
+            end
+            2: begin
+                if (player_x >= 150 && player_x < 170 && player_y >= 150 && player_y < 170)
+                    key_find <= key_find + 1;
+            end
+            endcase
         end
         default: key_find <= 0;
         endcase

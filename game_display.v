@@ -92,7 +92,7 @@ always@(*)begin
     notBlank = 0;
     pixel_addr = 0;
     case(state)
-    TITLE, STAFF, SUCCESS1, SUCCESS2, SUCCESS3, FAIL:begin
+    TITLE, STAFF, SUCCESS1, SUCCESS2, SUCCESS3, FAIL, HELP:begin
         if (isInterface) begin
             pixel_addr = interface_addr;
             notBlank = 1;
@@ -117,7 +117,7 @@ always@(*)begin
         end else if (isDoor) begin
             pixel_addr = door_addr;
             notBlank = 1;
-        end
+        end 
     end
     endcase
 end
