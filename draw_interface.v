@@ -189,7 +189,7 @@ always @(*) begin
         end else if(x >= 60 && x < 130 && y >= 70 && y < 130)begin //WASD
             pixel_addr = (x + 230 +(y - 10)*360)%86400;
             isObject = 1;
-        end else if(x >= 60 && x < 130 && y >= 130 && y < 180)begin //shift
+        end else if(x >= 60 && x < 140 && y >= 130 && y < 180)begin //shift
             pixel_addr = (x + 220 +(y + 50)*360)%86400;
             isObject = 1;
         end else if(x >= 160 && x < 240 && y >= 70 && y < 90)begin//turn on light
