@@ -45,6 +45,14 @@ bgm_stage1 #(.LEN(1408)) bgmSTAGE1(
     .toneR(stage1_r)
 );
 
+bgm_stage2 #(.LEN(288)) bgmStage2(
+    .clk(clk_21),
+    .rst(rst),
+	.en(state == STAGE2),
+	.toneL(stage2_l),
+    .toneR(stage2_r)
+);
+
 bgm_success #(.LEN(1536)) bgmSuccess(
     .clk(clk_22),
     .rst(rst),

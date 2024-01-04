@@ -7,21 +7,21 @@ string key[12] =
 
 int main () {
     ofstream myfile;
-    myfile.open ("success_L.txt");
-    int num = 4, measure = 24;
+    myfile.open ("stage2_L.txt");
+    int num = 4, measure = 12;
     for (int k = 0; k < measure; k++) {
         myfile << "// Measure " << k+1 << " //\n";
         cout << "Measure " << k+1 << ":\n";
-        //for (int i = 0; i < 4*num; i++) {
+        for (int i = 0; i < num; i++) {
             string note;
             cout << "note: ";
             cin >> note;
-            for (int j = 0; j < 32; j++) {
-                myfile << "12'd" << 64*k+2*j << ": tone = `" << note << ";   ";
-                myfile << "12'd" << 64*k+2*j+1 << ": tone = `" << note << ";\n";
-                if (j%4 == 3) myfile << "\n";
-            }//myfile << endl;
-        //}
+            for (int j = 0; j < 3; j++) {
+                myfile << "12'd" << 24*k+6*i+2*j << ": tone = `" << note << ";   ";
+                myfile << "12'd" << 24*k+6*i+2*j+1 << ": tone = `" << note << ";\n";
+                //if (j%4 == 3) myfile << "\n";
+            }myfile << "\n";
+        }
     }
     myfile.close();
     return 0;
