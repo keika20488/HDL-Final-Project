@@ -45,7 +45,15 @@ bgm_stage1 #(.LEN(1408)) bgmSTAGE1(
     .toneR(stage1_r)
 );
 
-bgm_fail #(.LEN(1152)) bgmHFail(
+bgm_success #(.LEN(1536)) bgmSuccess(
+    .clk(clk_22),
+    .rst(rst),
+	.en((state == SUCCESS1) || (state == SUCCESS2) || (state == SUCCESS3)),
+	.toneL(success_l),
+    .toneR(success_r)
+);
+
+bgm_fail #(.LEN(1152)) bgmFail(
     .clk(clk_22),
     .rst(rst),
 	.en(state == FAIL),
