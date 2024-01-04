@@ -46,7 +46,7 @@ bgm_stage1 #(.LEN(1408)) bgmStage1(
 );
 
 bgm_stage2 #(.LEN(288)) bgmStage2(
-    .clk(clk_21),
+    .clk(clk_22),
     .rst(rst),
 	.en(state == STAGE2),
 	.toneL(stage2_l),
@@ -62,7 +62,7 @@ bgm_stage3 #(.LEN(1024)) bgmStage3(
 );
 
 bgm_success #(.LEN(1536)) bgmSuccess(
-    .clk(clk_22),
+    .clk(clk_21),
     .rst(rst),
 	.en((state == SUCCESS1) || (state == SUCCESS2) || (state == SUCCESS3)),
 	.toneL(success_l),
@@ -78,7 +78,7 @@ bgm_fail #(.LEN(1152)) bgmFail(
 );
 
 bgm_help #(.LEN(1024)) bgmHelp(
-    .clk(clk_22),
+    .clk(clk_21),
     .rst(rst),
 	.en(state == HELP),
 	.toneL(help_l),

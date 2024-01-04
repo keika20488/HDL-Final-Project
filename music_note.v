@@ -1254,7 +1254,7 @@ module bgm_title(
             12'd1726: toneR = `F6;   12'd1727: toneR = `F6;
 
             // Measure 28 //
-            12'd1728: toneR = `D6;   12'd1729: toneR = `D6;
+            12'd1728: toneR = `E6;   12'd1729: toneR = `Ef6;
             12'd1730: toneR = `D6;   12'd1731: toneR = `D6;
             12'd1732: toneR = `D6;   12'd1733: toneR = `D6;
             12'd1734: toneR = `D6;   12'd1735: toneR = `D6;
