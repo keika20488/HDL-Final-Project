@@ -7,18 +7,18 @@ string key[12] =
 
 int main () {
     ofstream myfile;
-    myfile.open ("stage2_L.txt");
-    int num = 4, measure = 12;
+    myfile.open ("stage3_L.txt");
+    int num = 4, measure = 16;
     for (int k = 0; k < measure; k++) {
         myfile << "// Measure " << k+1 << " //\n";
         cout << "Measure " << k+1 << ":\n";
-        for (int i = 0; i < num; i++) {
+        for (int i = 0; i < 2*num; i++) {
             string note;
             cout << "note: ";
             cin >> note;
-            for (int j = 0; j < 3; j++) {
-                myfile << "12'd" << 24*k+6*i+2*j << ": tone = `" << note << ";   ";
-                myfile << "12'd" << 24*k+6*i+2*j+1 << ": tone = `" << note << ";\n";
+            for (int j = 0; j < 4; j++) {
+                myfile << "12'd" << 64*k+8*i+2*j << ": tone = `" << note << ";   ";
+                myfile << "12'd" << 64*k+8*i+2*j+1 << ": tone = `" << note << ";\n";
                 //if (j%4 == 3) myfile << "\n";
             }myfile << "\n";
         }
