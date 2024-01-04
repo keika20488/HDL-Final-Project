@@ -136,7 +136,6 @@ vga_controller vga_inst(
     .v_cnt(v_cnt)
 );
 
-
 // Game
 // play : output state & player's position
 wire [1:0] todo;

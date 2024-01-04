@@ -528,7 +528,6 @@ always @(posedge clk_22 or posedge rst) begin
     end
 end
 
-
 always @(posedge clk_22 or posedge rst) begin
     if(rst)begin
         boss_x <=  245;

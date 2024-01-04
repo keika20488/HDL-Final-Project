@@ -9,6 +9,7 @@ module draw_door(
 );
 
 parameter [3:0] STAGE1 = 2, STAGE2 = 4, STAGE3 = 6;
+
 wire [8:0] x,y;
 assign x = h_cnt>>1;
 assign y = v_cnt>>1;

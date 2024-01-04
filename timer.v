@@ -4,10 +4,12 @@ module Timer (
     input [3:0] state,
     output reg [16:0] nums
 );
+
 reg [26:0] cnt;
 reg [6:0] minute;
 reg [5:0] second;
 wire [3:0] min_10, min_1, sec_10, sec_1;
+
 parameter [3:0] TITLE = 0, STAFF = 1;
 parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
 parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
