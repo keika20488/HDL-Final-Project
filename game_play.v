@@ -241,6 +241,7 @@ parameter [0:40] map [0:40] = {
 };
 
 reg collide;
+reg collide_boss;
 
 // Player Speed
 wire shift_down;
@@ -534,7 +535,7 @@ always @(posedge clk_22 or posedge rst) begin
         boss_y <= 37;
     end
     else begin
-        if(collide)begin
+        if(collide_boss)begin
             boss_x <=  245;
             boss_y <= 37;
         end
@@ -597,6 +598,31 @@ always @(posedge player_clk or posedge rst) begin
             end
             default : begin
                 collide <= 0;
+            end
+            endcase
+        end
+    end
+end
+
+
+always @(posedge clk_22 or posedge rst) begin
+    if(rst)begin
+        collide_boss <= 0;
+    end
+    else begin
+        if(collide_boss == 1)collide_boss <= 0;
+        else begin
+            case(state)
+            STAGE3:begin
+                if(((boss_x > player_x && player_x+10 >= boss_x) || (player_x > boss_x && player_x < boss_x+10)) && ((boss_y > player_y && player_y+10 >= boss_y) || (player_y > boss_y && player_y < boss_y+10)))begin
+                    collide_boss <= 1;
+                end
+                else begin
+                    collide_boss <= 0;
+                end
+            end
+            default : begin
+                collide_boss <= 0;
             end
             endcase
         end
@@ -684,7 +710,7 @@ always @(posedge player_clk or posedge rst) begin
         STAGE3: begin
             case (key_find)
             0: begin
-                if (player_x >= 220 && player_x < 80 && player_y >= 30 && player_y < 50)
+                if (player_x >= 220 && player_x < 240 && player_y >= 30 && player_y < 50)
                     key_find <= key_find + 1;
             end
             1: begin

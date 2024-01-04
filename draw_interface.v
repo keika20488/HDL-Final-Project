@@ -47,7 +47,7 @@ always @(*) begin
                     pixel_addr = (x + 40 + (y - 120)*360)%86400;
                     isObject = 1;
                 end else begin
-                    pixel_addr = (x + 120 + (y - 140)*360)%86400;
+                    pixel_addr = (x + 60 + (y - 160)*360)%86400;
                     isObject = 1;
                 end
             end else if(y >= 210 && y < 230)begin//help
