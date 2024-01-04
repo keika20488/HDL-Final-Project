@@ -183,48 +183,48 @@ always @(*) begin
         end
     end
     HELP:begin
-        if(x >= 120 && x < 240 && y >= 20 && y < 40)begin//how
-            pixel_addr = (x + (40) + (y + (140))*360)%86400;
+        if(x >= 100 && x < 220 && y >= 20 && y < 40)begin//how
+            pixel_addr = (x + (60) + (y + (140))*360)%86400;
             isObject = 1;
         end
 
-        else if(x >= 90 && x < 160 && y >= 60 && y < 120)begin//wasd
-            pixel_addr = (x + (200) + (y + (0))*360)%86400;
+        else if(x >= 70 && x < 140 && y >= 60 && y < 120)begin//wasd
+            pixel_addr = (x + (220) + (y + (0))*360)%86400;
             isObject = 1;
         end
 
-        else if(x >= 80 && x < 160 && y >= 120 && y < 170)begin//shift
-            pixel_addr = (x + (200) + (y + (60))*360)%86400;
+        else if(x >= 60 && x < 140 && y >= 120 && y < 170)begin//shift
+            pixel_addr = (x + (220) + (y + (60))*360)%86400;
             isObject = 1;
         end
 
-        else if(x >= 200 && x < 280 && y >= 70 && y < 90)begin//light
-            pixel_addr = (x + (-40) + (y + (30))*360)%86400;
+        else if(x >= 180 && x < 260 && y >= 70 && y < 90)begin//light
+            pixel_addr = (x + (-20) + (y + (30))*360)%86400;
             isObject = 1;
         end
 
-        else if(x >= 200 && x < 280 && y >= 110 && y < 130)begin//key
-            pixel_addr = (x + (-40) + (y + (-50))*360)%86400;
+        else if(x >= 180 && x < 260 && y >= 110 && y < 130)begin//key
+            pixel_addr = (x + (-20) + (y + (-50))*360)%86400;
             isObject = 1;
         end
 
-        else if(x >= 200 && x < 280 && y >= 150 && y < 170)begin//escape
-            pixel_addr = (x + (-40) + (y + (-70))*360)%86400;
+        else if(x >= 180 && x < 260 && y >= 150 && y < 170)begin//escape
+            pixel_addr = (x + (-20) + (y + (-70))*360)%86400;
             isObject = 1;
         end
 
-        else if(x >= 140 && x < 220 && y >= 200 && y < 220)begin//back
-            pixel_addr = (x + (60) + (y + (-200))*360)%86400;
+        else if(x >= 120 && x < 200 && y >= 200 && y < 220)begin//back
+            pixel_addr = (x + (80) + (y + (-200))*360)%86400;
             isObject = 1;
         end
 
-        else if(x >= 230 && x < 245 && y >= 95 && y < 110)begin//array1
-            pixel_addr = (x + (105) + (y + (-55))*360)%86400;
+        else if(x >= 210 && x < 225 && y >= 95 && y < 110)begin//array1
+            pixel_addr = (x + (125) + (y + (-55))*360)%86400;
             isObject = 1;
         end
 
-        else if(x >= 230 && x < 245 && y >= 135 && y < 150)begin//array2
-            pixel_addr = (x + (105) + (y + (-95))*360)%86400;
+        else if(x >= 210 && x < 225 && y >= 135 && y < 150)begin//array2
+            pixel_addr = (x + (125) + (y + (-95))*360)%86400;
             isObject = 1;
         end
             end

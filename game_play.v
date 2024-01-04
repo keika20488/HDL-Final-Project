@@ -627,7 +627,7 @@ always @(posedge clk_22 or posedge rst) begin
         boss_y <= 37;
     end
     else begin
-        if(collide_boss)begin
+        if(collide)begin
             boss_x <=  245;
             boss_y <= 37;
         end
@@ -672,7 +672,7 @@ always @(posedge clk_22 or posedge rst) begin
 end
 
 // Collide
-always @(posedge player_clk or posedge rst) begin
+always @(posedge clk_23 or posedge rst) begin
     if(rst)begin
         collide <= 0;
     end
@@ -721,7 +721,7 @@ always @(posedge clk_22 or posedge rst) begin
     end
 end
 
-always @(posedge player_clk or posedge rst) begin
+always @(posedge clk_23 or posedge rst) begin
     if(rst)begin
         life <= 3;
     end

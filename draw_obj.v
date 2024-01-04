@@ -57,13 +57,13 @@ always@(*)begin
             end//key3
         end
         if (isDark) begin
-            if (x >= 70 && x < 80 && y >= 220 && y < 230) begin
-                pixel_addr = (x + 250 + (y - 200) * 360) % 86400;
+            if (x >= 67 && x < 77 && y >= 220 && y < 230) begin
+                pixel_addr = (x + 253 + (y - 200) * 360) % 86400;
                 isObject = 1;
             end
         end else begin
-            if (x >= 70 && x < 80 && y >= 220 && y < 230) begin
-                pixel_addr = (x + 260 + (y - 200) * 360) % 86400;
+            if (x >= 67 && x < 77 && y >= 220 && y < 230) begin
+                pixel_addr = (x + 263 + (y - 200) * 360) % 86400;
                 isObject = 1;
             end
         end
