@@ -7031,6 +7031,1362 @@ module bgm_stage2(
     end
 endmodule
 
+module bgm_stage3(
+    input clk,
+    input rst,
+	input en,
+	output reg [25:0] toneL,
+    output reg [25:0] toneR
+);
+
+    parameter LEN = 4096;
+    reg [11:0] beat, next_beat;
+
+    always @(posedge clk, posedge rst) begin
+        if (rst)
+            beat <= 0;
+        else if (en)
+            beat <= next_beat;
+        else beat <= 0;
+    end
+
+    always @(*) begin
+        next_beat = (beat + 1 < LEN) ? (beat + 1) : 0;
+    end
+
+    always @(*) begin
+        if(en == 1) begin
+            case(beat)
+            // Measure 1 //
+            12'd0: toneR = `F5;   12'd1: toneR = `F5;
+            12'd2: toneR = `F5;   12'd3: toneR = `F5;
+            12'd4: toneR = `F5;   12'd5: toneR = `F5;
+            12'd6: toneR = `F5;   12'd7: toneR = `F5;
+
+            12'd8: toneR = `F5;   12'd9: toneR = `F5;
+            12'd10: toneR = `F5;   12'd11: toneR = `F5;
+            12'd12: toneR = `F5;   12'd13: toneR = `F5;
+            12'd14: toneR = `F5;   12'd15: toneR = `F5;
+
+            12'd16: toneR = `C5;   12'd17: toneR = `C5;
+            12'd18: toneR = `C5;   12'd19: toneR = `C5;
+            12'd20: toneR = `C5;   12'd21: toneR = `C5;
+            12'd22: toneR = `C5;   12'd23: toneR = `C5;
+
+            12'd24: toneR = `C5;   12'd25: toneR = `C5;
+            12'd26: toneR = `C5;   12'd27: toneR = `C5;
+            12'd28: toneR = `C5;   12'd29: toneR = `C5;
+            12'd30: toneR = `C5;   12'd31: toneR = `C5;
+
+            12'd32: toneR = `Af4;   12'd33: toneR = `Af4;
+            12'd34: toneR = `Af4;   12'd35: toneR = `Af4;
+            12'd36: toneR = `Af4;   12'd37: toneR = `Af4;
+            12'd38: toneR = `Af4;   12'd39: toneR = `Af4;
+
+            12'd40: toneR = `Af4;   12'd41: toneR = `Af4;
+            12'd42: toneR = `Af4;   12'd43: toneR = `Af4;
+            12'd44: toneR = `Af4;   12'd45: toneR = `Af4;
+            12'd46: toneR = `Af4;   12'd47: toneR = `Af4;
+
+            12'd48: toneR = `F4;   12'd49: toneR = `F4;
+            12'd50: toneR = `F4;   12'd51: toneR = `F4;
+            12'd52: toneR = `F4;   12'd53: toneR = `F4;
+            12'd54: toneR = `F4;   12'd55: toneR = `F4;
+
+            12'd56: toneR = `F4;   12'd57: toneR = `F4;
+            12'd58: toneR = `F4;   12'd59: toneR = `F4;
+            12'd60: toneR = `F4;   12'd61: toneR = `F4;
+            12'd62: toneR = `F4;   12'd63: toneR = `F4;
+
+            // Measure 2 //
+            12'd64: toneR = `SIL;   12'd65: toneR = `SIL;
+            12'd66: toneR = `SIL;   12'd67: toneR = `SIL;
+            12'd68: toneR = `SIL;   12'd69: toneR = `SIL;
+            12'd70: toneR = `SIL;   12'd71: toneR = `SIL;
+
+            12'd72: toneR = `B4;   12'd73: toneR = `B4;
+            12'd74: toneR = `B4;   12'd75: toneR = `B4;
+            12'd76: toneR = `B4;   12'd77: toneR = `B4;
+            12'd78: toneR = `B4;   12'd79: toneR = `B4;
+
+            12'd80: toneR = `Bf4;   12'd81: toneR = `Bf4;
+            12'd82: toneR = `Bf4;   12'd83: toneR = `Bf4;
+            12'd84: toneR = `Bf4;   12'd85: toneR = `Bf4;
+            12'd86: toneR = `Bf4;   12'd87: toneR = `Bf4;
+
+            12'd88: toneR = `SIL;   12'd89: toneR = `SIL;
+            12'd90: toneR = `SIL;   12'd91: toneR = `SIL;
+            12'd92: toneR = `SIL;   12'd93: toneR = `SIL;
+            12'd94: toneR = `SIL;   12'd95: toneR = `SIL;
+
+            12'd96: toneR = `Bf4;   12'd97: toneR = `Bf4;
+            12'd98: toneR = `Bf4;   12'd99: toneR = `Bf4;
+            12'd100: toneR = `Bf4;   12'd101: toneR = `Bf4;
+            12'd102: toneR = `Bf4;   12'd103: toneR = `Bf4;
+
+            12'd104: toneR = `Af4;   12'd105: toneR = `Af4;
+            12'd106: toneR = `Af4;   12'd107: toneR = `Af4;
+            12'd108: toneR = `Af4;   12'd109: toneR = `Af4;
+            12'd110: toneR = `Af4;   12'd111: toneR = `Af4;
+
+            12'd112: toneR = `E4;   12'd113: toneR = `E4;
+            12'd114: toneR = `E4;   12'd115: toneR = `E4;
+            12'd116: toneR = `E4;   12'd117: toneR = `E4;
+            12'd118: toneR = `E4;   12'd119: toneR = `E4;
+
+            12'd120: toneR = `F4;   12'd121: toneR = `F4;
+            12'd122: toneR = `F4;   12'd123: toneR = `F4;
+            12'd124: toneR = `F4;   12'd125: toneR = `F4;
+            12'd126: toneR = `F4;   12'd127: toneR = `F4;
+
+            // Measure 3 //
+            12'd128: toneR = `SIL;   12'd129: toneR = `SIL;
+            12'd130: toneR = `SIL;   12'd131: toneR = `SIL;
+            12'd132: toneR = `SIL;   12'd133: toneR = `SIL;
+            12'd134: toneR = `SIL;   12'd135: toneR = `SIL;
+
+            12'd136: toneR = `C5;   12'd137: toneR = `C5;
+            12'd138: toneR = `C5;   12'd139: toneR = `C5;
+            12'd140: toneR = `C5;   12'd141: toneR = `C5;
+            12'd142: toneR = `C5;   12'd143: toneR = `C5;
+
+            12'd144: toneR = `Bf4;   12'd145: toneR = `Bf4;
+            12'd146: toneR = `Bf4;   12'd147: toneR = `Bf4;
+            12'd148: toneR = `Bf4;   12'd149: toneR = `Bf4;
+            12'd150: toneR = `Bf4;   12'd151: toneR = `Bf4;
+
+            12'd152: toneR = `Af4;   12'd153: toneR = `Af4;
+            12'd154: toneR = `Af4;   12'd155: toneR = `Af4;
+            12'd156: toneR = `Af4;   12'd157: toneR = `Af4;
+            12'd158: toneR = `Af4;   12'd159: toneR = `Af4;
+
+            12'd160: toneR = `Bf4;   12'd161: toneR = `Bf4;
+            12'd162: toneR = `Bf4;   12'd163: toneR = `Bf4;
+            12'd164: toneR = `Bf4;   12'd165: toneR = `Bf4;
+            12'd166: toneR = `Bf4;   12'd167: toneR = `Bf4;
+
+            12'd168: toneR = `C5;   12'd169: toneR = `C5;
+            12'd170: toneR = `C5;   12'd171: toneR = `C5;
+            12'd172: toneR = `C5;   12'd173: toneR = `C5;
+            12'd174: toneR = `C5;   12'd175: toneR = `C5;
+
+            12'd176: toneR = `E4;   12'd177: toneR = `E4;
+            12'd178: toneR = `E4;   12'd179: toneR = `E4;
+            12'd180: toneR = `E4;   12'd181: toneR = `E4;
+            12'd182: toneR = `E4;   12'd183: toneR = `E4;
+
+            12'd184: toneR = `F4;   12'd185: toneR = `F4;
+            12'd186: toneR = `F4;   12'd187: toneR = `F4;
+            12'd188: toneR = `F4;   12'd189: toneR = `F4;
+            12'd190: toneR = `F4;   12'd191: toneR = `F4;
+
+            // Measure 4 //
+            12'd192: toneR = `Af4;   12'd193: toneR = `Af4;
+            12'd194: toneR = `Af4;   12'd195: toneR = `Af4;
+            12'd196: toneR = `Af4;   12'd197: toneR = `Af4;
+            12'd198: toneR = `Af4;   12'd199: toneR = `Af4;
+
+            12'd200: toneR = `F4;   12'd201: toneR = `F4;
+            12'd202: toneR = `F4;   12'd203: toneR = `F4;
+            12'd204: toneR = `F4;   12'd205: toneR = `F4;
+            12'd206: toneR = `F4;   12'd207: toneR = `F4;
+
+            12'd208: toneR = `E4;   12'd209: toneR = `E4;
+            12'd210: toneR = `E4;   12'd211: toneR = `E4;
+            12'd212: toneR = `E4;   12'd213: toneR = `E4;
+            12'd214: toneR = `E4;   12'd215: toneR = `E4;
+
+            12'd216: toneR = `F5;   12'd217: toneR = `F5;
+            12'd218: toneR = `F5;   12'd219: toneR = `F5;
+            12'd220: toneR = `F5;   12'd221: toneR = `F5;
+            12'd222: toneR = `F5;   12'd223: toneR = `F5;
+
+            12'd224: toneR = `SIL;   12'd225: toneR = `SIL;
+            12'd226: toneR = `SIL;   12'd227: toneR = `SIL;
+            12'd228: toneR = `SIL;   12'd229: toneR = `SIL;
+            12'd230: toneR = `SIL;   12'd231: toneR = `SIL;
+
+            12'd232: toneR = `E5;   12'd233: toneR = `E5;
+            12'd234: toneR = `E5;   12'd235: toneR = `E5;
+            12'd236: toneR = `E5;   12'd237: toneR = `E5;
+            12'd238: toneR = `E5;   12'd239: toneR = `E5;
+
+            12'd240: toneR = `C5;   12'd241: toneR = `C5;
+            12'd242: toneR = `C5;   12'd243: toneR = `C5;
+            12'd244: toneR = `Bf4;   12'd245: toneR = `Bf4;
+            12'd246: toneR = `Bf4;   12'd247: toneR = `Bf4;
+
+            12'd248: toneR = `Af4;   12'd249: toneR = `Af4;
+            12'd250: toneR = `Af4;   12'd251: toneR = `Af4;
+            12'd252: toneR = `Af4;   12'd253: toneR = `Af4;
+            12'd254: toneR = `Af4;   12'd255: toneR = `Af4;
+
+            // Measure 5 //
+            12'd256: toneR = `F4;   12'd257: toneR = `F4;
+            12'd258: toneR = `F4;   12'd259: toneR = `F4;
+            12'd260: toneR = `F4;   12'd261: toneR = `F4;
+            12'd262: toneR = `F4;   12'd263: toneR = `F4;
+
+            12'd264: toneR = `F4;   12'd265: toneR = `F4;
+            12'd266: toneR = `F4;   12'd267: toneR = `F4;
+            12'd268: toneR = `F4;   12'd269: toneR = `F4;
+            12'd270: toneR = `F4;   12'd271: toneR = `F4;
+
+            12'd272: toneR = `Df4;   12'd273: toneR = `Df4;
+            12'd274: toneR = `Df4;   12'd275: toneR = `Df4;
+            12'd276: toneR = `Df4;   12'd277: toneR = `Df4;
+            12'd278: toneR = `Df4;   12'd279: toneR = `Df4;
+
+            12'd280: toneR = `Df4;   12'd281: toneR = `Df4;
+            12'd282: toneR = `Df4;   12'd283: toneR = `Df4;
+            12'd284: toneR = `Df4;   12'd285: toneR = `Df4;
+            12'd286: toneR = `Df4;   12'd287: toneR = `Df4;
+
+            12'd288: toneR = `G4;   12'd289: toneR = `G4;
+            12'd290: toneR = `G4;   12'd291: toneR = `G4;
+            12'd292: toneR = `G4;   12'd293: toneR = `G4;
+            12'd294: toneR = `G4;   12'd295: toneR = `G4;
+
+            12'd296: toneR = `G4;   12'd297: toneR = `G4;
+            12'd298: toneR = `G4;   12'd299: toneR = `G4;
+            12'd300: toneR = `G4;   12'd301: toneR = `G4;
+            12'd302: toneR = `G4;   12'd303: toneR = `G4;
+
+            12'd304: toneR = `Df4;   12'd305: toneR = `Df4;
+            12'd306: toneR = `Df4;   12'd307: toneR = `Df4;
+            12'd308: toneR = `Df4;   12'd309: toneR = `Df4;
+            12'd310: toneR = `Df4;   12'd311: toneR = `Df4;
+
+            12'd312: toneR = `Df4;   12'd313: toneR = `Df4;
+            12'd314: toneR = `Df4;   12'd315: toneR = `Df4;
+            12'd316: toneR = `Df4;   12'd317: toneR = `Df4;
+            12'd318: toneR = `Df4;   12'd319: toneR = `Df4;
+
+            // Measure 6 //
+            12'd320: toneR = `Af4;   12'd321: toneR = `Af4;
+            12'd322: toneR = `Af4;   12'd323: toneR = `Af4;
+            12'd324: toneR = `Af4;   12'd325: toneR = `Af4;
+            12'd326: toneR = `Af4;   12'd327: toneR = `Af4;
+
+            12'd328: toneR = `Af4;   12'd329: toneR = `Af4;
+            12'd330: toneR = `Af4;   12'd331: toneR = `Af4;
+            12'd332: toneR = `Af4;   12'd333: toneR = `Af4;
+            12'd334: toneR = `Af4;   12'd335: toneR = `Af4;
+
+            12'd336: toneR = `Df4;   12'd337: toneR = `Df4;
+            12'd338: toneR = `Df4;   12'd339: toneR = `Df4;
+            12'd340: toneR = `Df4;   12'd341: toneR = `Df4;
+            12'd342: toneR = `Df4;   12'd343: toneR = `Df4;
+
+            12'd344: toneR = `Df4;   12'd345: toneR = `Df4;
+            12'd346: toneR = `Df4;   12'd347: toneR = `Df4;
+            12'd348: toneR = `Df4;   12'd349: toneR = `Df4;
+            12'd350: toneR = `Df4;   12'd351: toneR = `Df4;
+
+            12'd352: toneR = `Bf4;   12'd353: toneR = `Bf4;
+            12'd354: toneR = `Bf4;   12'd355: toneR = `Bf4;
+            12'd356: toneR = `Bf4;   12'd357: toneR = `Bf4;
+            12'd358: toneR = `Bf4;   12'd359: toneR = `Bf4;
+
+            12'd360: toneR = `Bf4;   12'd361: toneR = `Bf4;
+            12'd362: toneR = `Bf4;   12'd363: toneR = `Bf4;
+            12'd364: toneR = `Bf4;   12'd365: toneR = `Bf4;
+            12'd366: toneR = `Bf4;   12'd367: toneR = `Bf4;
+
+            12'd368: toneR = `Bf4;   12'd369: toneR = `Bf4;
+            12'd370: toneR = `Bf4;   12'd371: toneR = `Bf4;
+            12'd372: toneR = `Bf4;   12'd373: toneR = `Bf4;
+            12'd374: toneR = `Bf4;   12'd375: toneR = `Bf4;
+
+            12'd376: toneR = `Bf4;   12'd377: toneR = `Bf4;
+            12'd378: toneR = `Bf4;   12'd379: toneR = `Bf4;
+            12'd380: toneR = `Bf4;   12'd381: toneR = `Bf4;
+            12'd382: toneR = `Bf4;   12'd383: toneR = `Bf4;
+
+            // Measure 7 //
+            12'd384: toneR = `C5;   12'd385: toneR = `C5;
+            12'd386: toneR = `C5;   12'd387: toneR = `C5;
+            12'd388: toneR = `C5;   12'd389: toneR = `C5;
+            12'd390: toneR = `C5;   12'd391: toneR = `C5;
+
+            12'd392: toneR = `C5;   12'd393: toneR = `C5;
+            12'd394: toneR = `C5;   12'd395: toneR = `C5;
+            12'd396: toneR = `C5;   12'd397: toneR = `C5;
+            12'd398: toneR = `C5;   12'd399: toneR = `C5;
+
+            12'd400: toneR = `Bf4;   12'd401: toneR = `Bf4;
+            12'd402: toneR = `Bf4;   12'd403: toneR = `Bf4;
+            12'd404: toneR = `Bf4;   12'd405: toneR = `Bf4;
+            12'd406: toneR = `Bf4;   12'd407: toneR = `Bf4;
+
+            12'd408: toneR = `Bf4;   12'd409: toneR = `Bf4;
+            12'd410: toneR = `Bf4;   12'd411: toneR = `Bf4;
+            12'd412: toneR = `Bf4;   12'd413: toneR = `Bf4;
+            12'd414: toneR = `Bf4;   12'd415: toneR = `Bf4;
+
+            12'd416: toneR = `F5;   12'd417: toneR = `F5;
+            12'd418: toneR = `F5;   12'd419: toneR = `F5;
+            12'd420: toneR = `F5;   12'd421: toneR = `F5;
+            12'd422: toneR = `F5;   12'd423: toneR = `F5;
+
+            12'd424: toneR = `F5;   12'd425: toneR = `F5;
+            12'd426: toneR = `F5;   12'd427: toneR = `F5;
+            12'd428: toneR = `F5;   12'd429: toneR = `F5;
+            12'd430: toneR = `F5;   12'd431: toneR = `F5;
+
+            12'd432: toneR = `C5;   12'd433: toneR = `C5;
+            12'd434: toneR = `C5;   12'd435: toneR = `C5;
+            12'd436: toneR = `C5;   12'd437: toneR = `C5;
+            12'd438: toneR = `C5;   12'd439: toneR = `C5;
+
+            12'd440: toneR = `C5;   12'd441: toneR = `C5;
+            12'd442: toneR = `C5;   12'd443: toneR = `C5;
+            12'd444: toneR = `C5;   12'd445: toneR = `C5;
+            12'd446: toneR = `C5;   12'd447: toneR = `C5;
+
+            // Measure 8 //
+            12'd448: toneR = `E5;   12'd449: toneR = `E5;
+            12'd450: toneR = `E5;   12'd451: toneR = `E5;
+            12'd452: toneR = `E5;   12'd453: toneR = `E5;
+            12'd454: toneR = `E5;   12'd455: toneR = `E5;
+
+            12'd456: toneR = `E5;   12'd457: toneR = `E5;
+            12'd458: toneR = `E5;   12'd459: toneR = `E5;
+            12'd460: toneR = `E5;   12'd461: toneR = `E5;
+            12'd462: toneR = `E5;   12'd463: toneR = `E5;
+
+            12'd464: toneR = `Df5;   12'd465: toneR = `Df5;
+            12'd466: toneR = `Df5;   12'd467: toneR = `Df5;
+            12'd468: toneR = `Df5;   12'd469: toneR = `Df5;
+            12'd470: toneR = `Df5;   12'd471: toneR = `Df5;
+
+            12'd472: toneR = `Df5;   12'd473: toneR = `Df5;
+            12'd474: toneR = `Df5;   12'd475: toneR = `Df5;
+            12'd476: toneR = `Df5;   12'd477: toneR = `Df5;
+            12'd478: toneR = `Df5;   12'd479: toneR = `Df5;
+
+            12'd480: toneR = `C5;   12'd481: toneR = `C5;
+            12'd482: toneR = `C5;   12'd483: toneR = `C5;
+            12'd484: toneR = `C5;   12'd485: toneR = `C5;
+            12'd486: toneR = `C5;   12'd487: toneR = `C5;
+
+            12'd488: toneR = `C5;   12'd489: toneR = `C5;
+            12'd490: toneR = `C5;   12'd491: toneR = `C5;
+            12'd492: toneR = `C5;   12'd493: toneR = `C5;
+            12'd494: toneR = `C5;   12'd495: toneR = `C5;
+
+            12'd496: toneR = `SIL;   12'd497: toneR = `SIL;
+            12'd498: toneR = `SIL;   12'd499: toneR = `SIL;
+            12'd500: toneR = `SIL;   12'd501: toneR = `SIL;
+            12'd502: toneR = `SIL;   12'd503: toneR = `SIL;
+
+            12'd504: toneR = `SIL;   12'd505: toneR = `SIL;
+            12'd506: toneR = `SIL;   12'd507: toneR = `SIL;
+            12'd508: toneR = `SIL;   12'd509: toneR = `SIL;
+            12'd510: toneR = `SIL;   12'd511: toneR = `SIL;
+
+            // Measure 9 //
+            12'd512: toneR = `F5;   12'd513: toneR = `F5;
+            12'd514: toneR = `F5;   12'd515: toneR = `F5;
+            12'd516: toneR = `F5;   12'd517: toneR = `F5;
+            12'd518: toneR = `F5;   12'd519: toneR = `F5;
+
+            12'd520: toneR = `C6;   12'd521: toneR = `C6;
+            12'd522: toneR = `C6;   12'd523: toneR = `C6;
+            12'd524: toneR = `C6;   12'd525: toneR = `C6;
+            12'd526: toneR = `C6;   12'd527: toneR = `C6;
+
+            12'd528: toneR = `Bf5;   12'd529: toneR = `Bf5;
+            12'd530: toneR = `Bf5;   12'd531: toneR = `Bf5;
+            12'd532: toneR = `Bf5;   12'd533: toneR = `Bf5;
+            12'd534: toneR = `Bf5;   12'd535: toneR = `Bf5;
+
+            12'd536: toneR = `C6;   12'd537: toneR = `C6;
+            12'd538: toneR = `C6;   12'd539: toneR = `C6;
+            12'd540: toneR = `C6;   12'd541: toneR = `C6;
+            12'd542: toneR = `C6;   12'd543: toneR = `C6;
+
+            12'd544: toneR = `F5;   12'd545: toneR = `F5;
+            12'd546: toneR = `F5;   12'd547: toneR = `F5;
+            12'd548: toneR = `F5;   12'd549: toneR = `F5;
+            12'd550: toneR = `F5;   12'd551: toneR = `F5;
+
+            12'd552: toneR = `C6;   12'd553: toneR = `C6;
+            12'd554: toneR = `C6;   12'd555: toneR = `C6;
+            12'd556: toneR = `C6;   12'd557: toneR = `C6;
+            12'd558: toneR = `C6;   12'd559: toneR = `C6;
+
+            12'd560: toneR = `Bf5;   12'd561: toneR = `Bf5;
+            12'd562: toneR = `Bf5;   12'd563: toneR = `Bf5;
+            12'd564: toneR = `Bf5;   12'd565: toneR = `Bf5;
+            12'd566: toneR = `Bf5;   12'd567: toneR = `Bf5;
+
+            12'd568: toneR = `C6;   12'd569: toneR = `C6;
+            12'd570: toneR = `C6;   12'd571: toneR = `C6;
+            12'd572: toneR = `C6;   12'd573: toneR = `C6;
+            12'd574: toneR = `C6;   12'd575: toneR = `C6;
+
+            // Measure 10 //
+            12'd576: toneR = `Cs5;   12'd577: toneR = `Cs5;
+            12'd578: toneR = `Cs5;   12'd579: toneR = `Cs5;
+            12'd580: toneR = `Cs5;   12'd581: toneR = `Cs5;
+            12'd582: toneR = `Cs5;   12'd583: toneR = `Cs5;
+
+            12'd584: toneR = `B5;   12'd585: toneR = `B5;
+            12'd586: toneR = `B5;   12'd587: toneR = `B5;
+            12'd588: toneR = `B5;   12'd589: toneR = `B5;
+            12'd590: toneR = `B5;   12'd591: toneR = `B5;
+
+            12'd592: toneR = `Bf5;   12'd593: toneR = `Bf5;
+            12'd594: toneR = `Bf5;   12'd595: toneR = `Bf5;
+            12'd596: toneR = `Bf5;   12'd597: toneR = `Bf5;
+            12'd598: toneR = `Bf5;   12'd599: toneR = `Bf5;
+
+            12'd600: toneR = `B5;   12'd601: toneR = `B5;
+            12'd602: toneR = `B5;   12'd603: toneR = `B5;
+            12'd604: toneR = `B5;   12'd605: toneR = `B5;
+            12'd606: toneR = `B5;   12'd607: toneR = `B5;
+
+            12'd608: toneR = `C5;   12'd609: toneR = `C5;
+            12'd610: toneR = `C5;   12'd611: toneR = `C5;
+            12'd612: toneR = `C5;   12'd613: toneR = `C5;
+            12'd614: toneR = `C5;   12'd615: toneR = `C5;
+
+            12'd616: toneR = `C6;   12'd617: toneR = `C6;
+            12'd618: toneR = `C6;   12'd619: toneR = `C6;
+            12'd620: toneR = `C6;   12'd621: toneR = `C6;
+            12'd622: toneR = `C6;   12'd623: toneR = `C6;
+
+            12'd624: toneR = `G5;   12'd625: toneR = `G5;
+            12'd626: toneR = `G5;   12'd627: toneR = `G5;
+            12'd628: toneR = `G5;   12'd629: toneR = `G5;
+            12'd630: toneR = `G5;   12'd631: toneR = `G5;
+
+            12'd632: toneR = `Bf5;   12'd633: toneR = `Bf5;
+            12'd634: toneR = `Bf5;   12'd635: toneR = `Bf5;
+            12'd636: toneR = `Bf5;   12'd637: toneR = `Bf5;
+            12'd638: toneR = `Bf5;   12'd639: toneR = `Bf5;
+
+            // Measure 11 //
+            12'd640: toneR = `F5;   12'd641: toneR = `F5;
+            12'd642: toneR = `F5;   12'd643: toneR = `F5;
+            12'd644: toneR = `F5;   12'd645: toneR = `F5;
+            12'd646: toneR = `F5;   12'd647: toneR = `F5;
+
+            12'd648: toneR = `C6;   12'd649: toneR = `C6;
+            12'd650: toneR = `C6;   12'd651: toneR = `C6;
+            12'd652: toneR = `C6;   12'd653: toneR = `C6;
+            12'd654: toneR = `C6;   12'd655: toneR = `C6;
+
+            12'd656: toneR = `Bf5;   12'd657: toneR = `Bf5;
+            12'd658: toneR = `Bf5;   12'd659: toneR = `Bf5;
+            12'd660: toneR = `Bf5;   12'd661: toneR = `Bf5;
+            12'd662: toneR = `Bf5;   12'd663: toneR = `Bf5;
+
+            12'd664: toneR = `C6;   12'd665: toneR = `C6;
+            12'd666: toneR = `C6;   12'd667: toneR = `C6;
+            12'd668: toneR = `C6;   12'd669: toneR = `C6;
+            12'd670: toneR = `C6;   12'd671: toneR = `C6;
+
+            12'd672: toneR = `G5;   12'd673: toneR = `G5;
+            12'd674: toneR = `G5;   12'd675: toneR = `G5;
+            12'd676: toneR = `G5;   12'd677: toneR = `G5;
+            12'd678: toneR = `G5;   12'd679: toneR = `G5;
+
+            12'd680: toneR = `C6;   12'd681: toneR = `C6;
+            12'd682: toneR = `C6;   12'd683: toneR = `C6;
+            12'd684: toneR = `C6;   12'd685: toneR = `C6;
+            12'd686: toneR = `C6;   12'd687: toneR = `C6;
+
+            12'd688: toneR = `Bf5;   12'd689: toneR = `Bf5;
+            12'd690: toneR = `Bf5;   12'd691: toneR = `Bf5;
+            12'd692: toneR = `Bf5;   12'd693: toneR = `Bf5;
+            12'd694: toneR = `Bf5;   12'd695: toneR = `Bf5;
+
+            12'd696: toneR = `C6;   12'd697: toneR = `C6;
+            12'd698: toneR = `C6;   12'd699: toneR = `C6;
+            12'd700: toneR = `C6;   12'd701: toneR = `C6;
+            12'd702: toneR = `C6;   12'd703: toneR = `C6;
+
+            // Measure 12 //
+            12'd704: toneR = `Af5;   12'd705: toneR = `Af5;
+            12'd706: toneR = `Af5;   12'd707: toneR = `Af5;
+            12'd708: toneR = `Af5;   12'd709: toneR = `Af5;
+            12'd710: toneR = `Af5;   12'd711: toneR = `Af5;
+
+            12'd712: toneR = `C6;   12'd713: toneR = `C6;
+            12'd714: toneR = `C6;   12'd715: toneR = `C6;
+            12'd716: toneR = `C6;   12'd717: toneR = `C6;
+            12'd718: toneR = `C6;   12'd719: toneR = `C6;
+
+            12'd720: toneR = `Bf5;   12'd721: toneR = `Bf5;
+            12'd722: toneR = `Bf5;   12'd723: toneR = `Bf5;
+            12'd724: toneR = `Bf5;   12'd725: toneR = `Bf5;
+            12'd726: toneR = `Bf5;   12'd727: toneR = `Bf5;
+
+            12'd728: toneR = `C6;   12'd729: toneR = `C6;
+            12'd730: toneR = `C6;   12'd731: toneR = `C6;
+            12'd732: toneR = `C6;   12'd733: toneR = `C6;
+            12'd734: toneR = `C6;   12'd735: toneR = `C6;
+
+            12'd736: toneR = `Bf5;   12'd737: toneR = `Bf5;
+            12'd738: toneR = `Bf5;   12'd739: toneR = `Bf5;
+            12'd740: toneR = `Bf5;   12'd741: toneR = `Bf5;
+            12'd742: toneR = `Bf5;   12'd743: toneR = `Bf5;
+
+            12'd744: toneR = `Df6;   12'd745: toneR = `Df6;
+            12'd746: toneR = `Df6;   12'd747: toneR = `Df6;
+            12'd748: toneR = `Df6;   12'd749: toneR = `Df6;
+            12'd750: toneR = `Df6;   12'd751: toneR = `Df6;
+
+            12'd752: toneR = `C6;   12'd753: toneR = `C6;
+            12'd754: toneR = `C6;   12'd755: toneR = `C6;
+            12'd756: toneR = `C6;   12'd757: toneR = `C6;
+            12'd758: toneR = `C6;   12'd759: toneR = `C6;
+
+            12'd760: toneR = `Df6;   12'd761: toneR = `Df6;
+            12'd762: toneR = `Df6;   12'd763: toneR = `Df6;
+            12'd764: toneR = `Df6;   12'd765: toneR = `Df6;
+            12'd766: toneR = `Df6;   12'd767: toneR = `Df6;
+
+            // Measure 13 //
+            12'd768: toneR = `Df5;   12'd769: toneR = `Df5;
+            12'd770: toneR = `Df5;   12'd771: toneR = `Df5;
+            12'd772: toneR = `Df5;   12'd773: toneR = `Df5;
+            12'd774: toneR = `Df5;   12'd775: toneR = `Df5;
+
+            12'd776: toneR = `Af5;   12'd777: toneR = `Af5;
+            12'd778: toneR = `Af5;   12'd779: toneR = `Af5;
+            12'd780: toneR = `Af5;   12'd781: toneR = `Af5;
+            12'd782: toneR = `Af5;   12'd783: toneR = `Af5;
+
+            12'd784: toneR = `G5;   12'd785: toneR = `G5;
+            12'd786: toneR = `G5;   12'd787: toneR = `G5;
+            12'd788: toneR = `G5;   12'd789: toneR = `G5;
+            12'd790: toneR = `G5;   12'd791: toneR = `G5;
+
+            12'd792: toneR = `Af5;   12'd793: toneR = `Af5;
+            12'd794: toneR = `Af5;   12'd795: toneR = `Af5;
+            12'd796: toneR = `Af5;   12'd797: toneR = `Af5;
+            12'd798: toneR = `Af5;   12'd799: toneR = `Af5;
+
+            12'd800: toneR = `Df5;   12'd801: toneR = `Df5;
+            12'd802: toneR = `Df5;   12'd803: toneR = `Df5;
+            12'd804: toneR = `Df5;   12'd805: toneR = `Df5;
+            12'd806: toneR = `Df5;   12'd807: toneR = `Df5;
+
+            12'd808: toneR = `Bf5;   12'd809: toneR = `Bf5;
+            12'd810: toneR = `Bf5;   12'd811: toneR = `Bf5;
+            12'd812: toneR = `Bf5;   12'd813: toneR = `Bf5;
+            12'd814: toneR = `Bf5;   12'd815: toneR = `Bf5;
+
+            12'd816: toneR = `Af5;   12'd817: toneR = `Af5;
+            12'd818: toneR = `Af5;   12'd819: toneR = `Af5;
+            12'd820: toneR = `Af5;   12'd821: toneR = `Af5;
+            12'd822: toneR = `Af5;   12'd823: toneR = `Af5;
+
+            12'd824: toneR = `Bf5;   12'd825: toneR = `Bf5;
+            12'd826: toneR = `Bf5;   12'd827: toneR = `Bf5;
+            12'd828: toneR = `Bf5;   12'd829: toneR = `Bf5;
+            12'd830: toneR = `Bf5;   12'd831: toneR = `Bf5;
+
+            // Measure 14 //
+            12'd832: toneR = `Df5;   12'd833: toneR = `Df5;
+            12'd834: toneR = `Df5;   12'd835: toneR = `Df5;
+            12'd836: toneR = `Df5;   12'd837: toneR = `Df5;
+            12'd838: toneR = `Df5;   12'd839: toneR = `Df5;
+
+            12'd840: toneR = `C6;   12'd841: toneR = `C6;
+            12'd842: toneR = `C6;   12'd843: toneR = `C6;
+            12'd844: toneR = `C6;   12'd845: toneR = `C6;
+            12'd846: toneR = `C6;   12'd847: toneR = `C6;
+
+            12'd848: toneR = `Bf5;   12'd849: toneR = `Bf5;
+            12'd850: toneR = `Bf5;   12'd851: toneR = `Bf5;
+            12'd852: toneR = `Bf5;   12'd853: toneR = `Bf5;
+            12'd854: toneR = `Bf5;   12'd855: toneR = `Bf5;
+
+            12'd856: toneR = `C6;   12'd857: toneR = `C6;
+            12'd858: toneR = `C6;   12'd859: toneR = `C6;
+            12'd860: toneR = `C6;   12'd861: toneR = `C6;
+            12'd862: toneR = `C6;   12'd863: toneR = `C6;
+
+            12'd864: toneR = `Df5;   12'd865: toneR = `Df5;
+            12'd866: toneR = `Df5;   12'd867: toneR = `Df5;
+            12'd868: toneR = `Df5;   12'd869: toneR = `Df5;
+            12'd870: toneR = `Df5;   12'd871: toneR = `Df5;
+
+            12'd872: toneR = `Df6;   12'd873: toneR = `Df6;
+            12'd874: toneR = `Df6;   12'd875: toneR = `Df6;
+            12'd876: toneR = `Df6;   12'd877: toneR = `Df6;
+            12'd878: toneR = `Df6;   12'd879: toneR = `Df6;
+
+            12'd880: toneR = `C6;   12'd881: toneR = `C6;
+            12'd882: toneR = `C6;   12'd883: toneR = `C6;
+            12'd884: toneR = `C6;   12'd885: toneR = `C6;
+            12'd886: toneR = `C6;   12'd887: toneR = `C6;
+
+            12'd888: toneR = `Df6;   12'd889: toneR = `Df6;
+            12'd890: toneR = `Df6;   12'd891: toneR = `Df6;
+            12'd892: toneR = `Df6;   12'd893: toneR = `Df6;
+            12'd894: toneR = `Df6;   12'd895: toneR = `Df6;
+
+            // Measure 15 //
+            12'd896: toneR = `C5;   12'd897: toneR = `C5;
+            12'd898: toneR = `C5;   12'd899: toneR = `C5;
+            12'd900: toneR = `C5;   12'd901: toneR = `C5;
+            12'd902: toneR = `C5;   12'd903: toneR = `C5;
+
+            12'd904: toneR = `C5;   12'd905: toneR = `C5;
+            12'd906: toneR = `C5;   12'd907: toneR = `C5;
+            12'd908: toneR = `C5;   12'd909: toneR = `C5;
+            12'd910: toneR = `C5;   12'd911: toneR = `C5;
+
+            12'd912: toneR = `Bf4;   12'd913: toneR = `Bf4;
+            12'd914: toneR = `Bf4;   12'd915: toneR = `Bf4;
+            12'd916: toneR = `Bf4;   12'd917: toneR = `Bf4;
+            12'd918: toneR = `Bf4;   12'd919: toneR = `Bf4;
+
+            12'd920: toneR = `Bf4;   12'd921: toneR = `Bf4;
+            12'd922: toneR = `Bf4;   12'd923: toneR = `Bf4;
+            12'd924: toneR = `Bf4;   12'd925: toneR = `Bf4;
+            12'd926: toneR = `Bf4;   12'd927: toneR = `Bf4;
+
+            12'd928: toneR = `F5;   12'd929: toneR = `F5;
+            12'd930: toneR = `F5;   12'd931: toneR = `F5;
+            12'd932: toneR = `F5;   12'd933: toneR = `F5;
+            12'd934: toneR = `F5;   12'd935: toneR = `F5;
+
+            12'd936: toneR = `F5;   12'd937: toneR = `F5;
+            12'd938: toneR = `F5;   12'd939: toneR = `F5;
+            12'd940: toneR = `F5;   12'd941: toneR = `F5;
+            12'd942: toneR = `F5;   12'd943: toneR = `F5;
+
+            12'd944: toneR = `C5;   12'd945: toneR = `C5;
+            12'd946: toneR = `C5;   12'd947: toneR = `C5;
+            12'd948: toneR = `C5;   12'd949: toneR = `C5;
+            12'd950: toneR = `C5;   12'd951: toneR = `C5;
+
+            12'd952: toneR = `C5;   12'd953: toneR = `C5;
+            12'd954: toneR = `C5;   12'd955: toneR = `C5;
+            12'd956: toneR = `C5;   12'd957: toneR = `C5;
+            12'd958: toneR = `C5;   12'd959: toneR = `C5;
+
+            // Measure 16 //
+            12'd960: toneR = `E5;   12'd961: toneR = `E5;
+            12'd962: toneR = `E5;   12'd963: toneR = `E5;
+            12'd964: toneR = `E5;   12'd965: toneR = `E5;
+            12'd966: toneR = `E5;   12'd967: toneR = `E5;
+
+            12'd968: toneR = `E5;   12'd969: toneR = `E5;
+            12'd970: toneR = `E5;   12'd971: toneR = `E5;
+            12'd972: toneR = `E5;   12'd973: toneR = `E5;
+            12'd974: toneR = `E5;   12'd975: toneR = `E5;
+
+            12'd976: toneR = `Df5;   12'd977: toneR = `Df5;
+            12'd978: toneR = `Df5;   12'd979: toneR = `Df5;
+            12'd980: toneR = `Df5;   12'd981: toneR = `Df5;
+            12'd982: toneR = `Df5;   12'd983: toneR = `Df5;
+
+            12'd984: toneR = `Df5;   12'd985: toneR = `Df5;
+            12'd986: toneR = `Df5;   12'd987: toneR = `Df5;
+            12'd988: toneR = `Df5;   12'd989: toneR = `Df5;
+            12'd990: toneR = `Df5;   12'd991: toneR = `Df5;
+
+            12'd992: toneR = `C5;   12'd993: toneR = `C5;
+            12'd994: toneR = `C5;   12'd995: toneR = `C5;
+            12'd996: toneR = `C5;   12'd997: toneR = `C5;
+            12'd998: toneR = `C5;   12'd999: toneR = `C5;
+
+            12'd1000: toneR = `C5;   12'd1001: toneR = `C5;
+            12'd1002: toneR = `C5;   12'd1003: toneR = `C5;
+            12'd1004: toneR = `C5;   12'd1005: toneR = `C5;
+            12'd1006: toneR = `C5;   12'd1007: toneR = `C5;
+
+            12'd1008: toneR = `SIL;   12'd1009: toneR = `SIL;
+            12'd1010: toneR = `SIL;   12'd1011: toneR = `SIL;
+            12'd1012: toneR = `SIL;   12'd1013: toneR = `SIL;
+            12'd1014: toneR = `SIL;   12'd1015: toneR = `SIL;
+
+            12'd1016: toneR = `SIL;   12'd1017: toneR = `SIL;
+            12'd1018: toneR = `SIL;   12'd1019: toneR = `SIL;
+            12'd1020: toneR = `SIL;   12'd1021: toneR = `SIL;
+            12'd1022: toneR = `SIL;   12'd1023: toneR = `SIL;
+
+            default: toneR = `SIL;
+            endcase
+        end else begin
+            toneR = `SIL;
+        end
+    end
+
+    always @(*) begin
+        if(en == 1)begin
+            case(beat)
+            // Measure 1 //
+            12'd0: toneL = `F3;   12'd1: toneL = `F3;
+            12'd2: toneL = `F3;   12'd3: toneL = `F3;
+            12'd4: toneL = `F3;   12'd5: toneL = `F3;
+            12'd6: toneL = `F3;   12'd7: toneL = `F3;
+
+            12'd8: toneL = `C4;   12'd9: toneL = `C4;
+            12'd10: toneL = `C4;   12'd11: toneL = `C4;
+            12'd12: toneL = `C4;   12'd13: toneL = `C4;
+            12'd14: toneL = `C4;   12'd15: toneL = `C4;
+
+            12'd16: toneL = `Bf3;   12'd17: toneL = `Bf3;
+            12'd18: toneL = `Bf3;   12'd19: toneL = `Bf3;
+            12'd20: toneL = `Bf3;   12'd21: toneL = `Bf3;
+            12'd22: toneL = `Bf3;   12'd23: toneL = `Bf3;
+
+            12'd24: toneL = `C4;   12'd25: toneL = `C4;
+            12'd26: toneL = `C4;   12'd27: toneL = `C4;
+            12'd28: toneL = `C4;   12'd29: toneL = `C4;
+            12'd30: toneL = `C4;   12'd31: toneL = `C4;
+
+            12'd32: toneL = `F3;   12'd33: toneL = `F3;
+            12'd34: toneL = `F3;   12'd35: toneL = `F3;
+            12'd36: toneL = `F3;   12'd37: toneL = `F3;
+            12'd38: toneL = `F3;   12'd39: toneL = `F3;
+
+            12'd40: toneL = `C4;   12'd41: toneL = `C4;
+            12'd42: toneL = `C4;   12'd43: toneL = `C4;
+            12'd44: toneL = `C4;   12'd45: toneL = `C4;
+            12'd46: toneL = `C4;   12'd47: toneL = `C4;
+
+            12'd48: toneL = `Bf3;   12'd49: toneL = `Bf3;
+            12'd50: toneL = `Bf3;   12'd51: toneL = `Bf3;
+            12'd52: toneL = `Bf3;   12'd53: toneL = `Bf3;
+            12'd54: toneL = `Bf3;   12'd55: toneL = `Bf3;
+
+            12'd56: toneL = `C4;   12'd57: toneL = `C4;
+            12'd58: toneL = `C4;   12'd59: toneL = `C4;
+            12'd60: toneL = `C4;   12'd61: toneL = `C4;
+            12'd62: toneL = `C4;   12'd63: toneL = `C4;
+
+            // Measure 2 //
+            12'd64: toneL = `Cs3;   12'd65: toneL = `Cs3;
+            12'd66: toneL = `Cs3;   12'd67: toneL = `Cs3;
+            12'd68: toneL = `Cs3;   12'd69: toneL = `Cs3;
+            12'd70: toneL = `Cs3;   12'd71: toneL = `Cs3;
+
+            12'd72: toneL = `B3;   12'd73: toneL = `B3;
+            12'd74: toneL = `B3;   12'd75: toneL = `B3;
+            12'd76: toneL = `B3;   12'd77: toneL = `B3;
+            12'd78: toneL = `B3;   12'd79: toneL = `B3;
+
+            12'd80: toneL = `A3;   12'd81: toneL = `A3;
+            12'd82: toneL = `A3;   12'd83: toneL = `A3;
+            12'd84: toneL = `A3;   12'd85: toneL = `A3;
+            12'd86: toneL = `A3;   12'd87: toneL = `A3;
+
+            12'd88: toneL = `B3;   12'd89: toneL = `B3;
+            12'd90: toneL = `B3;   12'd91: toneL = `B3;
+            12'd92: toneL = `B3;   12'd93: toneL = `B3;
+            12'd94: toneL = `B3;   12'd95: toneL = `B3;
+
+            12'd96: toneL = `C3;   12'd97: toneL = `C3;
+            12'd98: toneL = `C3;   12'd99: toneL = `C3;
+            12'd100: toneL = `C3;   12'd101: toneL = `C3;
+            12'd102: toneL = `C3;   12'd103: toneL = `C3;
+
+            12'd104: toneL = `C4;   12'd105: toneL = `C4;
+            12'd106: toneL = `C4;   12'd107: toneL = `C4;
+            12'd108: toneL = `C4;   12'd109: toneL = `C4;
+            12'd110: toneL = `C4;   12'd111: toneL = `C4;
+
+            12'd112: toneL = `G3;   12'd113: toneL = `G3;
+            12'd114: toneL = `G3;   12'd115: toneL = `G3;
+            12'd116: toneL = `G3;   12'd117: toneL = `G3;
+            12'd118: toneL = `G3;   12'd119: toneL = `G3;
+
+            12'd120: toneL = `Af3;   12'd121: toneL = `Af3;
+            12'd122: toneL = `Af3;   12'd123: toneL = `Af3;
+            12'd124: toneL = `Af3;   12'd125: toneL = `Af3;
+            12'd126: toneL = `Af3;   12'd127: toneL = `Af3;
+
+            // Measure 3 //
+            12'd128: toneL = `F3;   12'd129: toneL = `F3;
+            12'd130: toneL = `F3;   12'd131: toneL = `F3;
+            12'd132: toneL = `F3;   12'd133: toneL = `F3;
+            12'd134: toneL = `F3;   12'd135: toneL = `F3;
+
+            12'd136: toneL = `C4;   12'd137: toneL = `C4;
+            12'd138: toneL = `C4;   12'd139: toneL = `C4;
+            12'd140: toneL = `C4;   12'd141: toneL = `C4;
+            12'd142: toneL = `C4;   12'd143: toneL = `C4;
+
+            12'd144: toneL = `Bf3;   12'd145: toneL = `Bf3;
+            12'd146: toneL = `Bf3;   12'd147: toneL = `Bf3;
+            12'd148: toneL = `Bf3;   12'd149: toneL = `Bf3;
+            12'd150: toneL = `Bf3;   12'd151: toneL = `Bf3;
+
+            12'd152: toneL = `C4;   12'd153: toneL = `C4;
+            12'd154: toneL = `C4;   12'd155: toneL = `C4;
+            12'd156: toneL = `C4;   12'd157: toneL = `C4;
+            12'd158: toneL = `C4;   12'd159: toneL = `C4;
+
+            12'd160: toneL = `G3;   12'd161: toneL = `G3;
+            12'd162: toneL = `G3;   12'd163: toneL = `G3;
+            12'd164: toneL = `G3;   12'd165: toneL = `G3;
+            12'd166: toneL = `G3;   12'd167: toneL = `G3;
+
+            12'd168: toneL = `C4;   12'd169: toneL = `C4;
+            12'd170: toneL = `C4;   12'd171: toneL = `C4;
+            12'd172: toneL = `C4;   12'd173: toneL = `C4;
+            12'd174: toneL = `C4;   12'd175: toneL = `C4;
+
+            12'd176: toneL = `Bf3;   12'd177: toneL = `Bf3;
+            12'd178: toneL = `Bf3;   12'd179: toneL = `Bf3;
+            12'd180: toneL = `Bf3;   12'd181: toneL = `Bf3;
+            12'd182: toneL = `Bf3;   12'd183: toneL = `Bf3;
+
+            12'd184: toneL = `C4;   12'd185: toneL = `C4;
+            12'd186: toneL = `C4;   12'd187: toneL = `C4;
+            12'd188: toneL = `C4;   12'd189: toneL = `C4;
+            12'd190: toneL = `C4;   12'd191: toneL = `C4;
+
+            // Measure 4 //
+            12'd192: toneL = `Af3;   12'd193: toneL = `Af3;
+            12'd194: toneL = `Af3;   12'd195: toneL = `Af3;
+            12'd196: toneL = `Af3;   12'd197: toneL = `Af3;
+            12'd198: toneL = `Af3;   12'd199: toneL = `Af3;
+
+            12'd200: toneL = `C4;   12'd201: toneL = `C4;
+            12'd202: toneL = `C4;   12'd203: toneL = `C4;
+            12'd204: toneL = `C4;   12'd205: toneL = `C4;
+            12'd206: toneL = `C4;   12'd207: toneL = `C4;
+
+            12'd208: toneL = `Bf3;   12'd209: toneL = `Bf3;
+            12'd210: toneL = `Bf3;   12'd211: toneL = `Bf3;
+            12'd212: toneL = `Bf3;   12'd213: toneL = `Bf3;
+            12'd214: toneL = `Bf3;   12'd215: toneL = `Bf3;
+
+            12'd216: toneL = `C4;   12'd217: toneL = `C4;
+            12'd218: toneL = `C4;   12'd219: toneL = `C4;
+            12'd220: toneL = `C4;   12'd221: toneL = `C4;
+            12'd222: toneL = `C4;   12'd223: toneL = `C4;
+
+            12'd224: toneL = `Bf3;   12'd225: toneL = `Bf3;
+            12'd226: toneL = `Bf3;   12'd227: toneL = `Bf3;
+            12'd228: toneL = `Bf3;   12'd229: toneL = `Bf3;
+            12'd230: toneL = `Bf3;   12'd231: toneL = `Bf3;
+
+            12'd232: toneL = `Df4;   12'd233: toneL = `Df4;
+            12'd234: toneL = `Df4;   12'd235: toneL = `Df4;
+            12'd236: toneL = `Df4;   12'd237: toneL = `Df4;
+            12'd238: toneL = `Df4;   12'd239: toneL = `Df4;
+
+            12'd240: toneL = `C4;   12'd241: toneL = `C4;
+            12'd242: toneL = `C4;   12'd243: toneL = `C4;
+            12'd244: toneL = `C4;   12'd245: toneL = `C4;
+            12'd246: toneL = `C4;   12'd247: toneL = `C4;
+
+            12'd248: toneL = `Df4;   12'd249: toneL = `Df4;
+            12'd250: toneL = `Df4;   12'd251: toneL = `Df4;
+            12'd252: toneL = `Df4;   12'd253: toneL = `Df4;
+            12'd254: toneL = `Df4;   12'd255: toneL = `Df4;
+
+            // Measure 5 //
+            12'd256: toneL = `Df3;   12'd257: toneL = `Df3;
+            12'd258: toneL = `Df3;   12'd259: toneL = `Df3;
+            12'd260: toneL = `Df3;   12'd261: toneL = `Df3;
+            12'd262: toneL = `Df3;   12'd263: toneL = `Df3;
+
+            12'd264: toneL = `Af3;   12'd265: toneL = `Af3;
+            12'd266: toneL = `Af3;   12'd267: toneL = `Af3;
+            12'd268: toneL = `Af3;   12'd269: toneL = `Af3;
+            12'd270: toneL = `Af3;   12'd271: toneL = `Af3;
+
+            12'd272: toneL = `G3;   12'd273: toneL = `G3;
+            12'd274: toneL = `G3;   12'd275: toneL = `G3;
+            12'd276: toneL = `G3;   12'd277: toneL = `G3;
+            12'd278: toneL = `G3;   12'd279: toneL = `G3;
+
+            12'd280: toneL = `Af3;   12'd281: toneL = `Af3;
+            12'd282: toneL = `Af3;   12'd283: toneL = `Af3;
+            12'd284: toneL = `Af3;   12'd285: toneL = `Af3;
+            12'd286: toneL = `Af3;   12'd287: toneL = `Af3;
+
+            12'd288: toneL = `Df3;   12'd289: toneL = `Df3;
+            12'd290: toneL = `Df3;   12'd291: toneL = `Df3;
+            12'd292: toneL = `Df3;   12'd293: toneL = `Df3;
+            12'd294: toneL = `Df3;   12'd295: toneL = `Df3;
+
+            12'd296: toneL = `Bf3;   12'd297: toneL = `Bf3;
+            12'd298: toneL = `Bf3;   12'd299: toneL = `Bf3;
+            12'd300: toneL = `Bf3;   12'd301: toneL = `Bf3;
+            12'd302: toneL = `Bf3;   12'd303: toneL = `Bf3;
+
+            12'd304: toneL = `Af3;   12'd305: toneL = `Af3;
+            12'd306: toneL = `Af3;   12'd307: toneL = `Af3;
+            12'd308: toneL = `Af3;   12'd309: toneL = `Af3;
+            12'd310: toneL = `Af3;   12'd311: toneL = `Af3;
+
+            12'd312: toneL = `Bf3;   12'd313: toneL = `Bf3;
+            12'd314: toneL = `Bf3;   12'd315: toneL = `Bf3;
+            12'd316: toneL = `Bf3;   12'd317: toneL = `Bf3;
+            12'd318: toneL = `Bf3;   12'd319: toneL = `Bf3;
+
+            // Measure 6 //
+            12'd320: toneL = `Df3;   12'd321: toneL = `Df3;
+            12'd322: toneL = `Df3;   12'd323: toneL = `Df3;
+            12'd324: toneL = `Df3;   12'd325: toneL = `Df3;
+            12'd326: toneL = `Df3;   12'd327: toneL = `Df3;
+
+            12'd328: toneL = `C4;   12'd329: toneL = `C4;
+            12'd330: toneL = `C4;   12'd331: toneL = `C4;
+            12'd332: toneL = `C4;   12'd333: toneL = `C4;
+            12'd334: toneL = `C4;   12'd335: toneL = `C4;
+
+            12'd336: toneL = `Bf3;   12'd337: toneL = `Bf3;
+            12'd338: toneL = `Bf3;   12'd339: toneL = `Bf3;
+            12'd340: toneL = `Bf3;   12'd341: toneL = `Bf3;
+            12'd342: toneL = `Bf3;   12'd343: toneL = `Bf3;
+
+            12'd344: toneL = `C4;   12'd345: toneL = `C4;
+            12'd346: toneL = `C4;   12'd347: toneL = `C4;
+            12'd348: toneL = `C4;   12'd349: toneL = `C4;
+            12'd350: toneL = `C4;   12'd351: toneL = `C4;
+
+            12'd352: toneL = `Df3;   12'd353: toneL = `Df3;
+            12'd354: toneL = `Df3;   12'd355: toneL = `Df3;
+            12'd356: toneL = `Df3;   12'd357: toneL = `Df3;
+            12'd358: toneL = `Df3;   12'd359: toneL = `Df3;
+
+            12'd360: toneL = `Df4;   12'd361: toneL = `Df4;
+            12'd362: toneL = `Df4;   12'd363: toneL = `Df4;
+            12'd364: toneL = `Df4;   12'd365: toneL = `Df4;
+            12'd366: toneL = `Df4;   12'd367: toneL = `Df4;
+
+            12'd368: toneL = `C4;   12'd369: toneL = `C4;
+            12'd370: toneL = `C4;   12'd371: toneL = `C4;
+            12'd372: toneL = `C4;   12'd373: toneL = `C4;
+            12'd374: toneL = `C4;   12'd375: toneL = `C4;
+
+            12'd376: toneL = `Df4;   12'd377: toneL = `Df4;
+            12'd378: toneL = `Df4;   12'd379: toneL = `Df4;
+            12'd380: toneL = `Df4;   12'd381: toneL = `Df4;
+            12'd382: toneL = `Df4;   12'd383: toneL = `Df4;
+
+            // Measure 7 //
+            12'd384: toneL = `C3;   12'd385: toneL = `C3;
+            12'd386: toneL = `C3;   12'd387: toneL = `C3;
+            12'd388: toneL = `C3;   12'd389: toneL = `C3;
+            12'd390: toneL = `C3;   12'd391: toneL = `C3;
+
+            12'd392: toneL = `C3;   12'd393: toneL = `C3;
+            12'd394: toneL = `C3;   12'd395: toneL = `C3;
+            12'd396: toneL = `C3;   12'd397: toneL = `C3;
+            12'd398: toneL = `C3;   12'd399: toneL = `C3;
+
+            12'd400: toneL = `SIL;   12'd401: toneL = `SIL;
+            12'd402: toneL = `SIL;   12'd403: toneL = `SIL;
+            12'd404: toneL = `SIL;   12'd405: toneL = `SIL;
+            12'd406: toneL = `SIL;   12'd407: toneL = `SIL;
+
+            12'd408: toneL = `SIL;   12'd409: toneL = `SIL;
+            12'd410: toneL = `SIL;   12'd411: toneL = `SIL;
+            12'd412: toneL = `SIL;   12'd413: toneL = `SIL;
+            12'd414: toneL = `SIL;   12'd415: toneL = `SIL;
+
+            12'd416: toneL = `SIL;   12'd417: toneL = `SIL;
+            12'd418: toneL = `SIL;   12'd419: toneL = `SIL;
+            12'd420: toneL = `SIL;   12'd421: toneL = `SIL;
+            12'd422: toneL = `SIL;   12'd423: toneL = `SIL;
+
+            12'd424: toneL = `SIL;   12'd425: toneL = `SIL;
+            12'd426: toneL = `SIL;   12'd427: toneL = `SIL;
+            12'd428: toneL = `SIL;   12'd429: toneL = `SIL;
+            12'd430: toneL = `SIL;   12'd431: toneL = `SIL;
+
+            12'd432: toneL = `C3;   12'd433: toneL = `C3;
+            12'd434: toneL = `C3;   12'd435: toneL = `C3;
+            12'd436: toneL = `C3;   12'd437: toneL = `C3;
+            12'd438: toneL = `C3;   12'd439: toneL = `C3;
+
+            12'd440: toneL = `C3;   12'd441: toneL = `C3;
+            12'd442: toneL = `C3;   12'd443: toneL = `C3;
+            12'd444: toneL = `C3;   12'd445: toneL = `C3;
+            12'd446: toneL = `C3;   12'd447: toneL = `SIL;
+
+            // Measure 8 //
+            12'd448: toneL = `C3;   12'd449: toneL = `C3;
+            12'd450: toneL = `C3;   12'd451: toneL = `C3;
+            12'd452: toneL = `C3;   12'd453: toneL = `C3;
+            12'd454: toneL = `C3;   12'd455: toneL = `C3;
+
+            12'd456: toneL = `SIL;   12'd457: toneL = `SIL;
+            12'd458: toneL = `SIL;   12'd459: toneL = `SIL;
+            12'd460: toneL = `SIL;   12'd461: toneL = `SIL;
+            12'd462: toneL = `SIL;   12'd463: toneL = `SIL;
+
+            12'd464: toneL = `SIL;   12'd465: toneL = `SIL;
+            12'd466: toneL = `SIL;   12'd467: toneL = `SIL;
+            12'd468: toneL = `SIL;   12'd469: toneL = `SIL;
+            12'd470: toneL = `SIL;   12'd471: toneL = `SIL;
+
+            12'd472: toneL = `SIL;   12'd473: toneL = `SIL;
+            12'd474: toneL = `SIL;   12'd475: toneL = `SIL;
+            12'd476: toneL = `SIL;   12'd477: toneL = `SIL;
+            12'd478: toneL = `SIL;   12'd479: toneL = `SIL;
+
+            12'd480: toneL = `C3;   12'd481: toneL = `C3;
+            12'd482: toneL = `C3;   12'd483: toneL = `C3;
+            12'd484: toneL = `C3;   12'd485: toneL = `C3;
+            12'd486: toneL = `C3;   12'd487: toneL = `SIL;
+
+            12'd488: toneL = `C3;   12'd489: toneL = `C3;
+            12'd490: toneL = `C3;   12'd491: toneL = `C3;
+            12'd492: toneL = `C3;   12'd493: toneL = `C3;
+            12'd494: toneL = `C3;   12'd495: toneL = `C3;
+
+            12'd496: toneL = `D3;   12'd497: toneL = `D3;
+            12'd498: toneL = `D3;   12'd499: toneL = `D3;
+            12'd500: toneL = `D3;   12'd501: toneL = `D3;
+            12'd502: toneL = `D3;   12'd503: toneL = `D3;
+
+            12'd504: toneL = `E3;   12'd505: toneL = `E3;
+            12'd506: toneL = `E3;   12'd507: toneL = `E3;
+            12'd508: toneL = `E3;   12'd509: toneL = `E3;
+            12'd510: toneL = `E3;   12'd511: toneL = `E3;
+
+            // Measure 9 //
+            12'd512: toneL = `F3;   12'd513: toneL = `F3;
+            12'd514: toneL = `F3;   12'd515: toneL = `F3;
+            12'd516: toneL = `F3;   12'd517: toneL = `F3;
+            12'd518: toneL = `F3;   12'd519: toneL = `F3;
+
+            12'd520: toneL = `F3;   12'd521: toneL = `F3;
+            12'd522: toneL = `F3;   12'd523: toneL = `F3;
+            12'd524: toneL = `F3;   12'd525: toneL = `F3;
+            12'd526: toneL = `F3;   12'd527: toneL = `F3;
+
+            12'd528: toneL = `C3;   12'd529: toneL = `C3;
+            12'd530: toneL = `C3;   12'd531: toneL = `C3;
+            12'd532: toneL = `C3;   12'd533: toneL = `C3;
+            12'd534: toneL = `C3;   12'd535: toneL = `C3;
+
+            12'd536: toneL = `C3;   12'd537: toneL = `C3;
+            12'd538: toneL = `C3;   12'd539: toneL = `C3;
+            12'd540: toneL = `C3;   12'd541: toneL = `C3;
+            12'd542: toneL = `C3;   12'd543: toneL = `C3;
+
+            12'd544: toneL = `Af2;   12'd545: toneL = `Af2;
+            12'd546: toneL = `Af2;   12'd547: toneL = `Af2;
+            12'd548: toneL = `Af2;   12'd549: toneL = `Af2;
+            12'd550: toneL = `Af2;   12'd551: toneL = `Af2;
+
+            12'd552: toneL = `Af2;   12'd553: toneL = `Af2;
+            12'd554: toneL = `Af2;   12'd555: toneL = `Af2;
+            12'd556: toneL = `Af2;   12'd557: toneL = `Af2;
+            12'd558: toneL = `Af2;   12'd559: toneL = `Af2;
+
+            12'd560: toneL = `F2;   12'd561: toneL = `F2;
+            12'd562: toneL = `F2;   12'd563: toneL = `F2;
+            12'd564: toneL = `F2;   12'd565: toneL = `F2;
+            12'd566: toneL = `F2;   12'd567: toneL = `F2;
+
+            12'd568: toneL = `F2;   12'd569: toneL = `F2;
+            12'd570: toneL = `F2;   12'd571: toneL = `F2;
+            12'd572: toneL = `F2;   12'd573: toneL = `F2;
+            12'd574: toneL = `F2;   12'd575: toneL = `F2;
+
+            // Measure 10 //
+            12'd576: toneL = `SIL;   12'd577: toneL = `SIL;
+            12'd578: toneL = `SIL;   12'd579: toneL = `SIL;
+            12'd580: toneL = `SIL;   12'd581: toneL = `SIL;
+            12'd582: toneL = `SIL;   12'd583: toneL = `SIL;
+
+            12'd584: toneL = `B2;   12'd585: toneL = `B2;
+            12'd586: toneL = `B2;   12'd587: toneL = `B2;
+            12'd588: toneL = `B2;   12'd589: toneL = `B2;
+            12'd590: toneL = `B2;   12'd591: toneL = `B2;
+
+            12'd592: toneL = `Bf2;   12'd593: toneL = `Bf2;
+            12'd594: toneL = `Bf2;   12'd595: toneL = `Bf2;
+            12'd596: toneL = `Bf2;   12'd597: toneL = `Bf2;
+            12'd598: toneL = `Bf2;   12'd599: toneL = `Bf2;
+
+            12'd600: toneL = `SIL;   12'd601: toneL = `SIL;
+            12'd602: toneL = `SIL;   12'd603: toneL = `SIL;
+            12'd604: toneL = `SIL;   12'd605: toneL = `SIL;
+            12'd606: toneL = `SIL;   12'd607: toneL = `SIL;
+
+            12'd608: toneL = `Bf2;   12'd609: toneL = `Bf2;
+            12'd610: toneL = `Bf2;   12'd611: toneL = `Bf2;
+            12'd612: toneL = `Bf2;   12'd613: toneL = `Bf2;
+            12'd614: toneL = `Bf2;   12'd615: toneL = `Bf2;
+
+            12'd616: toneL = `Af2;   12'd617: toneL = `Af2;
+            12'd618: toneL = `Af2;   12'd619: toneL = `Af2;
+            12'd620: toneL = `Af2;   12'd621: toneL = `Af2;
+            12'd622: toneL = `Af2;   12'd623: toneL = `Af2;
+
+            12'd624: toneL = `Ef2;   12'd625: toneL = `Ef2;
+            12'd626: toneL = `Ef2;   12'd627: toneL = `Ef2;
+            12'd628: toneL = `Ef2;   12'd629: toneL = `Ef2;
+            12'd630: toneL = `Ef2;   12'd631: toneL = `Ef2;
+
+            12'd632: toneL = `F2;   12'd633: toneL = `F2;
+            12'd634: toneL = `F2;   12'd635: toneL = `F2;
+            12'd636: toneL = `F2;   12'd637: toneL = `F2;
+            12'd638: toneL = `F2;   12'd639: toneL = `F2;
+
+            // Measure 11 //
+            12'd640: toneL = `SIL;   12'd641: toneL = `SIL;
+            12'd642: toneL = `SIL;   12'd643: toneL = `SIL;
+            12'd644: toneL = `SIL;   12'd645: toneL = `SIL;
+            12'd646: toneL = `SIL;   12'd647: toneL = `SIL;
+
+            12'd648: toneL = `C3;   12'd649: toneL = `C3;
+            12'd650: toneL = `C3;   12'd651: toneL = `C3;
+            12'd652: toneL = `C3;   12'd653: toneL = `C3;
+            12'd654: toneL = `C3;   12'd655: toneL = `C3;
+
+            12'd656: toneL = `Bf2;   12'd657: toneL = `Bf2;
+            12'd658: toneL = `Bf2;   12'd659: toneL = `Bf2;
+            12'd660: toneL = `Bf2;   12'd661: toneL = `Bf2;
+            12'd662: toneL = `Bf2;   12'd663: toneL = `Bf2;
+
+            12'd664: toneL = `Af2;   12'd665: toneL = `Af2;
+            12'd666: toneL = `Af2;   12'd667: toneL = `Af2;
+            12'd668: toneL = `Af2;   12'd669: toneL = `Af2;
+            12'd670: toneL = `Af2;   12'd671: toneL = `Af2;
+
+            12'd672: toneL = `Bf2;   12'd673: toneL = `Bf2;
+            12'd674: toneL = `Bf2;   12'd675: toneL = `Bf2;
+            12'd676: toneL = `Bf2;   12'd677: toneL = `Bf2;
+            12'd678: toneL = `Bf2;   12'd679: toneL = `Bf2;
+
+            12'd680: toneL = `C3;   12'd681: toneL = `C3;
+            12'd682: toneL = `C3;   12'd683: toneL = `C3;
+            12'd684: toneL = `C3;   12'd685: toneL = `C3;
+            12'd686: toneL = `C3;   12'd687: toneL = `C3;
+
+            12'd688: toneL = `Ef2;   12'd689: toneL = `Ef2;
+            12'd690: toneL = `Ef2;   12'd691: toneL = `Ef2;
+            12'd692: toneL = `Ef2;   12'd693: toneL = `Ef2;
+            12'd694: toneL = `Ef2;   12'd695: toneL = `Ef2;
+
+            12'd696: toneL = `F2;   12'd697: toneL = `F2;
+            12'd698: toneL = `F2;   12'd699: toneL = `F2;
+            12'd700: toneL = `F2;   12'd701: toneL = `F2;
+            12'd702: toneL = `F2;   12'd703: toneL = `F2;
+
+            // Measure 12 //
+            12'd704: toneL = `Af2;   12'd705: toneL = `Af2;
+            12'd706: toneL = `Af2;   12'd707: toneL = `Af2;
+            12'd708: toneL = `Af2;   12'd709: toneL = `Af2;
+            12'd710: toneL = `Af2;   12'd711: toneL = `Af2;
+
+            12'd712: toneL = `F2;   12'd713: toneL = `F2;
+            12'd714: toneL = `F2;   12'd715: toneL = `F2;
+            12'd716: toneL = `F2;   12'd717: toneL = `F2;
+            12'd718: toneL = `F2;   12'd719: toneL = `F2;
+
+            12'd720: toneL = `Ef2;   12'd721: toneL = `Ef2;
+            12'd722: toneL = `Ef2;   12'd723: toneL = `Ef2;
+            12'd724: toneL = `Ef2;   12'd725: toneL = `Ef2;
+            12'd726: toneL = `Ef2;   12'd727: toneL = `Ef2;
+
+            12'd728: toneL = `F3;   12'd729: toneL = `F3;
+            12'd730: toneL = `F3;   12'd731: toneL = `F3;
+            12'd732: toneL = `F3;   12'd733: toneL = `F3;
+            12'd734: toneL = `F3;   12'd735: toneL = `F3;
+
+            12'd736: toneL = `SIL;   12'd737: toneL = `SIL;
+            12'd738: toneL = `SIL;   12'd739: toneL = `SIL;
+            12'd740: toneL = `SIL;   12'd741: toneL = `SIL;
+            12'd742: toneL = `SIL;   12'd743: toneL = `SIL;
+
+            12'd744: toneL = `Ef3;   12'd745: toneL = `Ef3;
+            12'd746: toneL = `Ef3;   12'd747: toneL = `Ef3;
+            12'd748: toneL = `Ef3;   12'd749: toneL = `Ef3;
+            12'd750: toneL = `Ef3;   12'd751: toneL = `Ef3;
+
+            12'd752: toneL = `C3;   12'd753: toneL = `C3;
+            12'd754: toneL = `C3;   12'd755: toneL = `C3;
+            12'd756: toneL = `Bf2;   12'd757: toneL = `Bf2;
+            12'd758: toneL = `Bf2;   12'd759: toneL = `Bf2;
+
+            12'd760: toneL = `Af2;   12'd761: toneL = `Af2;
+            12'd762: toneL = `Af2;   12'd763: toneL = `Af2;
+            12'd764: toneL = `Af2;   12'd765: toneL = `Af2;
+            12'd766: toneL = `Af2;   12'd767: toneL = `Af2;
+
+            // Measure 13 //
+            12'd768: toneL = `F3;   12'd769: toneL = `F3;
+            12'd770: toneL = `F3;   12'd771: toneL = `F3;
+            12'd772: toneL = `F3;   12'd773: toneL = `F3;
+            12'd774: toneL = `F3;   12'd775: toneL = `F3;
+
+            12'd776: toneL = `F3;   12'd777: toneL = `F3;
+            12'd778: toneL = `F3;   12'd779: toneL = `F3;
+            12'd780: toneL = `F3;   12'd781: toneL = `F3;
+            12'd782: toneL = `F3;   12'd783: toneL = `F3;
+
+            12'd784: toneL = `F3;   12'd785: toneL = `F3;
+            12'd786: toneL = `F3;   12'd787: toneL = `F3;
+            12'd788: toneL = `F3;   12'd789: toneL = `F3;
+            12'd790: toneL = `F3;   12'd791: toneL = `F3;
+
+            12'd792: toneL = `F3;   12'd793: toneL = `F3;
+            12'd794: toneL = `F3;   12'd795: toneL = `F3;
+            12'd796: toneL = `F3;   12'd797: toneL = `F3;
+            12'd798: toneL = `F3;   12'd799: toneL = `F3;
+
+            12'd800: toneL = `G3;   12'd801: toneL = `G3;
+            12'd802: toneL = `G3;   12'd803: toneL = `G3;
+            12'd804: toneL = `G3;   12'd805: toneL = `G3;
+            12'd806: toneL = `G3;   12'd807: toneL = `G3;
+
+            12'd808: toneL = `G3;   12'd809: toneL = `G3;
+            12'd810: toneL = `G3;   12'd811: toneL = `G3;
+            12'd812: toneL = `G3;   12'd813: toneL = `G3;
+            12'd814: toneL = `G3;   12'd815: toneL = `G3;
+
+            12'd816: toneL = `G3;   12'd817: toneL = `G3;
+            12'd818: toneL = `G3;   12'd819: toneL = `G3;
+            12'd820: toneL = `G3;   12'd821: toneL = `G3;
+            12'd822: toneL = `G3;   12'd823: toneL = `G3;
+
+            12'd824: toneL = `G3;   12'd825: toneL = `G3;
+            12'd826: toneL = `G3;   12'd827: toneL = `G3;
+            12'd828: toneL = `G3;   12'd829: toneL = `G3;
+            12'd830: toneL = `G3;   12'd831: toneL = `G3;
+
+            // Measure 14 //
+            12'd832: toneL = `Af3;   12'd833: toneL = `Af3;
+            12'd834: toneL = `Af3;   12'd835: toneL = `Af3;
+            12'd836: toneL = `Af3;   12'd837: toneL = `Af3;
+            12'd838: toneL = `Af3;   12'd839: toneL = `Af3;
+
+            12'd840: toneL = `Af3;   12'd841: toneL = `Af3;
+            12'd842: toneL = `Af3;   12'd843: toneL = `Af3;
+            12'd844: toneL = `Af3;   12'd845: toneL = `Af3;
+            12'd846: toneL = `Af3;   12'd847: toneL = `Af3;
+
+            12'd848: toneL = `Af3;   12'd849: toneL = `Af3;
+            12'd850: toneL = `Af3;   12'd851: toneL = `Af3;
+            12'd852: toneL = `Af3;   12'd853: toneL = `Af3;
+            12'd854: toneL = `Af3;   12'd855: toneL = `Af3;
+
+            12'd856: toneL = `Af3;   12'd857: toneL = `Af3;
+            12'd858: toneL = `Af3;   12'd859: toneL = `Af3;
+            12'd860: toneL = `Af3;   12'd861: toneL = `Af3;
+            12'd862: toneL = `Af3;   12'd863: toneL = `Af3;
+
+            12'd864: toneL = `Bf3;   12'd865: toneL = `Bf3;
+            12'd866: toneL = `Bf3;   12'd867: toneL = `Bf3;
+            12'd868: toneL = `Bf3;   12'd869: toneL = `Bf3;
+            12'd870: toneL = `Bf3;   12'd871: toneL = `Bf3;
+
+            12'd872: toneL = `Bf3;   12'd873: toneL = `Bf3;
+            12'd874: toneL = `Bf3;   12'd875: toneL = `Bf3;
+            12'd876: toneL = `Bf3;   12'd877: toneL = `Bf3;
+            12'd878: toneL = `Bf3;   12'd879: toneL = `Bf3;
+
+            12'd880: toneL = `Bf3;   12'd881: toneL = `Bf3;
+            12'd882: toneL = `Bf3;   12'd883: toneL = `Bf3;
+            12'd884: toneL = `Bf3;   12'd885: toneL = `Bf3;
+            12'd886: toneL = `Bf3;   12'd887: toneL = `Bf3;
+
+            12'd888: toneL = `Bf3;   12'd889: toneL = `Bf3;
+            12'd890: toneL = `Bf3;   12'd891: toneL = `Bf3;
+            12'd892: toneL = `Bf3;   12'd893: toneL = `Bf3;
+            12'd894: toneL = `Bf3;   12'd895: toneL = `Bf3;
+
+            // Measure 15 //
+            12'd896: toneL = `F3;   12'd897: toneL = `F3;
+            12'd898: toneL = `F3;   12'd899: toneL = `F3;
+            12'd900: toneL = `F3;   12'd901: toneL = `F3;
+            12'd902: toneL = `F3;   12'd903: toneL = `F3;
+
+            12'd904: toneL = `F3;   12'd905: toneL = `F3;
+            12'd906: toneL = `F3;   12'd907: toneL = `F3;
+            12'd908: toneL = `F3;   12'd909: toneL = `F3;
+            12'd910: toneL = `F3;   12'd911: toneL = `F3;
+
+            12'd912: toneL = `F2;   12'd913: toneL = `F2;
+            12'd914: toneL = `F2;   12'd915: toneL = `F2;
+            12'd916: toneL = `F2;   12'd917: toneL = `F2;
+            12'd918: toneL = `F2;   12'd919: toneL = `F2;
+
+            12'd920: toneL = `F2;   12'd921: toneL = `F2;
+            12'd922: toneL = `F2;   12'd923: toneL = `F2;
+            12'd924: toneL = `F2;   12'd925: toneL = `F2;
+            12'd926: toneL = `F2;   12'd927: toneL = `F2;
+
+            12'd928: toneL = `C3;   12'd929: toneL = `C3;
+            12'd930: toneL = `C3;   12'd931: toneL = `C3;
+            12'd932: toneL = `C3;   12'd933: toneL = `C3;
+            12'd934: toneL = `C3;   12'd935: toneL = `C3;
+
+            12'd936: toneL = `C3;   12'd937: toneL = `C3;
+            12'd938: toneL = `C3;   12'd939: toneL = `C3;
+            12'd940: toneL = `C3;   12'd941: toneL = `C3;
+            12'd942: toneL = `C3;   12'd943: toneL = `C3;
+
+            12'd944: toneL = `F2;   12'd945: toneL = `F2;
+            12'd946: toneL = `F2;   12'd947: toneL = `F2;
+            12'd948: toneL = `F2;   12'd949: toneL = `F2;
+            12'd950: toneL = `F2;   12'd951: toneL = `F2;
+
+            12'd952: toneL = `F2;   12'd953: toneL = `F2;
+            12'd954: toneL = `F2;   12'd955: toneL = `F2;
+            12'd956: toneL = `F2;   12'd957: toneL = `F2;
+            12'd958: toneL = `F2;   12'd959: toneL = `F2;
+
+            // Measure 16 //
+            12'd960: toneL = `C3;   12'd961: toneL = `C3;
+            12'd962: toneL = `C3;   12'd963: toneL = `C3;
+            12'd964: toneL = `C3;   12'd965: toneL = `C3;
+            12'd966: toneL = `C3;   12'd967: toneL = `C3;
+
+            12'd968: toneL = `C3;   12'd969: toneL = `C3;
+            12'd970: toneL = `C3;   12'd971: toneL = `C3;
+            12'd972: toneL = `C3;   12'd973: toneL = `C3;
+            12'd974: toneL = `C3;   12'd975: toneL = `C3;
+
+            12'd976: toneL = `SIL;   12'd977: toneL = `SIL;
+            12'd978: toneL = `SIL;   12'd979: toneL = `SIL;
+            12'd980: toneL = `SIL;   12'd981: toneL = `SIL;
+            12'd982: toneL = `SIL;   12'd983: toneL = `SIL;
+
+            12'd984: toneL = `SIL;   12'd985: toneL = `SIL;
+            12'd986: toneL = `SIL;   12'd987: toneL = `SIL;
+            12'd988: toneL = `SIL;   12'd989: toneL = `SIL;
+            12'd990: toneL = `SIL;   12'd991: toneL = `SIL;
+
+            12'd992: toneL = `C3;   12'd993: toneL = `C3;
+            12'd994: toneL = `C3;   12'd995: toneL = `C3;
+            12'd996: toneL = `C3;   12'd997: toneL = `C3;
+            12'd998: toneL = `C3;   12'd999: toneL = `SIL;
+
+            12'd1000: toneL = `C3;   12'd1001: toneL = `C3;
+            12'd1002: toneL = `C3;   12'd1003: toneL = `C3;
+            12'd1004: toneL = `C3;   12'd1005: toneL = `C3;
+            12'd1006: toneL = `C3;   12'd1007: toneL = `C3;
+
+            12'd1008: toneL = `D3;   12'd1009: toneL = `D3;
+            12'd1010: toneL = `D3;   12'd1011: toneL = `D3;
+            12'd1012: toneL = `D3;   12'd1013: toneL = `D3;
+            12'd1014: toneL = `D3;   12'd1015: toneL = `D3;
+
+            12'd1016: toneL = `E3;   12'd1017: toneL = `E3;
+            12'd1018: toneL = `E3;   12'd1019: toneL = `E3;
+            12'd1020: toneL = `E3;   12'd1021: toneL = `E3;
+            12'd1022: toneL = `E3;   12'd1023: toneL = `E3;
+
+            default : toneL = `SIL;
+            endcase
+        end else begin
+            toneL = `SIL;
+        end
+    end
+endmodule
+
 module bgm_success(
     input clk,
     input rst,
