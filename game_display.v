@@ -7,7 +7,7 @@ module game_display(
     input [9:0] h_cnt,
     input [9:0] v_cnt,
     input [3:0] state,
-    input [3:0] player_state,
+    input [11:0] player_state,
     input [3:0] boss_state,
     input [8:0] player_x,
     input [8:0] player_y,
@@ -77,6 +77,7 @@ draw_player player(
     .state(state),
     .h_cnt(h_cnt),
     .v_cnt(v_cnt),
+    .play_valid(play_valid),
     .player_x(player_x),
     .player_y(player_y),
     .player_state(player_state),
@@ -94,7 +95,16 @@ always@(*)begin
     notBlank = 0;
     pixel_addr = 0;
     case(state)
-    TITLE, STAFF, SUCCESS1, SUCCESS2, SUCCESS3, FAIL, HELP:begin
+    TITLE:begin
+        if (isInterface) begin
+            pixel_addr = interface_addr;
+            notBlank = 1;
+        end else if (isPlayer) begin
+            pixel_addr = player_addr;
+            notBlank = 1;
+        end
+    end
+    STAFF, SUCCESS1, SUCCESS2, SUCCESS3, FAIL, HELP:begin
         if (isInterface) begin
             pixel_addr = interface_addr;
             notBlank = 1;

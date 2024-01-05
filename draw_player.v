@@ -3,14 +3,15 @@ module draw_player(
     input [3:0] state,
     input [9:0] h_cnt,
     input [9:0] v_cnt,
-    input [26:0] player_x,
-    input [26:0] player_y,
+    input [8:0] player_x,
+    input [8:0] player_y,
     input [11:0] player_state,
+    input [3:0] play_valid,
     output reg[16:0] pixel_addr,
     output reg isObject
 );
 
-parameter [3:0] STAGE1 = 2, STAGE2 = 4, STAGE3 = 6;
+parameter [3:0] TITLE = 0, STAGE1 = 2, STAGE2 = 4, STAGE3 = 6;
 
 wire [8:0] x,y;
 assign x = h_cnt >> 1;
@@ -21,12 +22,12 @@ always @(*) begin
     case(state)
     TITLE:begin
         if(x >= 105 && x < 115 && y >= 125 && y < 135 && play_valid[1])begin
-            pixel_addr = ((x - 105)+10*player_state[3:0] + (y-135)*360)%86400;
+            pixel_addr = ((x - 105)+10*player_state[3:0] + (y-125)*360)%86400;
             isObject = 1;
-        end else if(x >= 105 && x < 115 && y >= 155 && y < 165)begin
+        end else if(x >= 105 && x < 115 && y >= 155 && y < 165 && play_valid[2])begin
             pixel_addr = ((x - 105 + 160)+10*player_state[7:4] + (y-155 + 220)*360)%86400;
             isObject = 1;
-        end else if(x >= 105 && x < 115 && y >= 185 && y < 195)begin
+        end else if(x >= 105 && x < 115 && y >= 185 && y < 195 && play_valid[3])begin
             pixel_addr = ((x - 105 + 160)+10*player_state[11:8] + (y-185 + 230)*360)%86400;
             isObject = 1;
         end
