@@ -12,6 +12,8 @@ module draw_interface(
     output reg [16:0] pixel_addr,
     output reg isObject
 );
+
+
 parameter [3:0] TITLE = 0, STAFF = 1;
 parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
 parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
@@ -82,6 +84,9 @@ always @(*) begin
         end else if(x >= 0 && x<shift && y>=215 && y<235)begin//shift
             pixel_addr = (x + 280 + (y - 20)*360)%86400;
             isObject = 1;
+        end else if(x >= 240 && x < 320 && y >= 0 && y < 20)begin//back
+            pixel_addr = (x - 40 + (y)*360)%86400;
+            isObject = 1;
         end
     end
     STAGE2:begin
@@ -111,6 +116,9 @@ always @(*) begin
             isObject = 1;
         end else if(x >= 0 && x<shift && y>=215 && y<235)begin//shift
             pixel_addr = (x + 280 + (y - 20)*360)%86400;
+            isObject = 1;
+        end else if(x >= 240 && x < 320 && y >= 0 && y < 20)begin//back
+            pixel_addr = (x - 40 + (y)*360)%86400;
             isObject = 1;
         end
     end
@@ -147,6 +155,9 @@ always @(*) begin
             isObject = 1;
         end else if(x >= 0 && x<shift && y>=215 && y<235)begin//shift
             pixel_addr = (x + 280 + (y - 20)*360)%86400;
+            isObject = 1;
+        end else if(x >= 240 && x < 320 && y >= 0 && y < 20)begin//back
+            pixel_addr = (x - 40 + (y)*360)%86400;
             isObject = 1;
         end
     end
