@@ -95,16 +95,19 @@ always@(*)begin
     notBlank = 0;
     pixel_addr = 0;
     case(state)
-    TITLE:begin
+    TITLE, STAFF, SUCCESS1, SUCCESS2, SUCCESS3, FAIL:begin
         if (isInterface) begin
             pixel_addr = interface_addr;
             notBlank = 1;
         end else if (isPlayer) begin
             pixel_addr = player_addr;
             notBlank = 1;
-        end
+        end else if (isBoss) begin
+            pixel_addr = boss_addr;
+            notBlank = 1;
+        end 
     end
-    STAFF, SUCCESS1, SUCCESS2, SUCCESS3, FAIL, HELP:begin
+    HELP:begin
         if (isInterface) begin
             pixel_addr = interface_addr;
             notBlank = 1;
