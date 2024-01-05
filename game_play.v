@@ -21,6 +21,7 @@ module game_play (
     output reg [1:0] key_find,
     output reg [1:0] life,
     output reg [3:0] play_valid,
+    output reg [5:0] shift,
     output reg isDark
 );
 
@@ -190,7 +191,40 @@ always @(posedge clk or posedge rst) begin
     end
 end
 
+// Player Speed
+wire shift_down;
+wire player_clk;
+reg [24:0] shift_cnt;
+assign shift_down = key_down[KEY_CODES[0]];
+assign player_clk = ((shift && shift_down)?clk_21:clk_23);
+
+always @(posedge clk) begin
+    shift_cnt <= 0;
+    case(state)
+    STAGE1, STAGE2, STAGE3:begin
+        if (shift_cnt < 20000000) shift_cnt <= shift_cnt + 1;
+        else shift_cnt <= 0;
+    end
+    endcase
+end
+
+always @(posedge clk) begin
+    shift <= shift;
+    case(state)
+    STAGE1, STAGE2, STAGE3:begin
+        if (shift_cnt == 20000000) begin
+            if (!shift_down && shift < 55)
+                shift <= shift + 1;
+            else if (shift_down && shift)
+                shift <= shift - 1;
+        end
+    end
+    default: shift <= 0;
+    endcase
+end
+
 // Player Position
+reg collide;
 parameter [3:0] UP1 = 0, UP2 = 1, UP3 = 2;
 parameter [3:0] RIGHT1 = 3, RIGHT2 = 4, RIGHT3 = 5;
 parameter [3:0] LEFT1 = 6, LEFT2 = 7, LEFT3 = 8;
@@ -329,17 +363,7 @@ always @(*) begin
         end
 
     end
-
 end
-
-reg collide;
-reg collide_boss;
-
-// Player Speed
-wire shift_down;
-wire player_clk;
-assign shift_down = key_down[KEY_CODES[0]];
-assign player_clk = ((shift_down)?clk_21:clk_23);
 
 always @(posedge player_clk or posedge rst) begin
     if (rst) player_state <= RIGHT1;
@@ -690,31 +714,6 @@ always @(posedge clk_23 or posedge rst) begin
             end
             default : begin
                 collide <= 0;
-            end
-            endcase
-        end
-    end
-end
-
-
-always @(posedge clk_22 or posedge rst) begin
-    if(rst)begin
-        collide_boss <= 0;
-    end
-    else begin
-        if(collide_boss == 1)collide_boss <= 0;
-        else begin
-            case(state)
-            STAGE3:begin
-                if(((boss_x > player_x && player_x+10 >= boss_x) || (player_x > boss_x && player_x < boss_x+10)) && ((boss_y > player_y && player_y+10 >= boss_y) || (player_y > boss_y && player_y < boss_y+10)))begin
-                    collide_boss <= 1;
-                end
-                else begin
-                    collide_boss <= 0;
-                end
-            end
-            default : begin
-                collide_boss <= 0;
             end
             endcase
         end

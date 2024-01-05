@@ -139,6 +139,7 @@ vga_controller vga_inst(
 // Game
 // play : output state & player's position
 wire [1:0] todo;
+wire [5:0] shift;
 game_play play(
     .rst(rst),
     .clk(clk),
@@ -160,7 +161,8 @@ game_play play(
     .play_valid(play_valid),//play_vaild
     .isDark(isDark),
     .todo(todo),
-    .life(life)
+    .life(life),
+    .shift(shift)
 );
 // display : find obj on (h,v) and output pixel_addr with finding obj's addr by draw_obj
 game_display display(
@@ -169,6 +171,7 @@ game_display display(
     .rst(rst),
     .h_cnt(h_cnt),
     .v_cnt(v_cnt),
+    .shift(shift),
     .isDark(isDark),
     .player_state(player_state),
     .boss_state(boss_state),
