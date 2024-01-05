@@ -1,6 +1,7 @@
 // UI: title, button block, stage k, game task, life
 // success, fail, staff name 
 module draw_interface(
+    input [5:0] shift,
     input [3:0] state,
     input [9:0] h_cnt,
     input [9:0] v_cnt,
@@ -75,6 +76,12 @@ always @(*) begin
         end else if(x >= 35 && x<45 && key_find==3 && y>=55 && y<65)begin//key3
             pixel_addr = (x + 285 + (y - 25)*360)%86400;
             isObject = 1;
+        end else if(x >= 0 && x<55 && y>=200 && y<214)begin//speed up
+            pixel_addr = (x + 280 + (y - 20)*360)%86400;
+            isObject = 1;
+        end else if(x >= 0 && x<shift && y>=215 && y<235)begin//shift
+            pixel_addr = (x + 280 + (y - 20)*360)%86400;
+            isObject = 1;
         end
     end
     STAGE2:begin
@@ -98,6 +105,12 @@ always @(*) begin
             isObject = 1;
         end else if(x >= 35 && x<45 && key_find==3 && y>=55 && y<65)begin//key3
             pixel_addr = (x + 285 + (y - 25)*360)%86400;
+            isObject = 1;
+        end else if(x >= 0 && x<55 && y>=200 && y<214)begin//speed up
+            pixel_addr = (x + 280 + (y - 20)*360)%86400;
+            isObject = 1;
+        end else if(x >= 0 && x<shift && y>=215 && y<235)begin//shift
+            pixel_addr = (x + 280 + (y - 20)*360)%86400;
             isObject = 1;
         end
     end
@@ -128,6 +141,12 @@ always @(*) begin
             isObject = 1;
         end else if(life == 3 && x >= 295 && x < 310 && y >= 30 && y < 45)begin//life1
             pixel_addr = (x + 25 + (y + 10)*360)%86400;
+            isObject = 1;
+        end else if(x >= 0 && x<55 && y>=200 && y<214)begin//speed up
+            pixel_addr = (x + 280 + (y - 20)*360)%86400;
+            isObject = 1;
+        end else if(x >= 0 && x<shift && y>=215 && y<235)begin//shift
+            pixel_addr = (x + 280 + (y - 20)*360)%86400;
             isObject = 1;
         end
     end
@@ -193,8 +212,8 @@ always @(*) begin
             isObject = 1;
         end
 
-        else if(x >= 60 && x < 140 && y >= 120 && y < 170)begin//shift
-            pixel_addr = (x + (220) + (y + (60))*360)%86400;
+        else if(x >= 70 && x < 125 && y >= 130 && y < 165)begin//shift
+            pixel_addr = (x + (210) + (y + (50))*360)%86400;
             isObject = 1;
         end
 

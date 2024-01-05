@@ -18,6 +18,7 @@ module game_display(
     input [3:0] play_valid,
     input [1:0] key_find,
     input [1:0] life,
+    input [5:0] shift,
     output reg [16:0] pixel_addr,
     output reg notBlank
 );
@@ -53,7 +54,8 @@ draw_interface interface(
     .todo(todo),
     .play_valid(play_valid),
     .pixel_addr(interface_addr),
-    .isObject(isInterface)
+    .isObject(isInterface),
+    .shift(shift)
 );
 draw_map map(
     .state(state),
