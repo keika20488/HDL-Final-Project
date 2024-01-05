@@ -410,22 +410,22 @@ always @(posedge player_clk) begin
             if(key_down[last_change] || last_change == KEY_CODES[0]) begin
                 case (key_num)
                 4: begin
-                    if(!map[(player_y -1 - 30)/5][(player_x - 60)/5] && !map[(player_y -1 - 30 +10)/5][(player_x - 60 +10)/5] && !map[(player_y -1 - 30+10)/5][(player_x - 60)/5] && !map[(player_y -1 - 30)/5][(player_x - 60 +10)/5])begin
+                    if(!map[(player_y -31)/5][(player_x - 60)/5] && !map[(player_y -21)/5][(player_x -50)/5] && !map[(player_y -21)/5][(player_x - 60)/5] && !map[(player_y -31)/5][(player_x -50)/5])begin
                         player_y <= player_y - 1;
                     end
                 end
                 5: begin
-                    if(!map[(player_y - 30)/5][(player_x -1 - 60)/5] && !map[(player_y - 30 +10)/5][(player_x -1 - 60 +10)/5] && !map[(player_y - 30+10)/5][(player_x -1 - 60)/5] && !map[(player_y - 30 )/5][(player_x -1 - 60 +10)/5])begin
+                    if(!map[(player_y - 30)/5][(player_x -61)/5] && !map[(player_y -20)/5][(player_x -51)/5] && !map[(player_y -20)/5][(player_x -61)/5] && !map[(player_y - 30 )/5][(player_x -51)/5])begin
                         player_x <= player_x - 1;
                     end
                 end
                 6: begin
-                    if(!map[(player_y +1 - 30)/5][(player_x - 60)/5] && !map[(player_y +1 - 30 +10)/5][(player_x - 60 +10)/5] && !map[(player_y +1 - 30+10)/5][(player_x - 60)/5] && !map[(player_y +1 - 30 )/5][(player_x - 60 +10)/5])begin
+                    if(!map[(player_y -29)/5][(player_x - 60)/5] && !map[(player_y -19)/5][(player_x -50)/5] && !map[(player_y -19)/5][(player_x - 60)/5] && !map[(player_y -29 )/5][(player_x -50)/5])begin
                         player_y <= player_y + 1;
                     end
                 end
                 7: begin
-                    if(!map[(player_y - 30)/5][(player_x +1 - 60)/5] && !map[(player_y - 30 +10)/5][(player_x +1 - 60 +10)/5] && !map[(player_y - 30+10)/5][(player_x +1 - 60)/5] && !map[(player_y - 30 )/5][(player_x +1 - 60 +10)/5])begin
+                    if(!map[(player_y - 30)/5][(player_x -59)/5] && !map[(player_y -20)/5][(player_x -49)/5] && !map[(player_y -20)/5][(player_x -59)/5] && !map[(player_y - 30 )/5][(player_x -49)/5])begin
                         player_x <= player_x + 1;
                     end
                 end
@@ -641,7 +641,7 @@ always @(posedge clk_22 or posedge rst) begin
     if (rst) boss_state <= RIGHT1;
     else begin
         case(state)
-        TITLE, FAIL: boss_state <= (boss_state == RIGHT2) ? RIGHT3 : RIGHT2;
+        FAIL: boss_state <= (boss_state == RIGHT2) ? RIGHT3 : RIGHT2;
         STAFF: boss_state <= (boss_state == DOWN2) ? DOWN3 : DOWN2;
         STAGE3: begin
                 case (boss_dir)
@@ -675,22 +675,22 @@ always @(posedge clk_22 or posedge rst) begin
             STAGE3:begin
             case (boss_dir)
                 0: begin
-                    if(!map[(boss_y -1 - 30)/5][(boss_x - 60)/5] && !map[(boss_y -1 - 30 +10)/5][(boss_x - 60 +10)/5])begin
+                    if(!map[(boss_y -31)/5][(boss_x - 60)/5] && !map[(boss_y -21)/5][(boss_x -50)/5])begin
                         boss_y <= boss_y - 1;
                     end
                 end
                 3: begin
-                    if(!map[(boss_y - 30)/5][(boss_x -1 - 60)/5] && !map[(boss_y - 30 +10)/5][(boss_x -1 - 60 +10)/5])begin
+                    if(!map[(boss_y - 30)/5][(boss_x -61)/5] && !map[(boss_y -20)/5][(boss_x -51)/5])begin
                         boss_x <= boss_x - 1;
                     end
                 end
                 1: begin
-                    if(!map[(boss_y +1 - 30)/5][(boss_x - 60)/5] && !map[(boss_y +1 - 30 +10)/5][(boss_x - 60 +10)/5])begin
+                    if(!map[(boss_y -29)/5][(boss_x - 60)/5] && !map[(boss_y -19)/5][(boss_x -50)/5])begin
                         boss_y <= boss_y + 1;
                     end
                 end
                 2: begin
-                    if(!map[(boss_y - 30)/5][(boss_x +1 - 60)/5] && !map[(boss_y - 30 +10)/5][(boss_x +1 - 60 +10)/5])begin
+                    if(!map[(boss_y - 30)/5][(boss_x -59)/5] && !map[(boss_y -20)/5][(boss_x -49)/5])begin
                         boss_x <= boss_x + 1;
                     end
                 end
@@ -733,22 +733,12 @@ always @(posedge clk_23 or posedge rst) begin
     end
 end
 
-always @(posedge clk_23 or posedge rst) begin
-    if(rst)begin
+always @(posedge clk_23) begin
+    if(state != STAGE3)begin
         life <= 3;
-    end
-    else begin
-        case(state)
-        STAGE3:begin
-            if(collide)begin
-                life <= life - 1;
-            end
-            else begin
-                life <= life;
-            end
-        end
-        default: life <= 3;
-        endcase
+    end else begin
+        if(collide) life <= life - 1;
+        else life <= life;
     end
 end
 

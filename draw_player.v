@@ -67,26 +67,26 @@ always @(*) begin
         end
     end
     SUCCESS3:begin
-        if(x >= 105 && x < 115 && y >= 145 && y < 155)begin
-            pixel_addr = ((x + 55)+10*player_state + (y+85)*360)%86400;
+        if(x >= 105 && x < 115 && y >= 155 && y < 165)begin
+            pixel_addr = ((x + 55)+10*player_state + (y+75)*360)%86400;
             isObject = 1;
         end
     end
     FAIL:begin
         if(x >= 105 && x < 115 && y >= 145 && y < 155)begin
-            pixel_addr = ((x + 55)+10*player_state + (y-145)*360)%86400;
+            pixel_addr = ((x + 55)+10*player_state + (y+85)*360)%86400;
             isObject = 1;
         end
     end
     STAFF:begin
-        if(x >= 140 && x < 150 && y >= 100 && y < 110)begin
+        if(x >= 140 && x < 149 && y >= 100 && y < 110)begin
             pixel_addr = ((x - 140)+10*player_state + (y-100)*360)%86400;
             isObject = 1;
         end else if(x >= 150 && x < 160 && y >= 100 && y < 110)begin
             pixel_addr = ((x + 10)+10*player_state + (y+120)*360)%86400;
             isObject = 1;
         end else if(x >= 160 && x < 170 && y >= 100 && y < 110)begin
-            pixel_addr = ((x + 10)+10*player_state + (y+130)*360)%86400;
+            pixel_addr = ((x)+10*player_state + (y+130)*360)%86400;
             isObject = 1;
         end
     end

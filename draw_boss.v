@@ -11,7 +11,7 @@ module draw_boss(
     output reg isObject
 );
 
-parameter [3:0] TITLE = 0, STAFF = 1;
+parameter [3:0] STAFF = 1;
 parameter [3:0] STAGE3 = 6;
 parameter [3:0] FAIL = 8;
 
@@ -23,12 +23,6 @@ always @(*) begin
     isObject = 0;
     pixel_addr = 0;
     case(state)
-    TITLE: begin
-        if(x >= 105 && x < 115 && y >= 215 && y < 225)begin
-            pixel_addr = ((x - 105)+10*boss_state + (y+10-215)*360)%86400;
-            isObject = 1;
-        end
-    end
     STAGE3: begin
         if(x >= boss_x && x < boss_x+10 && y >= boss_y && y < boss_y+10)begin
             pixel_addr = ((x - boss_x)+10*boss_state + (y+10-boss_y)*360)%86400;
@@ -37,13 +31,13 @@ always @(*) begin
     end
     FAIL:begin
         if(x >= 105 && x < 115 && y >= 185 && y < 195)begin
-            pixel_addr = ((x - 105)+10*boss_state + (y+10-185)*360)%86400;
+            pixel_addr = ((x - 105)+10*boss_state + (y-175)*360)%86400;
             isObject = 1;
         end
     end
     STAFF:begin
         if(x >= 170 && x < 180 && y >= 100 && y < 110)begin
-            pixel_addr = ((x - 170)+10*boss_state + (y- 100 + 10)*360)%86400;
+            pixel_addr = ((x - 170)+10*boss_state + (y-90)*360)%86400;
             isObject = 1;
         end
     end
