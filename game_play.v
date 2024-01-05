@@ -376,7 +376,7 @@ always @(posedge player_clk or posedge rst) begin
     end else begin
         player_state <= player_state;
         case(state)
-        TITLE: begin
+        TITLE, SUCCESS1, SUCCESS2, SUCCESS3, FAIL: begin
             player_state[3:0] <= (player_state[3:0] == RIGHT2) ? RIGHT3 : RIGHT2;
             player_state[7:4] <= (player_state[7:4] == RIGHT2) ? RIGHT3 : RIGHT2;
             player_state[11:8] <= (player_state[11:8] == RIGHT2) ? RIGHT3 : RIGHT2;
@@ -414,7 +414,12 @@ always @(posedge player_clk or posedge rst) begin
                 endcase
             end else player_state[11:8] <= player_state[11:8] / 3 * 3;
         end
-        default: player_state <= {RIGHT2, RIGHT2, RIGHT2};
+        STAFF: begin
+            player_state[3:0] <= (player_state[3:0] == DOWN2) ? DOWN3 : DOWN2;
+            player_state[7:4] <= (player_state[7:4] == DOWN2) ? DOWN3 : DOWN2;
+            player_state[11:8] <= (player_state[11:8] == DOWN2) ? DOWN3 : DOWN2;
+        end
+        default: player_state <= {RIGHT1, RIGHT1, RIGHT1};
         endcase
     end
 end
@@ -665,6 +670,8 @@ always @(posedge clk_22 or posedge rst) begin
     if (rst) boss_state <= RIGHT1;
     else begin
         case(state)
+        TITLE, FAIL: boss_state <= (boss_state == RIGHT2) ? RIGHT3 : RIGHT2;
+        STAFF: boss_state <= (boss_state == DOWN2) ? DOWN3 : DOWN2;
         STAGE3: begin
                 case (boss_dir)
                 0: boss_state <= (boss_state == UP2) ? UP3 : UP2;
