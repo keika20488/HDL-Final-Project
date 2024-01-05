@@ -28,8 +28,7 @@ wire [15:0] audio_in_left, audio_in_right;
 wire [25:0] freqL, freqR;        
 wire [1:0] key_find;
 wire [1:0] life;
-wire [11:0] player_state;
-wire [3:0] play_valid, state, boss_state;
+wire [3:0] play_valid, state, player_state, boss_state;
 wire [8:0] player_x, player_y, boss_x, boss_y, obj_x, obj_y;
 
 // Clock Divider

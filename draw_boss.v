@@ -12,10 +12,8 @@ module draw_boss(
 );
 
 parameter [3:0] TITLE = 0, STAFF = 1;
-parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
-parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
-parameter [3:0] STAGE3 = 6, SUCCESS3 = 7;
-parameter [3:0] FAIL = 8, HELP = 9;
+parameter [3:0] STAGE3 = 6;
+parameter [3:0] FAIL = 8;
 
 wire [8:0] x,y;
 assign x = h_cnt >> 1;

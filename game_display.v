@@ -7,7 +7,7 @@ module game_display(
     input [9:0] h_cnt,
     input [9:0] v_cnt,
     input [3:0] state,
-    input [11:0] player_state,
+    input [3:0] player_state,
     input [3:0] boss_state,
     input [8:0] player_x,
     input [8:0] player_y,
@@ -84,56 +84,27 @@ draw_player player(
     .pixel_addr(player_addr),
     .isObject(isPlayer)
 );
-
-parameter [3:0] TITLE = 0, STAFF = 1;
-parameter [3:0] STAGE1 = 2, SUCCESS1 = 3;
-parameter [3:0] STAGE2 = 4, SUCCESS2 = 5;
-parameter [3:0] STAGE3 = 6, SUCCESS3 = 7;
-parameter [3:0] FAIL = 8, HELP = 9;
-
 always@(*)begin
     notBlank = 0;
     pixel_addr = 0;
-    case(state)
-    TITLE, STAFF, SUCCESS1, SUCCESS2, SUCCESS3, FAIL:begin
-        if (isInterface) begin
-            pixel_addr = interface_addr;
-            notBlank = 1;
-        end else if (isPlayer) begin
-            pixel_addr = player_addr;
-            notBlank = 1;
-        end else if (isBoss) begin
-            pixel_addr = boss_addr;
-            notBlank = 1;
-        end 
-    end
-    HELP:begin
-        if (isInterface) begin
-            pixel_addr = interface_addr;
-            notBlank = 1;
-        end
-    end
-    STAGE1, STAGE2, STAGE3:begin
-        if (isInterface) begin
-            pixel_addr = interface_addr;
-            notBlank = 1;
-        end else if (isPlayer) begin
-            pixel_addr = player_addr;
-            notBlank = 1;
-        end else if (isBoss) begin
-            pixel_addr = boss_addr;
-            notBlank = 1;
-        end else if (isObj) begin
-            pixel_addr = obj_addr;
-            notBlank = 1;
-        end else if (isMap) begin
-            pixel_addr = map_addr;
-            notBlank = 1;
-        end else if (isDoor) begin
-            pixel_addr = door_addr;
-            notBlank = 1;
-        end 
-    end
-    endcase
+    if (isInterface) begin
+        pixel_addr = interface_addr;
+        notBlank = 1;
+    end else if (isPlayer) begin
+        pixel_addr = player_addr;
+        notBlank = 1;
+    end else if (isBoss) begin
+        pixel_addr = boss_addr;
+        notBlank = 1;
+    end else if (isObj) begin
+        pixel_addr = obj_addr;
+        notBlank = 1;
+    end else if (isMap) begin
+        pixel_addr = map_addr;
+        notBlank = 1;
+    end else if (isDoor) begin
+        pixel_addr = door_addr;
+        notBlank = 1;
+    end 
 end
 endmodule
