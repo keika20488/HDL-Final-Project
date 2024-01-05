@@ -37,19 +37,19 @@ always @(*) begin
         end
     end
     STAGE1: begin
-        if(x >= player_x && x < player_x+10 && y >= player_y && y < player_y+10)begin
+        if(x >= player_x && x < player_x+9 && y >= player_y && y < player_y+10)begin
             pixel_addr = ((x - player_x)+10*player_state + (y-player_y)*360)%86400;
             isObject = 1;
         end
     end
     STAGE2: begin
-        if(x >= player_x && x < player_x+10 && y >= player_y && y < player_y+10)begin
+        if(x >= player_x && x < player_x+9 && y >= player_y && y < player_y+10)begin
             pixel_addr = ((x - player_x + 160)+10*player_state + (y-player_y + 220)*360)%86400;
             isObject = 1;
         end
     end
     STAGE3: begin
-        if(x >= player_x && x < player_x+10 && y >= player_y && y < player_y+10)begin
+        if(x >= player_x && x < player_x+9 && y >= player_y && y < player_y+10)begin
             pixel_addr = ((x - player_x + 160)+10*player_state + (y-player_y + 230)*360)%86400;
             isObject = 1;
         end

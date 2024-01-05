@@ -87,7 +87,10 @@ draw_player player(
 always@(*)begin
     notBlank = 0;
     pixel_addr = 0;
-    if (isInterface) begin
+    if (isMap) begin
+        pixel_addr = map_addr;
+        notBlank = 1;
+    end else if (isInterface) begin
         pixel_addr = interface_addr;
         notBlank = 1;
     end else if (isPlayer) begin
@@ -98,9 +101,6 @@ always@(*)begin
         notBlank = 1;
     end else if (isObj) begin
         pixel_addr = obj_addr;
-        notBlank = 1;
-    end else if (isMap) begin
-        pixel_addr = map_addr;
         notBlank = 1;
     end else if (isDoor) begin
         pixel_addr = door_addr;
