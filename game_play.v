@@ -10,7 +10,7 @@ module game_play (
     inout wire PS2_CLK,
     output reg [1:0] todo,
     output reg [3:0] state,
-    output reg [3:0] player_state,
+    output reg [11:0] player_state,
     output reg [3:0] boss_state,
     output reg [8:0] player_x,
     output reg [8:0] player_y,
@@ -105,15 +105,16 @@ always @(posedge clk or posedge rst) begin
     else begin
         case(state)
         TITLE: begin
-            if (key_down[last_change] && key_num < 4 && play_valid[key_num])begin
+            if (key_down[last_change] && key_num < 4 && play_valid[key_num])
                 state <= key_num * 2;
-            end else if(key_down[last_change] && key_num == 11 )begin
+            else if(key_down[last_change] && key_num == 11)
                 state <= HELP;
-            end
             else state <= TITLE;
         end
         STAGE1: begin
-            if (pass) state <= SUCCESS1;
+            if (key_down[KEY_CODES[9]])
+                state <= TITLE;
+            else if (pass) state <= SUCCESS1;
             else state <= STAGE1;
         end
         SUCCESS1: begin
@@ -124,7 +125,9 @@ always @(posedge clk or posedge rst) begin
             end else state <= SUCCESS1;
         end
         STAGE2: begin
-            if (pass) state <= SUCCESS2;
+            if (key_down[KEY_CODES[9]])
+                state <= TITLE;
+            else if (pass) state <= SUCCESS2;
             else state <= STAGE2;
         end
         SUCCESS2: begin
@@ -135,7 +138,9 @@ always @(posedge clk or posedge rst) begin
             end else state <= SUCCESS2;
         end
         STAGE3: begin
-            if (pass) state <= SUCCESS3;
+            if (key_down[KEY_CODES[9]])
+                state <= TITLE;
+            else if (pass) state <= SUCCESS3;
             else if (fail) state <= FAIL;
             else state <= STAGE3;
         end
@@ -196,7 +201,7 @@ wire shift_down;
 wire player_clk;
 reg [24:0] shift_cnt;
 assign shift_down = key_down[KEY_CODES[0]];
-assign player_clk = ((shift && shift_down)?clk_21:clk_23);
+assign player_clk = (state != TITLE && shift && shift_down)?clk_21:clk_23;
 
 always @(posedge clk) begin
     shift_cnt <= 0;
@@ -366,21 +371,50 @@ always @(*) begin
 end
 
 always @(posedge player_clk or posedge rst) begin
-    if (rst) player_state <= RIGHT1;
-    else begin
+    if (rst) begin
+        player_state <= 0;
+    end else begin
+        player_state <= player_state;
         case(state)
-        STAGE1, STAGE2, STAGE3: begin
+        TITLE: begin
+            player_state[3:0] <= (player_state[3:0] == RIGHT2) ? RIGHT3 : RIGHT2;
+            player_state[7:4] <= (player_state[7:4] == RIGHT2) ? RIGHT3 : RIGHT2;
+            player_state[11:8] <= (player_state[11:8] == RIGHT2) ? RIGHT3 : RIGHT2;
+        end
+        STAGE1: begin
             if(key_down[last_change]) begin
                 case (key_num)
-                4: player_state <= (player_state == UP2) ? UP3 : UP2;
-                5: player_state <= (player_state == LEFT2) ? LEFT3 : LEFT2;
-                6: player_state <= (player_state == DOWN2) ? DOWN3 : DOWN2;
-                7: player_state <= (player_state == RIGHT2) ? RIGHT3 : RIGHT2;
-                default: player_state <= player_state;
+                4: player_state[3:0] <= (player_state[3:0] == UP2) ? UP3 : UP2;
+                5: player_state[3:0] <= (player_state[3:0] == LEFT2) ? LEFT3 : LEFT2;
+                6: player_state[3:0] <= (player_state[3:0] == DOWN2) ? DOWN3 : DOWN2;
+                7: player_state[3:0] <= (player_state[3:0] == RIGHT2) ? RIGHT3 : RIGHT2;
+                default: player_state[3:0] <= player_state[3:0];
                 endcase
-            end else player_state <= player_state / 3 * 3;
+            end else player_state[3:0] <= player_state[3:0] / 3 * 3;
         end
-        default: player_state <= RIGHT1;
+        STAGE2: begin
+            if(key_down[last_change]) begin
+                case (key_num)
+                4: player_state[7:4] <= (player_state[7:4] == UP2) ? UP3 : UP2;
+                5: player_state[7:4] <= (player_state[7:4] == LEFT2) ? LEFT3 : LEFT2;
+                6: player_state[7:4] <= (player_state[7:4] == DOWN2) ? DOWN3 : DOWN2;
+                7: player_state[7:4] <= (player_state[7:4] == RIGHT2) ? RIGHT3 : RIGHT2;
+                default: player_state[7:4] <= player_state[7:4];
+                endcase
+            end else player_state[7:4] <= player_state[7:4] / 3 * 3;
+        end
+        STAGE3: begin
+            if(key_down[last_change]) begin
+                case (key_num)
+                4: player_state[11:8] <= (player_state[11:8] == UP2) ? UP3 : UP2;
+                5: player_state[11:8] <= (player_state[11:8] == LEFT2) ? LEFT3 : LEFT2;
+                6: player_state[11:8] <= (player_state[11:8] == DOWN2) ? DOWN3 : DOWN2;
+                7: player_state[11:8] <= (player_state[11:8] == RIGHT2) ? RIGHT3 : RIGHT2;
+                default: player_state[11:8] <= player_state[11:8];
+                endcase
+            end else player_state[11:8] <= player_state[11:8] / 3 * 3;
+        end
+        default: player_state <= {RIGHT2, RIGHT2, RIGHT2};
         endcase
     end
 end
