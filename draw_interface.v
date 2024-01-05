@@ -212,8 +212,8 @@ always @(*) begin
             isObject = 1;
         end
 
-        else if(x >= 70 && x < 125 && y >= 130 && y < 165)begin//shift
-            pixel_addr = (x + (210) + (y + (50))*360)%86400;
+        else if(x >= 75 && x < 130 && y >= 130 && y < 165)begin//shift
+            pixel_addr = (x + (205) + (y + (50))*360)%86400;
             isObject = 1;
         end
 
