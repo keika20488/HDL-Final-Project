@@ -146,6 +146,7 @@ game_play play(
     .clk_21(clk_21),
     .clk_22(clk_22),
     .clk_23(clk_23),
+    .cheat(_mode),
     .PS2_DATA(PS2_DATA),
     .PS2_CLK(PS2_CLK),
     .state(state),
@@ -158,7 +159,7 @@ game_play play(
     .obj_x(obj_x),
     .obj_y(obj_y),
     .key_find(key_find),
-    .play_valid(play_valid),//play_vaild
+    .play_valid(play_valid),//play_valid
     .isDark(isDark),
     .todo(todo),
     .life(life),

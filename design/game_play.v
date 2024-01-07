@@ -4,6 +4,7 @@ module game_play (
     input clk_21,
     input clk_22,
     input clk_23,
+    input cheat,
     inout wire PS2_DATA,
     inout wire PS2_CLK,
     output reg [1:0] todo,
@@ -806,9 +807,14 @@ always @(posedge player_clk or posedge rst) begin
 end
 // Pass
 always @(posedge player_clk) begin
-    if (key_find == 3 && player_x >= 250 && player_x < 270 && player_y >= 117 && player_y < 137)
-        pass <= 1;
-    else pass <= 0;
+    pass <= 0;
+    case(state)
+    STAGE1, STAGE2, STAGE3: begin
+        if (cheat) pass <= 1;
+        else if (key_find == 3 && player_x >= 250 && player_x < 270 && player_y >= 117 && player_y < 137)
+            pass <= 1;
+    end
+    endcase
 end
 // Light
 always @(posedge player_clk) begin
