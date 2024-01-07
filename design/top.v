@@ -101,7 +101,7 @@ assign x = h_cnt >> 1;
 assign y = v_cnt >> 1;
 assign dx1 = (x > player_x + 5) ? x - player_x - 5 : player_x + 5 - x;
 assign dy1 = (y > player_y + 5) ? y - player_y - 5 : player_y + 5 - y; // Player
-assign dx2 = (x > 70 + 5) ? x - 70 - 5 : 70 + 5 - x;
+assign dx2 = (x > 67 + 5) ? x - 67 - 5 : 67 + 5 - x;
 assign dy2 = (y > 220 + 5) ? y - 220 - 5 : 220 + 5 - y; // Light
 
 always @(*) begin
