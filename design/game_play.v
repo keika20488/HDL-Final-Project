@@ -91,10 +91,10 @@ reg pass;
 always @(posedge clk or posedge rst) begin
     if (rst) play_valid <= 4'b0010;
     else begin
+        play_valid <= play_valid;
         case(state)
-        SUCCESS1: play_valid <= 4'b0110;
-        SUCCESS2: play_valid <= 4'b1110;
-        default: play_valid <= play_valid;
+        SUCCESS1: if (play_valid == 4'b0010) play_valid <= 4'b0110;
+        SUCCESS2: if (play_valid == 4'b0110) play_valid <= 4'b1110;
         endcase
     end
 end
